@@ -43,7 +43,7 @@ function HomePage() {
         autoPlay
         loop
         muted
-        controls
+        // controls
       >
         {videoUrl ? (
           <source src={videoUrl} type="video/mp4" />
@@ -55,7 +55,12 @@ function HomePage() {
         )}
       </video>
 
-      <div style={{}}>
+      <div style={{  padding: "0px 50px 0px 78px",
+          display: "flex",
+          flexDirection: "column", 
+          alignItems: "flex-start", 
+          justifyContent: "center",
+          gap: "16px",}}>
         <Typography
           style={{
             fontFamily: "Satoshi, sans-serif",
@@ -70,7 +75,7 @@ function HomePage() {
           {posts[0]?.data.title1}
         </Typography>
         <Typography
-          style={{
+          sx={{
             fontFamily: "Satoshi, sans-serif",
             fontSize: "16px",
             fontWeight: 400,
@@ -78,15 +83,24 @@ function HomePage() {
             textAlign: "left",
             textUnderlinePosition: "from-font",
             textDecorationSkipInk: "none",
-            marginTop: "16px",
+            marginTop: "15px",
+            
+            paddingRight:{xs:'0%', sm:'50%', lg:'70%'}
           }}
         >
           {posts[0]?.data.description1}
         </Typography>
-        <Button style={{ background: "#1874DA", color: "#FFFFFF" }}>
+        <Button style={{ background: "#1874DA", color: "#FFFFFF" ,borderRadius:'8px',padding:'9px 23px 9px 23px',textTransform:'none',fontFamily: 'Satoshi',
+    fontSize: '18px',
+    fontWeight: 500,
+    lineHeight: '32px',
+    textAlign: 'center',
+    textUnderlinePosition: 'from-font',
+   }}>
         {posts[0]?.data.button_text1}
         </Button>
       </div>
+      
     </div>
   );
 }
