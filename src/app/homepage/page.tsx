@@ -67,7 +67,7 @@ function HomePage() {
             textDecorationSkipInk: "none",
           }}
         >
-          Staff Smarter, Grow Faster
+          {posts[0]?.data.title1}
         </Typography>
         <Typography
           style={{
@@ -81,17 +81,10 @@ function HomePage() {
             marginTop: "16px",
           }}
         >
-          Transform your business with strategic staffing.
-          <br />
-          Elevate your team&apos;s performance with our expert solutions.
-          <br />
-          Drive success through intelligent talent management.
-          <br />
-          Maximize your potential with our tailored augmentation <br />
-          services.
+          {posts[0]?.data.description1}
         </Typography>
         <Button style={{ background: "#1874DA", color: "#FFFFFF" }}>
-          Let’s Talk About Your Project
+        {posts[0]?.data.button_text1}
         </Button>
       </div>
     </div>
