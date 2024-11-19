@@ -4,17 +4,18 @@ import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
 function HomePage() {
-  const [posts, setPosts] = useState<any>(null);
+  const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response: any = await client.getAllByType("home" as any);
+      const response = await client.getAllByType("home" as any);
       setPosts(response);
     };
     fetchPosts();
   }, []);
-    const backgroundVideo = posts?.data.background_video?.url;
-  console.log(backgroundVideo);
+
+  const videoUrl = posts[0]?.data.background_video?.url;
+
   return (
     <div
       style={{
@@ -44,11 +45,14 @@ function HomePage() {
         muted
         controls
       >
-        {/* {backgroundVideo ? (
-          <source src={backgroundVideo} type="video/mp4" />
+        {videoUrl ? (
+          <source src={videoUrl} type="video/mp4" />
         ) : (
-          <p>Your browser does not support the video tag or the video is not available.</p>
-        )} */}
+          <p>
+            Your browser does not support the video tag or the video is not
+            available.
+          </p>
+        )}
       </video>
 
       <div style={{}}>
