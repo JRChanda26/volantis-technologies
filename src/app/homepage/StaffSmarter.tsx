@@ -3,17 +3,21 @@ import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
-function HomePage() {
+function StaffSmarter() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response = await client.getAllByType("home" as any);
       setPosts(response);
     };
     fetchPosts();
   }, []);
 
+  console.log(posts.slide_icon1)
+  
   const videoUrl = posts[0]?.data.background_video?.url;
 
   return (
@@ -100,8 +104,10 @@ function HomePage() {
         {posts[0]?.data.button_text1}
         </Button>
       </div>
-      
+      {/* {data.slide_text1} */}
+
+    
     </div>
   );
 }
-export default HomePage;
+export default StaffSmarter;
