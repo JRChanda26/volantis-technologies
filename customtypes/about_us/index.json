@@ -1,15 +1,15 @@
 {
   "format": "page",
-  "id": "contact",
-  "label": "Contact",
+  "id": "about_us",
+  "label": "About Us",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "title": {
+      "heading": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "Heading",
           "placeholder": ""
         }
       },
@@ -20,80 +20,53 @@
           "placeholder": ""
         }
       },
-      "label1": {
+      "aboutusimage": {
+        "type": "Image",
+        "config": {
+          "label": "AboutUsImage",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title1": {
         "type": "Text",
         "config": {
-          "label": "Label1",
+          "label": "title1",
           "placeholder": ""
         }
       },
-      "placeholder1": {
+      "description1": {
         "type": "Text",
         "config": {
-          "label": "placeholder1",
+          "label": "Description1",
           "placeholder": ""
         }
       },
-      "label2": {
+      "title2": {
         "type": "Text",
         "config": {
-          "label": "Label2",
+          "label": "title2",
           "placeholder": ""
         }
       },
-      "placeholder2": {
+      "description2": {
         "type": "Text",
         "config": {
-          "label": "placeholder2",
+          "label": "Description2",
           "placeholder": ""
         }
       },
-      "label3": {
+      "title3": {
         "type": "Text",
         "config": {
-          "label": "Label3",
+          "label": "title3",
           "placeholder": ""
         }
       },
-      "placeholder3": {
+      "description3": {
         "type": "Text",
         "config": {
-          "label": "placeholder3",
-          "placeholder": ""
-        }
-      },
-      "label4": {
-        "type": "Text",
-        "config": {
-          "label": "Label4",
-          "placeholder": ""
-        }
-      },
-      "placeholder4": {
-        "type": "Text",
-        "config": {
-          "label": "placeholder4",
-          "placeholder": ""
-        }
-      },
-      "label5": {
-        "type": "Text",
-        "config": {
-          "label": "Label5",
-          "placeholder": ""
-        }
-      },
-      "placeholder5": {
-        "type": "Text",
-        "config": {
-          "label": "placeholder5",
-          "placeholder": ""
-        }
-      },
-      "button": {
-        "type": "Text",
-        "config": {
-          "label": "Button",
+          "label": "Description3",
           "placeholder": ""
         }
       },

@@ -1,15 +1,15 @@
 {
   "format": "page",
-  "id": "contact",
-  "label": "Contact",
+  "id": "testimonials",
+  "label": "Testimonials",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "title": {
+      "heading": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "heading",
           "placeholder": ""
         }
       },
@@ -20,81 +20,42 @@
           "placeholder": ""
         }
       },
-      "label1": {
+      "profileimage": {
+        "type": "Image",
+        "config": {
+          "label": "profileImage",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "image_description": {
         "type": "Text",
         "config": {
-          "label": "Label1",
+          "label": "Image description",
           "placeholder": ""
         }
       },
-      "placeholder1": {
+      "image_name": {
         "type": "Text",
         "config": {
-          "label": "placeholder1",
+          "label": "image name",
           "placeholder": ""
         }
       },
-      "label2": {
-        "type": "Text",
+      "left_icon": {
+        "type": "Image",
         "config": {
-          "label": "Label2",
-          "placeholder": ""
+          "label": "left icon",
+          "constraint": {},
+          "thumbnails": []
         }
       },
-      "placeholder2": {
-        "type": "Text",
+      "right_icon": {
+        "type": "Image",
         "config": {
-          "label": "placeholder2",
-          "placeholder": ""
-        }
-      },
-      "label3": {
-        "type": "Text",
-        "config": {
-          "label": "Label3",
-          "placeholder": ""
-        }
-      },
-      "placeholder3": {
-        "type": "Text",
-        "config": {
-          "label": "placeholder3",
-          "placeholder": ""
-        }
-      },
-      "label4": {
-        "type": "Text",
-        "config": {
-          "label": "Label4",
-          "placeholder": ""
-        }
-      },
-      "placeholder4": {
-        "type": "Text",
-        "config": {
-          "label": "placeholder4",
-          "placeholder": ""
-        }
-      },
-      "label5": {
-        "type": "Text",
-        "config": {
-          "label": "Label5",
-          "placeholder": ""
-        }
-      },
-      "placeholder5": {
-        "type": "Text",
-        "config": {
-          "label": "placeholder5",
-          "placeholder": ""
-        }
-      },
-      "button": {
-        "type": "Text",
-        "config": {
-          "label": "Button",
-          "placeholder": ""
+          "label": "right icon",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {

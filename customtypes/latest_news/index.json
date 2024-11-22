@@ -1,15 +1,15 @@
 {
   "format": "page",
-  "id": "contact",
-  "label": "Contact",
+  "id": "latest_news",
+  "label": "Latest News",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "title": {
+      "heading": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "Heading",
           "placeholder": ""
         }
       },
@@ -20,81 +20,113 @@
           "placeholder": ""
         }
       },
-      "label1": {
+      "news_image1": {
+        "type": "Image",
+        "config": {
+          "label": "News Image1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "news_heading1": {
         "type": "Text",
         "config": {
-          "label": "Label1",
+          "label": "News Heading1",
           "placeholder": ""
         }
       },
-      "placeholder1": {
+      "news_description1": {
         "type": "Text",
         "config": {
-          "label": "placeholder1",
+          "label": "News Description1",
           "placeholder": ""
         }
       },
-      "label2": {
-        "type": "Text",
+      "date1": {
+        "type": "Date",
         "config": {
-          "label": "Label2",
+          "label": "Date1",
           "placeholder": ""
         }
       },
-      "placeholder2": {
+      "news_image2": {
+        "type": "Image",
+        "config": {
+          "label": "News Image2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "news_heading2": {
         "type": "Text",
         "config": {
-          "label": "placeholder2",
+          "label": "News Heading2",
           "placeholder": ""
         }
       },
-      "label3": {
+      "news_description2": {
         "type": "Text",
         "config": {
-          "label": "Label3",
+          "label": "News Description2",
           "placeholder": ""
         }
       },
-      "placeholder3": {
-        "type": "Text",
+      "date2": {
+        "type": "Date",
         "config": {
-          "label": "placeholder3",
+          "label": "Date2",
           "placeholder": ""
         }
       },
-      "label4": {
+      "news_image3": {
+        "type": "Image",
+        "config": {
+          "label": "News Image3",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "news_heading3": {
         "type": "Text",
         "config": {
-          "label": "Label4",
+          "label": "News Heading3",
           "placeholder": ""
         }
       },
-      "placeholder4": {
+      "news_description3": {
         "type": "Text",
         "config": {
-          "label": "placeholder4",
+          "label": "News Description3",
           "placeholder": ""
         }
       },
-      "label5": {
-        "type": "Text",
+      "date3": {
+        "type": "Date",
         "config": {
-          "label": "Label5",
+          "label": "Date3",
           "placeholder": ""
         }
       },
-      "placeholder5": {
+      "read_button": {
         "type": "Text",
         "config": {
-          "label": "placeholder5",
+          "label": "Read Button",
           "placeholder": ""
         }
       },
-      "button": {
+      "button2": {
         "type": "Text",
         "config": {
-          "label": "Button",
+          "label": "Button2",
           "placeholder": ""
+        }
+      },
+      "arrowicon": {
+        "type": "Image",
+        "config": {
+          "label": "Arrowicon",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {

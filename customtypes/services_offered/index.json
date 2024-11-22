@@ -1,15 +1,15 @@
 {
   "format": "page",
-  "id": "contact",
-  "label": "Contact",
+  "id": "services_offered",
+  "label": "Services Offered",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "title": {
+      "heading": {
         "type": "Text",
         "config": {
-          "label": "Title",
+          "label": "Heading",
           "placeholder": ""
         }
       },
@@ -20,81 +20,122 @@
           "placeholder": ""
         }
       },
-      "label1": {
+      "card_image1": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_title1": {
         "type": "Text",
         "config": {
-          "label": "Label1",
+          "label": "Card Title1",
           "placeholder": ""
         }
       },
-      "placeholder1": {
+      "card_description1": {
         "type": "Text",
         "config": {
-          "label": "placeholder1",
+          "label": "Card Description1",
           "placeholder": ""
         }
       },
-      "label2": {
+      "card_image2": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_title2": {
         "type": "Text",
         "config": {
-          "label": "Label2",
+          "label": "Card Title2",
           "placeholder": ""
         }
       },
-      "placeholder2": {
+      "card_description2": {
         "type": "Text",
         "config": {
-          "label": "placeholder2",
+          "label": "Card Description2",
           "placeholder": ""
         }
       },
-      "label3": {
+      "card_image3": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image3",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_title3": {
         "type": "Text",
         "config": {
-          "label": "Label3",
+          "label": "Card Title3",
           "placeholder": ""
         }
       },
-      "placeholder3": {
+      "card_description3": {
         "type": "Text",
         "config": {
-          "label": "placeholder3",
+          "label": "Card Description3",
           "placeholder": ""
         }
       },
-      "label4": {
+      "card_image4": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image4",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_title4": {
         "type": "Text",
         "config": {
-          "label": "Label4",
+          "label": "Card Title4",
           "placeholder": ""
         }
       },
-      "placeholder4": {
+      "card_description4": {
         "type": "Text",
         "config": {
-          "label": "placeholder4",
+          "label": "Card Description4",
           "placeholder": ""
         }
       },
-      "label5": {
+      "card_image5": {
+        "type": "Image",
+        "config": {
+          "label": "Card Image5",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "card_title5": {
         "type": "Text",
         "config": {
-          "label": "Label5",
+          "label": "Card Title5",
           "placeholder": ""
         }
       },
-      "placeholder5": {
+      "card_description5": {
         "type": "Text",
         "config": {
-          "label": "placeholder5",
+          "label": "Card Description5",
           "placeholder": ""
         }
       },
-      "button": {
-        "type": "Text",
+      "card_icon": {
+        "type": "Image",
         "config": {
-          "label": "Button",
-          "placeholder": ""
+          "label": "Card icon",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "slices": {
