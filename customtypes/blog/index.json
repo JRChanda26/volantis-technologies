@@ -1,100 +1,131 @@
 {
   "format": "page",
-  "id": "header",
-  "label": "Header",
+  "id": "blog",
+  "label": "Blog",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "volantisimage": {
+      "heading1": {
+        "type": "Text",
+        "config": {
+          "label": "Heading1",
+          "placeholder": ""
+        }
+      },
+      "description1": {
+        "type": "Text",
+        "config": {
+          "label": "Description1",
+          "placeholder": ""
+        }
+      },
+      "blogbgimg": {
         "type": "Image",
         "config": {
-          "label": "VolantisImage",
+          "label": "BlogBgImg",
           "constraint": {},
           "thumbnails": []
         }
       },
-      "tab1": {
+      "heading2": {
         "type": "Text",
         "config": {
-          "label": "Tab1",
+          "label": "Heading2",
           "placeholder": ""
         }
       },
-      "tab3": {
+      "description2": {
         "type": "Text",
         "config": {
-          "label": "Tab3",
+          "label": "Description2",
           "placeholder": ""
         }
       },
-      "tab4": {
+      "blogimg1": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogtitle1": {
         "type": "Text",
         "config": {
-          "label": "Tab4",
+          "label": "BlogTitle1",
           "placeholder": ""
         }
       },
-      "tab5": {
+      "blogdesc1": {
         "type": "Text",
         "config": {
-          "label": "Tab5",
+          "label": "BlogDesc1",
           "placeholder": ""
         }
       },
-      "tab6": {
+      "blogdate1": {
         "type": "Text",
         "config": {
-          "label": "Tab6",
+          "label": "BlogDate1",
           "placeholder": ""
         }
       },
-      "button": {
+      "blogimg2": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogtitle2": {
         "type": "Text",
         "config": {
-          "label": "Button",
+          "label": "BlogTitle2",
           "placeholder": ""
         }
       },
-      "tab2": {
+      "blogdesc2": {
         "type": "Text",
         "config": {
-          "label": "Tab2",
+          "label": "BlogDesc2",
           "placeholder": ""
         }
       },
-      "service1": {
+      "blogdate2": {
         "type": "Text",
         "config": {
-          "label": "Service1",
+          "label": "BlogDate2",
           "placeholder": ""
         }
       },
-      "service2": {
+      "blogimg3": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg3",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogtitle3": {
         "type": "Text",
         "config": {
-          "label": "Service2",
+          "label": "BlogTitle3",
           "placeholder": ""
         }
       },
-      "service3": {
+      "blogdesc3": {
         "type": "Text",
         "config": {
-          "label": "Service3",
+          "label": "BlogDesc3",
           "placeholder": ""
         }
       },
-      "service4": {
+      "blogdate3": {
         "type": "Text",
         "config": {
-          "label": "Service4",
-          "placeholder": ""
-        }
-      },
-      "service5": {
-        "type": "Text",
-        "config": {
-          "label": "Service5",
+          "label": "BlogDate3",
           "placeholder": ""
         }
       },
