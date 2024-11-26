@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
 import { Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
+import { useEffect, useState } from "react";
+import { client } from "../../../prismic-configuration";
 
 function ServicesOfferedbyUs() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -55,7 +55,7 @@ function ServicesOfferedbyUs() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          // justifyContent: "center",
         }}
       >
         <Typography
@@ -118,8 +118,8 @@ function ServicesOfferedbyUs() {
                     flexDirection: "column",
                     textAlign: "center",
                     flex: "1",
-                    maxWidth: "290px", boxShadow: "0px 15px 19px 0px #0000003D",
-                    borderRadius:'4px',position: "relative", height: "370px",
+                    minWidth: "290px", boxShadow: "0px 15px 19px 0px #0000003D",
+                    borderRadius:'4px',position: "relative", height: "auto",
                 }}
               >
                 {/* Card Image */}
@@ -129,7 +129,7 @@ function ServicesOfferedbyUs() {
                     alt={card.alt}
                     style={{
                       width: "100%",
-                      maxWidth: "300px",
+                      // minWidth: "300px",
                       height: "auto",
                     //   borderRadius: "8px",
                     }}
@@ -184,9 +184,9 @@ function ServicesOfferedbyUs() {
                   flexDirection: "column",
                   textAlign: "center",
                   flex: "1",
-                  maxWidth: "290px", boxShadow: "0px 15px 19px 0px #0000003D",
+                  minWidth: "390px", boxShadow: "0px 15px 19px 0px #0000003D",
                   borderRadius:'4px',position:'relative',
-                  height: "370px",
+                  height: "auto",
                 }}
               >
                 {/* Card Image */}
