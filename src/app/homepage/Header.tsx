@@ -190,7 +190,7 @@ function Header() {
             borderBottom: isActive("/contact") ? "2px solid #1e88e5" : "none",
           }}
         >
-          Contact us
+          Contact Us
         </Link>
       </div>
 
