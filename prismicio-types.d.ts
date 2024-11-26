@@ -790,6 +790,225 @@ interface BlogDocumentData {
 export type BlogDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BlogDocumentData>, "blog", Lang>;
 
+type CarrierDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Carrier documents
+ */
+interface CarrierDocumentData {
+  /**
+   * Heading1 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.heading1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading1: prismic.KeyTextField;
+
+  /**
+   * Description1 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.description1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description1: prismic.KeyTextField;
+
+  /**
+   * Img1 field in *Carrier*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.img1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img1: prismic.ImageField<never>;
+
+  /**
+   * Img2 field in *Carrier*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.img2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img2: prismic.ImageField<never>;
+
+  /**
+   * Img3 field in *Carrier*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.img3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img3: prismic.ImageField<never>;
+
+  /**
+   * Heading2 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.heading2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading2: prismic.KeyTextField;
+
+  /**
+   * Heading3 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.heading3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading3: prismic.KeyTextField;
+
+  /**
+   * Oppertunity1 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.oppertunity1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  oppertunity1: prismic.KeyTextField;
+
+  /**
+   * Oppertunity2 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.oppertunity2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  oppertunity2: prismic.KeyTextField;
+
+  /**
+   * Oppertunity3 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.oppertunity3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  oppertunity3: prismic.KeyTextField;
+
+  /**
+   * role1 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.role1
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role1: prismic.KeyTextField;
+
+  /**
+   * role2 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.role2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role2: prismic.KeyTextField;
+
+  /**
+   * role3 field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.role3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role3: prismic.KeyTextField;
+
+  /**
+   * Img4 field in *Carrier*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.img4
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  img4: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Carrier*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CarrierDocumentDataSlicesSlice> /**
+   * Meta Title field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: carrier.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: carrier.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Carrier*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Carrier document from Prismic
+ *
+ * - **API ID**: `carrier`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CarrierDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CarrierDocumentData>,
+    "carrier",
+    Lang
+  >;
+
 type ContactDocumentDataSlicesSlice = never;
 
 /**
@@ -3383,6 +3602,7 @@ export type TestimonialsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | AboutUsDocument
   | BlogDocument
+  | CarrierDocument
   | ContactDocument
   | DesignServicesDocument
   | DevelopmentServicesDocument
@@ -3424,6 +3644,9 @@ declare module "@prismicio/client" {
       BlogDocument,
       BlogDocumentData,
       BlogDocumentDataSlicesSlice,
+      CarrierDocument,
+      CarrierDocumentData,
+      CarrierDocumentDataSlicesSlice,
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataSlicesSlice,

@@ -1,9 +1,10 @@
 "use client";
 import { Box, Button, Grid, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { PrismicNextImage } from "@prismicio/next";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
-function ContactUs() {
+function Contact() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
@@ -33,13 +34,21 @@ function ContactUs() {
     color: "#1874DA",}
   return (
     <div>
+        <PrismicNextImage
+                field={posts[0]?.data.bgimg}
+                alt={""}
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
     <div
       style={{
         padding: isSmallScreen ? "20px 10px" : "40px 20px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        // justifyContent: "center",
+        justifyContent: "center",
         gap: isSmallScreen ? "16px" : "24px",
       }}
     >
@@ -50,7 +59,7 @@ function ContactUs() {
               fontFamily: "Satoshi, sans-serif",
               fontSize: isSmallScreen ? "32px" : "56px",
               fontWeight: 700,
-              color: "#000000",
+              color: "#1874DA",
               textAlign: "center",
             }}
           >
@@ -76,10 +85,10 @@ function ContactUs() {
       <form
         onSubmit={handleSubmit}
         style={{
-          width: isSmallScreen ? "100%" : "80%",
+        //   width: isSmallScreen ? "100%" : "60%",
           display: "flex",
           flexDirection: "column",
-          gap: isSmallScreen ? "16px" : "24px",
+        //   gap: isSmallScreen ? "16px" : "24px",
         }}
       >
         <Grid container spacing={isSmallScreen ? 2 : 3}>
@@ -169,4 +178,4 @@ function ContactUs() {
   );
 }
 
-export default ContactUs;
+export default Contact;
