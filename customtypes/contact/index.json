@@ -97,6 +97,14 @@
           "placeholder": ""
         }
       },
+      "bgimg": {
+        "type": "Image",
+        "config": {
+          "label": "bgImg",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

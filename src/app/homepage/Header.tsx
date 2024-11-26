@@ -1,15 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { client } from "../../../prismic-configuration";
+import { PrismicNextImage } from "@prismicio/next";
 
 function Header() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const pathname = usePathname(); // Get the current path
 
   const isActive = (path: string) => pathname === path; // Check if the current path matches
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [posts, setPosts] = useState<any>([]);
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const response = await client.getAllByType("header" as any);
+      setPosts(response);
+    };
+    fetchPosts();
+  }, []);
   return (
     <div
       style={{
@@ -23,23 +35,11 @@ function Header() {
     >
       {/* Logo Section */}
       <div style={{ display: "flex", alignItems: "center" }}>
-        <img
-          src="/image-vol.png" // Replace with your logo URL
-          alt="Volantis Logo"
-          style={{ height: "30px", marginRight: "10px" }}
-        />
-        <span
-          style={{
-            fontSize: "18px",
-            fontWeight: "bold",
-            color: "#1e88e5",
-          }}
-        >
-          VOLANTIS
-        </span>
+      <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} />
+
       </div>
 
-      {/* Navigation Links */}
+     
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <Link
           href="/home"
@@ -51,7 +51,8 @@ function Header() {
             borderBottom: isActive("/home") ? "2px solid #1e88e5" : "none",
           }}
         >
-          Home
+                     {posts[0]?.data.tab1}
+
         </Link>
 
         {/* Services Dropdown */}
@@ -71,7 +72,8 @@ function Header() {
               fontWeight: "500",
             }}
           >
-            Services <span style={{ fontSize: "12px" }}>▼</span>
+                                 {posts[0]?.data.tab2}
+                                 <span style={{ fontSize: "12px" }}>▼</span>
           </span>
           {isDropdownVisible && (
             <div
@@ -98,7 +100,7 @@ function Header() {
                   backgroundColor: isActive("/service1") ? "#f1f1f1" : "transparent",
                 }}
               >
-                Service 1
+            {posts[0]?.data.service1}
               </Link>
               <Link
                 href="/service2"
@@ -111,8 +113,8 @@ function Header() {
                   backgroundColor: isActive("/service2") ? "#f1f1f1" : "transparent",
                 }}
               >
-                Service 2
-              </Link>
+            {posts[0]?.data.service2}
+            </Link>
               <Link
                 href="/service3"
                 style={{
@@ -124,8 +126,8 @@ function Header() {
                   backgroundColor: isActive("/service3") ? "#f1f1f1" : "transparent",
                 }}
               >
-                Service 3
-              </Link>
+            {posts[0]?.data.service3}
+            </Link>
               <Link
                 href="/service4"
                 style={{
@@ -137,8 +139,8 @@ function Header() {
                   backgroundColor: isActive("/service4") ? "#f1f1f1" : "transparent",
                 }}
               >
-                Service 4
-              </Link>
+            {posts[0]?.data.service4}
+            </Link>
             </div>
           )}
         </div>
@@ -148,13 +150,14 @@ function Header() {
           href="/about"
           style={{
             textDecoration: "none",
-            color: isActive("/about") ? "#1e88e5" : "#000",
+            color: isActive("/About") ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/about") ? "bold" : "500",
-            borderBottom: isActive("/about") ? "2px solid #1e88e5" : "none",
+            fontWeight: isActive("/About") ? "bold" : "500",
+            borderBottom: isActive("/About") ? "2px solid #1e88e5" : "none",
           }}
         >
-          About Us
+                     {posts[0]?.data.tab3}
+
         </Link>
         <Link
           href="/blog"
@@ -166,8 +169,8 @@ function Header() {
             borderBottom: isActive("/blog") ? "2px solid #1e88e5" : "none",
           }}
         >
-          Blog
-        </Link>
+                     {posts[0]?.data.tab4}
+                     </Link>
         <Link
           href="/career"
           style={{
@@ -177,8 +180,8 @@ function Header() {
             fontWeight: isActive("/career") ? "bold" : "500",
             borderBottom: isActive("/career") ? "2px solid #1e88e5" : "none",
           }}
-        >
-          Career
+        >                     {posts[0]?.data.tab5}
+
         </Link>
         <Link
           href="/contact"
@@ -190,7 +193,8 @@ function Header() {
             borderBottom: isActive("/contact") ? "2px solid #1e88e5" : "none",
           }}
         >
-          Contact Us
+                             {posts[0]?.data.tab6}
+
         </Link>
       </div>
 
@@ -213,8 +217,8 @@ function Header() {
           (e.currentTarget.style.backgroundColor = "#1e88e5")
         }
       >
-        Employee Login
-      </button>
+                     {posts[0]?.data.button}
+                     </button>
     </div>
   );
 }
