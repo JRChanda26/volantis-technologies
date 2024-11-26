@@ -99,14 +99,14 @@ function Header() {
               }}
             >
               <Link
-                href="/service1"
+                href="/services/aiservice"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service1") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service1") ? "bold" : "normal",
-                  backgroundColor: isActive("/service1")
+                  color: isActive("/services/aiservice") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/aiservice1") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/aiservice")
                     ? "#f1f1f1"
                     : "transparent",
                 }}
@@ -114,14 +114,14 @@ function Header() {
                 {posts[0]?.data.service1}
               </Link>
               <Link
-                href="/service2"
+                href="/services/staffing"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service2") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service2") ? "bold" : "normal",
-                  backgroundColor: isActive("/service2")
+                  color: isActive("/services/staffing") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/staffing") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/staffing")
                     ? "#f1f1f1"
                     : "transparent",
                 }}
@@ -129,14 +129,14 @@ function Header() {
                 {posts[0]?.data.service2}
               </Link>
               <Link
-                href="/service3"
+                href="/services/devlopment"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service3") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service3") ? "bold" : "normal",
-                  backgroundColor: isActive("/service3")
+                  color: isActive("/services/devlopment") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/devlopment") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/devlopment")
                     ? "#f1f1f1"
                     : "transparent",
                 }}
@@ -144,14 +144,14 @@ function Header() {
                 {posts[0]?.data.service3}
               </Link>
               <Link
-                href="/service4"
+                href="/services/engineering"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service4") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service4") ? "bold" : "normal",
-                  backgroundColor: isActive("/service4")
+                  color: isActive("/services/engineering") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/engineering") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/engineering")
                     ? "#f1f1f1"
                     : "transparent",
                 }}
