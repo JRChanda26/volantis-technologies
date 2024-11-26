@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Grid, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function LatestNews() {
@@ -37,15 +37,12 @@ function LatestNews() {
   return (
     <div
       style={{
-        padding: "40px 50px 20px 78px",
+        padding: "40px 20px",
       }}
     >
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          textAlign: "center",
         }}
       >
         <Typography
@@ -53,66 +50,60 @@ function LatestNews() {
             fontFamily: "Satoshi",
             fontSize: "56px",
             fontWeight: 700,
-            textAlign: "left",
           }}
         >
           {posts[0]?.data.heading}
         </Typography>
 
-        {/* Section Description */}
         <Typography
           style={{
             fontFamily: "Helvetica",
             fontSize: "16px",
             fontWeight: 400,
-            textAlign: "left",
             color: "#6D6D6D",
-            padding: "18px 0px 50px 0px",
+            margin: "18px 0 50px",
           }}
         >
           {posts[0]?.data.description}
         </Typography>
       </div>
 
-      {/* Dynamic Cards */}
-      {/* <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "40px",
-        }}
-      > */}
-        {/* First Row */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "24px",
-          }}
-        >
-          {[0, 1, 2].map((index) => {
-            const card = {
-              image: posts[0]?.data[`news_image${index + 1}`],
-              title: posts[0]?.data[`news_heading${index + 1}`],
-              description: posts[0]?.data[`news_description${index + 1}`],
-              date: posts[0]?.data[`date${index + 1}`],
-              button: posts[0]?.data[`read_button`],
-              alt: posts[0]?.data[`news_image${index + 1}_alt`] || "",
-            };
+      {/* Responsive Grid for Cards */}
+      <Grid container spacing={4} style={{display:'flex',justifyContent:'center'}}>
 
-            return (
-              <div
-                key={index}
-                style={{
+        {[0, 1, 2].map((index) => {
+          const card = {
+            image: posts[0]?.data[`news_image${index + 1}`],
+            title: posts[0]?.data[`news_heading${index + 1}`],
+            description: posts[0]?.data[`news_description${index + 1}`],
+            date: posts[0]?.data[`date${index + 1}`],
+            button: posts[0]?.data[`read_button`],
+            alt: posts[0]?.data[`news_image${index + 1}_alt`] || "",
+          };
+
+          return (
+            <Grid
+            item
+            key={index}
+            xs={12}
+            sm={6}
+            md={3.5}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+              <Box
+                sx={{
                   display: "flex",
                   flexDirection: "column",
                   textAlign: "center",
-                  flex: "1",
-                  maxWidth: "290px",
+                  minWidth: "100%",
                   boxShadow: "0px 15px 19px 0px #0000003D",
                   borderRadius: "4px",
                   position: "relative",
-                  height: "370px",
+                  height: "auto",
+                  padding: "0px 0px 10px 0px",
                 }}
               >
                 {/* Card Image */}
@@ -122,29 +113,26 @@ function LatestNews() {
                     alt={card.alt}
                     style={{
                       width: "100%",
-                      maxWidth: "300px",
                       height: "auto",
+                      borderRadius: "4px 4px 0 0",
                     }}
                   />
                 )}
+
+                {/* Card Content */}
                 <div
                   style={{
-                    padding: "29px 10px 10px 10px",
+                    padding: "20px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    flexGrow: 1,
+                    height: "100%",
                   }}
                 >
-                  {/* Card Title */}
                   <Typography style={title}>{card.title}</Typography>
+                  <Typography style={description}>{card.description}</Typography>
 
-                  {/* Card Description */}
-                  <Typography style={description}>
-                    {card.description}
-                  </Typography>
-
-                  {/* Card Footer: Date and Button */}
+                  {/* Footer */}
                   <div
                     style={{
                       display: "flex",
@@ -163,7 +151,6 @@ function LatestNews() {
                     >
                       {card.date}
                     </Typography>
-
                     <Button
                       style={{
                         fontFamily: "Satoshi",
@@ -172,64 +159,47 @@ function LatestNews() {
                         fontWeight: 400,
                         color: "#1874DA",
                         background: "#BDE9FF",
-                        border: "none",
-                        cursor: "pointer",
                         borderRadius: "14px",
                       }}
-                      onClick={() => {
-                        console.log(`Clicked button for: ${card.title}`);
-                      }}
+                      onClick={() => console.log(`Clicked button for: ${card.title}`)}
                     >
                       {card.button}
                     </Button>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-        <div
+              </Box>
+            </Grid>
+          );
+        })}
+      </Grid>
+
+      {/* View More Button */}
+      <div
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           marginTop: "40px",
         }}
       >
-       <Button
-  style={{
-    fontFamily: "Satoshi",
-    fontSize: "14px",
-    textTransform: "none",
-    fontWeight: 400,
-    color: "#1874DA",
-    background: "none",
-    border: "1px solid #1874DA",
-    cursor: "pointer",
-    borderRadius: "14px",
-    padding: "10px 50px",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-  }}
->
-  
-    
-  
-  {posts[0]?.data.button2}
-  <PrismicNextImage
-      field={posts[0]?.data.arrowicon}
-      alt=""
-    //   style={{
-    //     width: "20px",
-    //     height: "20px",
-    //   }}
-    />
-</Button>
-
+        <Button
+          style={{
+            fontFamily: "Satoshi",
+            fontSize: "14px",
+            textTransform: "none",
+            fontWeight: 400,
+            color: "#1874DA",
+            border: "1px solid #1874DA",
+            borderRadius: "14px",
+            padding: "10px 50px",
+          }}
+        >
+          {posts[0]?.data.button2}
+          {posts[0]?.data.arrowicon && (
+            <PrismicNextImage field={posts[0]?.data.arrowicon} alt="" />
+          )}
+        </Button>
       </div>
-      </div>
-    // </div>
+    </div>
   );
 }
 

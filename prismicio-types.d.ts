@@ -951,6 +951,17 @@ interface CarrierDocumentData {
   img4: prismic.ImageField<never>;
 
   /**
+   * Button field in *Carrier*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carrier.button
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button: prismic.KeyTextField;
+
+  /**
    * Slice Zone field in *Carrier*
    *
    * - **Field Type**: Slice Zone

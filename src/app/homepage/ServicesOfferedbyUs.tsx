@@ -1,23 +1,22 @@
 "use client";
 
-import { Typography } from "@mui/material";
+import { Typography, Grid, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
 function ServicesOfferedbyUs() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await client.getAllByType("services_offered" as any);
+      const response = await client.getAllByType("services_offered");
       setPosts(response);
     };
     fetchPosts();
   }, []);
-  const description: React.CSSProperties = {
+
+  const descriptionStyle: React.CSSProperties = {
     fontFamily: "Satoshi",
     fontSize: "14px",
     fontWeight: 400,
@@ -26,7 +25,7 @@ function ServicesOfferedbyUs() {
     color: "#7A7A7A",
   };
 
-  const title: React.CSSProperties = {
+  const titleStyle: React.CSSProperties = {
     fontFamily: "Satoshi",
     fontSize: "16px",
     fontWeight: 700,
@@ -35,137 +34,118 @@ function ServicesOfferedbyUs() {
     textUnderlinePosition: "from-font",
     textDecorationSkipInk: "none",
     color: "#000000",
-    paddingBottom:'5px'
+    paddingBottom: "5px",
   };
-  console.log("hii", posts[0]?.data.card_icon);
 
   return (
-    <div
-      style={{
-        padding: "40px 50px 20px 78px",
-        // display: "flex",
-        // flexDirection: "column",
-        // alignItems: "center",
-        // justifyContent: "center",
-        // gap: "16px",
+    <Box
+      sx={{
+        padding: { xs: "20px", sm: "30px 40px", md: "40px 50px 20px 78px" },
       }}
     >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          // justifyContent: "center",
-        }}
-      >
+      {/* Section Header */}
+      <Box textAlign="center" mb={5}>
         <Typography
-          style={{
+          sx={{
             fontFamily: "Satoshi",
-            fontSize: "56px",
+            fontSize: { xs: "32px", md: "56px" },
             fontWeight: 700,
-            textAlign: "left",
-            textUnderlinePosition: "from-font",
-            textDecorationSkipInk: "none",
+            textAlign: "center",
+            mb: 2,
           }}
         >
           {posts[0]?.data.heading}
         </Typography>
-
-        {/* Section Description */}
         <Typography
-          style={{
+          sx={{
             fontFamily: "Helvetica",
             fontSize: "16px",
             fontWeight: 400,
-            textAlign: "left",
+            textAlign: "center",
             color: "#6D6D6D",
             padding: "18px 0px 50px 0px",
           }}
         >
           {posts[0]?.data.description}
         </Typography>
-      </div>
-      {/* Dynamic Cards */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "40px", 
-        }}
-      >
-        {/* First Row */}
-        <div
-        style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "24px",
-          }}
-        >
-          {[0, 1, 2].map((index) => {
-            const card = {
-              image: posts[0]?.data[`card_image${index + 1}`],
-              title: posts[0]?.data[`card_title${index + 1}`],
-              description: posts[0]?.data[`card_description${index + 1}`],
-              icon: posts[0]?.data[`card_icon${index + 1}`],
-              alt: posts[0]?.data[`card_image${index + 1}_alt`] || "",
-            };
+      </Box>
 
-            return (
-              <div
-                key={index}
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    textAlign: "center",
-                    flex: "1",
-                    minWidth: "290px", boxShadow: "0px 15px 19px 0px #0000003D",
-                    borderRadius:'4px',position: "relative", height: "auto",
+      {/* Responsive Grid */}
+      <Grid container spacing={4} style={{display:'flex',justifyContent:'center'}}>
+        {/* Map through the first 3 items */}
+        {[0, 1, 2].map((index) => {
+          const card = {
+            image: posts[0]?.data[`card_image${index + 1}`],
+            title: posts[0]?.data[`card_title${index + 1}`],
+            description: posts[0]?.data[`card_description${index + 1}`],
+            icon: posts[0]?.data[`card_icon${index + 1}`],
+            alt: posts[0]?.data[`card_image${index + 1}_alt`] || "",
+          };
+
+          return (
+            <Grid
+              item
+              key={index}
+              xs={12}
+              sm={6}
+              md={3.5}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "center",
+                  minWidth: "100%",
+                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  borderRadius: "4px",
+                  position: "relative",
+                  height: "auto",
+                  padding: "0px 0px 10px 0px",
                 }}
               >
-                {/* Card Image */}
                 {card.image && (
                   <PrismicNextImage
                     field={card.image}
                     alt={card.alt}
                     style={{
                       width: "100%",
-                      // minWidth: "300px",
                       height: "auto",
-                    //   borderRadius: "8px",
                     }}
                   />
                 )}
-<div style={{padding:'29px 23px 10px 20px'}}>
-                {/* Card Title */}
-                <Typography style={title}>{card.title}</Typography>
-
-                {/* Card Description */}
-                <Typography style={description}>{card.description}</Typography>
-
-                {posts[0]?.data.card_icon && (
+                <div style={{padding:'20px'}}>
+                <Typography style={titleStyle}>{card.title}</Typography>
+                <Typography style={descriptionStyle}>{card.description}</Typography>
+                {card.icon && (
                   <PrismicNextImage
-                    field={posts[0]?.data.card_icon}
+                    field={card.icon}
                     alt=""
                     style={{
-                     position: "absolute",
-                            bottom: "10px", 
-                            left: "10px",  cursor: 'pointer '
+                      position: "absolute",
+                      bottom: "10px",
+                      left: "10px",
+                      cursor: "pointer",
+                      padding: "10px 10px 5px 10px",
                     }}
                   />
                 )}
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              </Box>
+            </Grid>
+          );
+        })}
 
-        {/* Second Row */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "24px", // Reduced gap between the cards
-          }}
+        {/* Center the last 2 items */}
+        <Grid
+          container
+          item
+          xs={12}
+          justifyContent="center"
+          spacing={4}
         >
           {[3, 4].map((index) => {
             const card = {
@@ -177,60 +157,63 @@ function ServicesOfferedbyUs() {
             };
 
             return (
-              <div
+              <Grid
+                item
                 key={index}
-                style={{
+                xs={12}
+                sm={6}
+                md={3.5}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                 <Box
+                sx={{
                   display: "flex",
                   flexDirection: "column",
                   textAlign: "center",
-                  flex: "1",
-                  minWidth: "390px", boxShadow: "0px 15px 19px 0px #0000003D",
-                  borderRadius:'4px',position:'relative',
+                  minWidth: "100%",
+                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  borderRadius: "4px",
+                  position: "relative",
                   height: "auto",
+                  padding: "0px 0px 10px 0px",
                 }}
               >
-                {/* Card Image */}
-                {card.image && (
-                  <PrismicNextImage
-                    field={card.image}
-                    alt={card.alt}
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                    //   borderRadius: "8px",
-                    }}
-                  />
-                )}
-<div style={{padding:'29px 23px 10px 20px'}}>
-
-                {/* Card Title */}
-                <Typography style={title}>{card.title}</Typography>
-
-                {/* Card Description */}
-                <Typography style={description}>{card.description}</Typography>
-                {posts[0]?.data.card_icon && (
-                  <PrismicNextImage
-                    field={posts[0]?.data.card_icon}
-                    alt=""
-                   
-                        style={{
-                            position: "absolute",
-                            bottom: "10px", 
-                            left: "10px",  
-                            cursor: 'pointer'
-                            // width: "30px",  
-                            // height: "30px", 
-                          }}
-                   
-                  />
-                )}
-                </div>
-              </div>
+                  {card.image && (
+                    <PrismicNextImage
+                      field={card.image}
+                      alt={card.alt}
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                      }}
+                    />
+                  )}
+                  <div style={{padding:'20px'}}>
+                  <Typography style={titleStyle}>{card.title}</Typography>
+                  <Typography style={descriptionStyle}>{card.description}</Typography>
+                  {card.icon && (
+                    <PrismicNextImage
+                      field={card.icon}
+                      alt=""
+                      style={{
+                        position: "absolute",
+                        bottom: "10px",
+                        left: "10px",
+                        cursor: "pointer",
+                        padding: "10px 10px 5px 10px",
+                      }}
+                    />
+                  )}</div>
+                </Box>
+              </Grid>
             );
           })}
-        </div>
-      </div>
-    </div>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
