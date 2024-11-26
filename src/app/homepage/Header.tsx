@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -10,7 +10,9 @@ function Header() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const pathname = usePathname(); // Get the current path
 
-  const isActive = (path: string) => pathname === path; // Check if the current path matches
+  // Check if the current path matches a given path
+  const isActive = (path: string) => pathname === path;
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>([]);
 
@@ -23,15 +25,24 @@ function Header() {
     fetchPosts();
   }, []);
 
+  // Default active tab is /home (tab 1)
+  const activeTab = isActive("/home") ? "/home" : pathname;
+
   return (
     <div
       style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1,
         display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "10px 20px",
+        flexDirection: "row",
         backgroundColor: "#fff",
+        width: "100%",
         borderBottom: "1px solid #ddd",
+        boxSizing: "border-box",
+        padding: "10px 20px",
+        justifyContent: "space-between",
       }}
     >
       {/* Logo Section */}
@@ -44,10 +55,10 @@ function Header() {
           href="/home"
           style={{
             textDecoration: "none",
-            color: isActive("/home") ? "#1e88e5" : "#000",
+            color: activeTab === "/home" ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/home") ? "bold" : "500",
-            borderBottom: isActive("/home") ? "2px solid #1e88e5" : "none",
+            fontWeight: activeTab === "/home" ? "bold" : "500",
+            borderBottom: activeTab === "/home" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab1}
@@ -156,10 +167,10 @@ function Header() {
           href="/about"
           style={{
             textDecoration: "none",
-            color: isActive("/About") ? "#1e88e5" : "#000",
+            color: activeTab === "/about" ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/About") ? "bold" : "500",
-            borderBottom: isActive("/About") ? "2px solid #1e88e5" : "none",
+            fontWeight: activeTab === "/about" ? "bold" : "500",
+            borderBottom: activeTab === "/about" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab3}
@@ -168,10 +179,10 @@ function Header() {
           href="/blog"
           style={{
             textDecoration: "none",
-            color: isActive("/blog") ? "#1e88e5" : "#000",
+            color: activeTab === "/blog" ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/blog") ? "bold" : "500",
-            borderBottom: isActive("/blog") ? "2px solid #1e88e5" : "none",
+            fontWeight: activeTab === "/blog" ? "bold" : "500",
+            borderBottom: activeTab === "/blog" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab4}
@@ -180,23 +191,22 @@ function Header() {
           href="/career"
           style={{
             textDecoration: "none",
-            color: isActive("/career") ? "#1e88e5" : "#000",
+            color: activeTab === "/career" ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/career") ? "bold" : "500",
-            borderBottom: isActive("/career") ? "2px solid #1e88e5" : "none",
+            fontWeight: activeTab === "/career" ? "bold" : "500",
+            borderBottom: activeTab === "/career" ? "2px solid #1e88e5" : "none",
           }}
         >
-          {" "}
           {posts[0]?.data.tab5}
         </Link>
         <Link
           href="/contact"
           style={{
             textDecoration: "none",
-            color: isActive("/contact") ? "#1e88e5" : "#000",
+            color: activeTab === "/contact" ? "#1e88e5" : "#000",
             fontSize: "14px",
-            fontWeight: isActive("/contact") ? "bold" : "500",
-            borderBottom: isActive("/contact") ? "2px solid #1e88e5" : "none",
+            fontWeight: activeTab === "/contact" ? "bold" : "500",
+            borderBottom: activeTab === "/contact" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab6}

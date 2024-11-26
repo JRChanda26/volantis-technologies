@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 import { Button, Typography, Grid, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
-
+import Link from "next/link";
 function LatestNews() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
@@ -33,7 +33,7 @@ function LatestNews() {
     textAlign: "left",
     color: "#000000",
   };
-
+ 
   return (
     <div
       style={{
@@ -181,6 +181,7 @@ function LatestNews() {
           marginTop: "40px",
         }}
       >
+         <Link href="/blog" >
         <Button
           style={{
             fontFamily: "Satoshi",
@@ -198,6 +199,7 @@ function LatestNews() {
             <PrismicNextImage field={posts[0]?.data.arrowicon} alt="" />
           )}
         </Button>
+        </Link>
       </div>
     </div>
   );
