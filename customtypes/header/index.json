@@ -1,0 +1,103 @@
+{
+  "format": "page",
+  "id": "header",
+  "label": "Header",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "volantisimage": {
+        "type": "Image",
+        "config": {
+          "label": "VolantisImage",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "tab1": {
+        "type": "Text",
+        "config": {
+          "label": "Tab1",
+          "placeholder": ""
+        }
+      },
+      "tab3": {
+        "type": "Text",
+        "config": {
+          "label": "Tab3",
+          "placeholder": ""
+        }
+      },
+      "tab4": {
+        "type": "Text",
+        "config": {
+          "label": "Tab4",
+          "placeholder": ""
+        }
+      },
+      "tab5": {
+        "type": "Text",
+        "config": {
+          "label": "Tab5",
+          "placeholder": ""
+        }
+      },
+      "tab6": {
+        "type": "Text",
+        "config": {
+          "label": "Tab6",
+          "placeholder": ""
+        }
+      },
+      "button": {
+        "type": "Text",
+        "config": {
+          "label": "Button",
+          "placeholder": ""
+        }
+      },
+      "services": {
+        "type": "Select",
+        "config": {
+          "label": "Services",
+          "placeholder": "Services",
+          "options": ["1", "2", "3", "4"]
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

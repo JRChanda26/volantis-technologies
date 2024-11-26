@@ -70,6 +70,252 @@
           "placeholder": ""
         }
       },
+      "description4": {
+        "type": "Text",
+        "config": {
+          "label": "Description4",
+          "placeholder": ""
+        }
+      },
+      "aboutusimage2": {
+        "type": "Image",
+        "config": {
+          "label": "AboutUsImage2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "missiontitle1": {
+        "type": "Text",
+        "config": {
+          "label": "MissionTitle1",
+          "placeholder": ""
+        }
+      },
+      "missiondesc1": {
+        "type": "Text",
+        "config": {
+          "label": "MissionDesc1",
+          "placeholder": ""
+        }
+      },
+      "missionimg1": {
+        "type": "Image",
+        "config": {
+          "label": "MissionImg1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "missiondesc2": {
+        "type": "Text",
+        "config": {
+          "label": "MissionDesc2",
+          "placeholder": ""
+        }
+      },
+      "missionimg2": {
+        "type": "Image",
+        "config": {
+          "label": "MissionImg2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "heading2": {
+        "type": "Text",
+        "config": {
+          "label": "Heading2",
+          "placeholder": ""
+        }
+      },
+      "chhoseusdesc": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseUsDesc",
+          "placeholder": ""
+        }
+      },
+      "chooseno1": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo1",
+          "placeholder": ""
+        }
+      },
+      "choosetitle1": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle1",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc1": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc1",
+          "placeholder": ""
+        }
+      },
+      "chooseno2": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo2",
+          "placeholder": ""
+        }
+      },
+      "choosetitle2": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle2",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc2": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc2",
+          "placeholder": ""
+        }
+      },
+      "chooseno3": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo3",
+          "placeholder": ""
+        }
+      },
+      "choosetitle3": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle3",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc3": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc3",
+          "placeholder": ""
+        }
+      },
+      "chooseno4": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo4",
+          "placeholder": ""
+        }
+      },
+      "choosetitle4": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle4",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc4": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc4",
+          "placeholder": ""
+        }
+      },
+      "chooseno5": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo5",
+          "placeholder": ""
+        }
+      },
+      "choosetitle5": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle5",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc5": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc5",
+          "placeholder": ""
+        }
+      },
+      "chooseno6": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseNo6",
+          "placeholder": ""
+        }
+      },
+      "choosetitle6": {
+        "type": "Text",
+        "config": {
+          "label": "ChooseTitle6",
+          "placeholder": ""
+        }
+      },
+      "chhosetitledesc6": {
+        "type": "Text",
+        "config": {
+          "label": "ChhoseTitledesc6",
+          "placeholder": ""
+        }
+      },
+      "heading3": {
+        "type": "Text",
+        "config": {
+          "label": "Heading3",
+          "placeholder": ""
+        }
+      },
+      "teamimage1": {
+        "type": "Image",
+        "config": {
+          "label": "TeamImage1",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "teamimage2": {
+        "type": "Image",
+        "config": {
+          "label": "TeamImage2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "teamimage3": {
+        "type": "Image",
+        "config": {
+          "label": "TeamImage3",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "teamimage4": {
+        "type": "Image",
+        "config": {
+          "label": "TeamImage4",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "teamimage5": {
+        "type": "Image",
+        "config": {
+          "label": "TeamImage5",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "teamdesc": {
+        "type": "Text",
+        "config": {
+          "label": "TeamDesc",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
