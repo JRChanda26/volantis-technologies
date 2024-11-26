@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
 function ServicesOfferedbyUs() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
