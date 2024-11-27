@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward'; // Importing Material UI Arrow icon
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward"; // Importing Material UI Arrow icon
 
 const OurBlogs: React.FC = () => {
   // Mock data for blogs
@@ -15,7 +15,8 @@ const OurBlogs: React.FC = () => {
     {
       id: 2,
       title: "Bill Walsh Leadership Lessons",
-      description: "Want to uncover the secrets behind transforming a 2-14 team...",
+      description:
+        "Want to uncover the secrets behind transforming a 2-14 team...",
       date: "28 Jun, 2024",
       image: "image 131.png",
     },
@@ -29,7 +30,8 @@ const OurBlogs: React.FC = () => {
     {
       id: 4,
       title: "What is Wireframing?",
-      description: "Discover the essentials of wireframing and learn from industry...",
+      description:
+        "Discover the essentials of wireframing and learn from industry...",
       date: "10 Jan, 2024",
       image: "image 132.png",
     },
@@ -50,21 +52,24 @@ const OurBlogs: React.FC = () => {
     {
       id: 7,
       title: "Our Top 10 JavaScript Frameworks to Consider.",
-      description: "JavaScript frameworks make development easy with extensive features and functionalities.",
+      description:
+        "JavaScript frameworks make development easy with extensive features and functionalities.",
       date: "18 Aug, 2024",
       image: "image 135.png",
     },
     {
       id: 8,
       title: "Bill Walsh Leadership Lessons",
-      description: "Want to uncover the secrets behind transforming a 2-14 team into a three-time Super Bowl dynasty?",
+      description:
+        "Want to uncover the secrets behind transforming a 2-14 team into a three-time Super Bowl dynasty?",
       date: "22 Sep, 2024",
       image: "image 133.png",
     },
     {
       id: 9,
       title: "Creating a Better CX Community",
-      description: "Fostering a vibrant customer experience community enhances engagement and drives meaningful connections.",
+      description:
+        "Fostering a vibrant customer experience community enhances engagement and drives meaningful connections.",
       date: "05 Oct, 2024",
       image: "image 136.png",
     },
@@ -73,7 +78,7 @@ const OurBlogs: React.FC = () => {
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 3; // Adjust number of blogs per page
-  
+
   // Calculate the current blogs to display
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
@@ -163,7 +168,14 @@ const OurBlogs: React.FC = () => {
         <h2 style={{ textAlign: "center", fontSize: "32px", color: "#333" }}>
           All <span style={{ color: "#007BFF" }}>Blogs</span>
         </h2>
-        <p style={{ textAlign: "center", fontSize: "16px", color: "#666" }}>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "16px",
+            color: "#666",
+            marginTop: "40px",
+          }}
+        >
           Stay Updated with the Latest in IT Staffing, Outsourcing, and Project
           Services
         </p>
@@ -199,12 +211,24 @@ const OurBlogs: React.FC = () => {
                 }}
               />
               <div style={{ padding: "15px" }}>
-                <h3 style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontWeight: "bold" }}>
+                <h3
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    fontWeight: "bold",
+                  }}
+                >
                   {blog.title}
-                  <ArrowOutwardIcon style={{ color: "#007BFF", fontSize: "20px" }} />
+                  <ArrowOutwardIcon
+                    style={{ color: "#007BFF", fontSize: "20px" }}
+                  />
                 </h3>
-                <p style={{ fontWeight: "normal" }}>{blog.description}</p> {/* Normal font for description */}
-                <p style={{ fontSize: "14px", color: "#007BFF" }}>{blog.date}</p>
+                <p style={{ fontWeight: "normal" }}>{blog.description}</p>{" "}
+                {/* Normal font for description */}
+                <p style={{ fontSize: "14px", color: "#007BFF" }}>
+                  {blog.date}
+                </p>
               </div>
             </div>
           ))}
