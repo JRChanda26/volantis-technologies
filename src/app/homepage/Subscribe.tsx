@@ -1,7 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import {  Grid, IconButton, InputAdornment, TextField, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Grid,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 
 function Subscribe() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,12 +26,10 @@ function Subscribe() {
     fetchPosts();
   }, []);
 
- 
-
   return (
     <div
       style={{
-        padding: '30px 80px',
+        padding: "30px 80px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -58,59 +64,51 @@ function Subscribe() {
           >
             {posts[0]?.data.title}
           </Typography>
-          <Grid container spacing={isSmallScreen ? 2 : 3} style={{display:'flex',justifyContent:'center'}}>
-          {/* First Row: First Name and Last Name */}
-          <Grid item xs={12}>
-          
-
-           <TextField
-      fullWidth
-    //   multiline
-    //   rows={4}
-      variant="outlined"
-      style={{
-        borderRadius: "12px",
-        border: "1px solid #000000",
-      }}
-      InputProps={{
-        startAdornment: (
-          <InputAdornment position="start">
-            {posts[0]?.data.placeholder || "Enter your Email"}
-          </InputAdornment>
-        ),
-        endAdornment: (
-          <InputAdornment position="end">
-          <IconButton
-  onClick={() => {
-    console.log("Button clicked");
-  }}
-  sx={{
-    fontSize: "14px",
-    textTransform: "none",
-    fontWeight: 700,
-    color: "#FFFFFF",
-    background: "#1874DA",
-    cursor: "pointer",
-    borderRadius: "8px",
-    padding: "10px 50px",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-  }}
->
-  {posts[0]?.data.button}
-</IconButton>
-
-          </InputAdornment>
-        ),
-      }}
-    />
-          </Grid>
+          <Grid
+            container
+            spacing={isSmallScreen ? 2 : 3}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                placeholder={posts[0]?.data.placeholder || "Enter your Email"}
+                style={{
+                  borderRadius: "12px",
+                  border: "1px solid #000000",
+                }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={() => {
+                          console.log("Button clicked");
+                        }}
+                        sx={{
+                          fontSize: "14px",
+                          textTransform: "none",
+                          fontWeight: 700,
+                          color: "#FFFFFF",
+                          background: "#1874DA",
+                          cursor: "pointer",
+                          borderRadius: "8px",
+                          padding: "10px 50px",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "8px",
+                        }}
+                      >
+                        {posts[0]?.data.button}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </Grid>
           </Grid>
         </>
       )}
-
-     
     </div>
   );
 }

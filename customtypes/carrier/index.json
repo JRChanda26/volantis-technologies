@@ -108,6 +108,13 @@
           "thumbnails": []
         }
       },
+      "button": {
+        "type": "Text",
+        "config": {
+          "label": "Button",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
