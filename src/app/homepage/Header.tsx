@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -22,6 +22,7 @@ function Header() {
     };
     fetchPosts();
   }, []);
+
   return (
     <div
       style={{
@@ -35,11 +36,9 @@ function Header() {
     >
       {/* Logo Section */}
       <div style={{ display: "flex", alignItems: "center" }}>
-      <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} />
-
+        <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} />
       </div>
 
-     
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <Link
           href="/home"
@@ -51,8 +50,7 @@ function Header() {
             borderBottom: isActive("/home") ? "2px solid #1e88e5" : "none",
           }}
         >
-                     {posts[0]?.data.tab1}
-
+          {posts[0]?.data.tab1}
         </Link>
 
         {/* Services Dropdown */}
@@ -72,8 +70,8 @@ function Header() {
               fontWeight: "500",
             }}
           >
-                                 {posts[0]?.data.tab2}
-                                 <span style={{ fontSize: "12px" }}>▼</span>
+            {posts[0]?.data.tab2}
+            <span style={{ fontSize: "12px" }}>▼</span>
           </span>
           {isDropdownVisible && (
             <div
@@ -97,10 +95,12 @@ function Header() {
                   textDecoration: "none",
                   color: isActive("/service1") ? "#1e88e5" : "#000",
                   fontWeight: isActive("/service1") ? "bold" : "normal",
-                  backgroundColor: isActive("/service1") ? "#f1f1f1" : "transparent",
+                  backgroundColor: isActive("/service1")
+                    ? "#f1f1f1"
+                    : "transparent",
                 }}
               >
-            {posts[0]?.data.service1}
+                {posts[0]?.data.service1}
               </Link>
               <Link
                 href="/service2"
@@ -110,11 +110,13 @@ function Header() {
                   textDecoration: "none",
                   color: isActive("/service2") ? "#1e88e5" : "#000",
                   fontWeight: isActive("/service2") ? "bold" : "normal",
-                  backgroundColor: isActive("/service2") ? "#f1f1f1" : "transparent",
+                  backgroundColor: isActive("/service2")
+                    ? "#f1f1f1"
+                    : "transparent",
                 }}
               >
-            {posts[0]?.data.service2}
-            </Link>
+                {posts[0]?.data.service2}
+              </Link>
               <Link
                 href="/service3"
                 style={{
@@ -123,11 +125,13 @@ function Header() {
                   textDecoration: "none",
                   color: isActive("/service3") ? "#1e88e5" : "#000",
                   fontWeight: isActive("/service3") ? "bold" : "normal",
-                  backgroundColor: isActive("/service3") ? "#f1f1f1" : "transparent",
+                  backgroundColor: isActive("/service3")
+                    ? "#f1f1f1"
+                    : "transparent",
                 }}
               >
-            {posts[0]?.data.service3}
-            </Link>
+                {posts[0]?.data.service3}
+              </Link>
               <Link
                 href="/service4"
                 style={{
@@ -136,11 +140,13 @@ function Header() {
                   textDecoration: "none",
                   color: isActive("/service4") ? "#1e88e5" : "#000",
                   fontWeight: isActive("/service4") ? "bold" : "normal",
-                  backgroundColor: isActive("/service4") ? "#f1f1f1" : "transparent",
+                  backgroundColor: isActive("/service4")
+                    ? "#f1f1f1"
+                    : "transparent",
                 }}
               >
-            {posts[0]?.data.service4}
-            </Link>
+                {posts[0]?.data.service4}
+              </Link>
             </div>
           )}
         </div>
@@ -156,8 +162,7 @@ function Header() {
             borderBottom: isActive("/About") ? "2px solid #1e88e5" : "none",
           }}
         >
-                     {posts[0]?.data.tab3}
-
+          {posts[0]?.data.tab3}
         </Link>
         <Link
           href="/blog"
@@ -169,8 +174,8 @@ function Header() {
             borderBottom: isActive("/blog") ? "2px solid #1e88e5" : "none",
           }}
         >
-                     {posts[0]?.data.tab4}
-                     </Link>
+          {posts[0]?.data.tab4}
+        </Link>
         <Link
           href="/career"
           style={{
@@ -180,8 +185,9 @@ function Header() {
             fontWeight: isActive("/career") ? "bold" : "500",
             borderBottom: isActive("/career") ? "2px solid #1e88e5" : "none",
           }}
-        >                     {posts[0]?.data.tab5}
-
+        >
+          {" "}
+          {posts[0]?.data.tab5}
         </Link>
         <Link
           href="/contact"
@@ -193,8 +199,7 @@ function Header() {
             borderBottom: isActive("/contact") ? "2px solid #1e88e5" : "none",
           }}
         >
-                             {posts[0]?.data.tab6}
-
+          {posts[0]?.data.tab6}
         </Link>
       </div>
 
@@ -217,8 +222,8 @@ function Header() {
           (e.currentTarget.style.backgroundColor = "#1e88e5")
         }
       >
-                     {posts[0]?.data.button}
-                     </button>
+        {posts[0]?.data.button}
+      </button>
     </div>
   );
 }
