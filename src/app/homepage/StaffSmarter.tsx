@@ -2,6 +2,15 @@
 import { Button, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
+import Subscribe from "./Subscribe";
+import GlobalPartnership from "./GlobalPartnerships";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
+import Footer from "./Footer";
+import LatestNews from "./LatestNews";
+import ServicesOfferedbyUs from "./ServicesOfferedbyUs";
+import Testimonials from "./Testimonials";
+import Header from "./Header";
 
 function StaffSmarter() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,6 +30,8 @@ function StaffSmarter() {
   const videoUrl = posts[0]?.data.background_video?.url;
 
   return (
+    <>
+    <Header/>
     <div
       style={{
         position: "relative",
@@ -108,6 +119,15 @@ function StaffSmarter() {
 
     
     </div>
+    <GlobalPartnership />
+    <ServicesOfferedbyUs/>
+    <AboutUs/>
+    <Testimonials/>
+    <LatestNews/>
+    <ContactUs/>
+    <Subscribe/>
+    
+    <Footer/></>
   );
 }
 export default StaffSmarter;
