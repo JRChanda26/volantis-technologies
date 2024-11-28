@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 import AboutUs from "../homepage/AboutUs";
@@ -11,6 +11,7 @@ import LatestNews from "../homepage/LatestNews";
 import ServicesOfferedbyUs from "../homepage/ServicesOfferedbyUs";
 import Subscribe from "../homepage/Subscribe";
 import Testimonials from "../homepage/Testimonials";
+import { Typography } from "@mui/material";
 
 function StaffSmarter() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

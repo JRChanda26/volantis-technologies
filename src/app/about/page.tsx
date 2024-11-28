@@ -67,7 +67,7 @@ function About() {
       <Header />
       <div
         style={{
-          paddingTop:'80px ',
+          paddingTop: "80px ",
           display: "flex",
           flexDirection: "column",
           // alignItems: "center",
@@ -77,31 +77,43 @@ function About() {
       >
         {posts.length > 0 && (
           <>
-            <Typography
+            <div
               style={{
-                fontFamily: "Poppins",
-                fontSize: isSmallScreen ? "32px" : "56px",
-                fontWeight: 700,
-                color: "#1874DA",
+                display: "flex",
                 textAlign: "center",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center", // Make sure the content is centered horizontally
               }}
             >
-              {posts[0]?.data.heading}
-            </Typography>
-            <Typography
-              sx={{
-                fontFamily: "Poppins",
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "24px",
-                textAlign: "justify",
-                marginTop: "15px",
-                color: "#6D6D6D",
-                padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
-              }}
-            >
-              {posts[0]?.data.description4}
-            </Typography>
+              <Typography
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: isSmallScreen ? "32px" : "56px",
+                  fontWeight: 700,
+                  color: "#1874DA",
+                  textAlign: "center", // Ensures the heading is centered
+                }}
+              >
+                {posts[0]?.data.heading}
+              </Typography>
+
+              <Typography
+                sx={{
+                  fontFamily: "Poppins",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "30px",
+                  // textAlign: "center",
+                  textAlign: "left",
+                  marginTop: "15px",
+                  color: "#6D6D6D",
+                  maxWidth: "60%",
+                }}
+              >
+                {posts[0]?.data.description4}
+              </Typography>
+            </div>
 
             <Grid
               container
@@ -109,7 +121,7 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "space-around",
-                padding: "0px 20px 10px 20px",
+                padding: "10px 20px 10px 20px",
               }}
             >
               <Grid item xs={12} sm={12} md={12}>
@@ -123,56 +135,68 @@ function About() {
                   }}
                 />
               </Grid>
+            </Grid>
+            <Grid
+              container
+              spacing={2}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center", // Ensures vertical centering
+                padding: "60px 70px 60px 70px",
+                textAlign: "center", // This centers text inside the grid container
+              }}
+            >
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center", // Center content horizontally within this grid item
+                }}
+              >
+                <Typography
+                  style={{
+                    fontFamily: "Poppins",
+                    fontSize: "40px",
+                    fontWeight: 500,
+                    lineHeight: "24px",
+                    textAlign: "center", // Centering text horizontally
+                    color: "#1874DA",
+                    padding: "10px",
+                  }}
+                >
+                  {posts[0]?.data.missiontitle1}
+                </Typography>
+                <Typography
+                  style={{
+                    fontFamily: "Poppins",
+                    fontSize: "18px",
+                    fontWeight: 400,
+                    lineHeight: "27px",
+                    textAlign: "justify", // Keeping text alignment as justify
+                    color: "#7A7A7A",
+                    padding: "10px",
+                    maxWidth: "90%",
+                  }}
+                >
+                  {posts[0]?.data.missiondesc1}
+                </Typography>
+              </Grid>
 
               <Grid
                 item
                 xs={12}
                 sm={6}
-                md={4}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                }}
-              >
-                <div>
-                  <Typography
-                    style={{
-                      fontFamily: "Poppins",
-                      fontSize: "40px",
-                      fontWeight: 500,
-                      lineHeight: "24px",
-                      textAlign: "left" as const,
-                      textUnderlinePosition: "from-font",
-                      textDecorationSkipInk: "none",
-                      color: "#1874DA",
-                    }}
-                  >
-                    {posts[0]?.data.missiontitle1}
-                  </Typography>
-                  <Typography
-                    style={{
-                      fontFamily: "Poppins",
-                      fontSize: "18px",
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      textAlign: "left" as const,
-                      color: "#7A7A7A",
-                      padding: "10px",
-                    }}
-                  >
-                    {posts[0]?.data.missiondesc1}
-                  </Typography>
-                </div>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sm={6}
-                md={5}
+                md={6}
                 style={{
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -181,24 +205,16 @@ function About() {
                   style={{ maxWidth: "70%", height: "auto" }}
                 />
               </Grid>
-            </Grid>
-            <Grid
-              container
-              spacing={2}
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                // padding:'0px 20px 10px 20px'
-              }}
-            >
+
               <Grid
                 item
                 xs={12}
                 sm={6}
-                md={5}
+                md={6}
                 style={{
                   display: "flex",
                   justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -207,48 +223,49 @@ function About() {
                   style={{ maxWidth: "70%", height: "auto" }}
                 />
               </Grid>
+
               <Grid
                 item
                 xs={12}
                 sm={6}
-                md={4}
+                md={6}
                 style={{
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
+                  alignItems: "center", // Center content horizontally within this grid item
                 }}
               >
-                <div>
-                  <Typography
-                    style={{
-                      fontFamily: "Poppins",
-                      fontSize: "40px",
-                      fontWeight: 500,
-                      lineHeight: "24px",
-                      textAlign: "left" as const,
-                      textUnderlinePosition: "from-font",
-                      textDecorationSkipInk: "none",
-                      color: "#1874DA",
-                    }}
-                  >
-                    {posts[0]?.data.missiontitle1}
-                  </Typography>
-                  <Typography
-                    style={{
-                      fontFamily: "Poppins",
-                      fontSize: "18px",
-                      fontWeight: 400,
-                      lineHeight: "27px",
-                      textAlign: "left" as const,
-                      color: "#7A7A7A",
-                      padding: "10px",
-                    }}
-                  >
-                    {posts[0]?.data.missiondesc2}
-                  </Typography>
-                </div>
+                <Typography
+                  style={{
+                    fontFamily: "Poppins",
+                    fontSize: "40px",
+                    fontWeight: 500,
+                    lineHeight: "24px",
+                    textAlign: "center", // Centering text horizontally
+                    padding: "10px",
+                    color: "#1874DA",
+                  }}
+                >
+                  {posts[0]?.data.missiontitle1}
+                </Typography>
+                <Typography
+                  style={{
+                    fontFamily: "Poppins",
+                    fontSize: "18px",
+                    fontWeight: 400,
+                    lineHeight: "27px",
+                    textAlign: "justify", // Keeping text alignment as justify
+                    color: "#7A7A7A",
+                    paddingTop: "10px",
+                    maxWidth: "82%",
+                  }}
+                >
+                  {posts[0]?.data.missiondesc2}
+                </Typography>
               </Grid>
             </Grid>
+
             <Box
               sx={{
                 background:
@@ -273,7 +290,7 @@ function About() {
                     fontSize: "56px",
                     fontWeight: 700,
                     lineHeight: "78px",
-                    textAlign: "center",
+                    textAlign: "left",
                     color: "#FFFFFF",
                     padding: "20px 0px 12px 0px",
                   }}
@@ -298,13 +315,12 @@ function About() {
 
               <Grid
                 container
-                spacing={4}
+                spacing={0} // Reduced spacing between items
                 style={{
                   display: "flex",
-                  // flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "40px 0px 0px 10%",
+                  padding: "40px 0px 0px 10%", // Adjust this padding if needed
                 }}
               >
                 {/* Repeated Grid Items */}
@@ -318,8 +334,9 @@ function About() {
                       textAlign: "center",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "left",
+                      alignItems: "flex-start", // Align left for content within items
                       justifyContent: "center",
+                      marginBottom: "10px", // Reduce space at the bottom if needed
                     }}
                     key={i}
                   >
@@ -432,7 +449,16 @@ function About() {
                     alt={""}
                   />
                 </Grid>
-                <Grid item xs={12} sm={12} md={12}>
+                <Grid
+                  item
+                  xs={12}
+                  sm={11}
+                  md={11}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
                   {" "}
                   <Typography
                     sx={{
@@ -443,7 +469,10 @@ function About() {
                       textAlign: "justify",
                       marginTop: "15px",
                       color: "#6D6D6D",
-                      padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
+
+                      padding: isSmallScreen
+                        ? "0px 90px"
+                        : "0px 50px 10px 70px",
                     }}
                   >
                     {posts[0]?.data.teamdesc}

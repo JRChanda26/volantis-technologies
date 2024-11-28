@@ -66,7 +66,9 @@ function Footer() {
         <Grid item xs={12} sm={6} md={2}>
           <Box display="flex" flexDirection="column" height="100%">
             <Box mb={2}>
-              <PrismicNextImage field={posts[0]?.data.volantis} alt={""} />
+            <Link
+          href="/home">
+              <PrismicNextImage field={posts[0]?.data.volantis} alt={""} /></Link>
             </Box>
             <Box display="flex" gap={2}>
             <Link 
