@@ -50,7 +50,7 @@ function Footer() {
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+      // alignItems: "center",
         padding: "10px",
       }}
     >
@@ -58,8 +58,9 @@ function Footer() {
         container
         spacing={2}
         style={{
+          display:'flex',
           justifyContent: "center",
-          alignItems: "stretch",
+          // alignItems: "stretch",
         }}
       >
         {/* Logo and Social Links */}
