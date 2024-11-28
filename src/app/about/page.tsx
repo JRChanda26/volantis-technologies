@@ -33,11 +33,11 @@ function About() {
     color: "#FFFFFF",
     width: "100px",
     height: "64px",
-    // textAlign: "center",
+    textAlign: "center",
     border: "1px solid #FFFFFF",
     display: "flex", // Add flexbox
     justifyContent: "center", // Horizontal centering
-    alignItems: "center", // Vertical centering
+    // alignItems: "center", // Vertical centering
   };
 
   const title: React.CSSProperties = {
@@ -67,7 +67,7 @@ function About() {
       <Header />
       <div
         style={{
-          paddingTop: "80px ",
+          paddingTop: "90px ",
           display: "flex",
           flexDirection: "column",
           // alignItems: "center",
@@ -83,7 +83,7 @@ function About() {
                 textAlign: "center",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center", // Make sure the content is centered horizontally
+                // alignItems: "center", // Make sure the content is centered horizontally
               }}
             >
               <Typography
@@ -105,10 +105,10 @@ function About() {
                   fontWeight: 400,
                   lineHeight: "30px",
                   // textAlign: "center",
-                  textAlign: "left",
+                  textAlign: "center",
                   marginTop: "15px",
                   color: "#6D6D6D",
-                  maxWidth: "60%",
+                  maxWidth: "60%", margin: "0 auto",
                 }}
               >
                 {posts[0]?.data.description4}
@@ -142,7 +142,7 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center", // Ensures vertical centering
+                // alignItems: "center", // Ensures vertical centering
                 padding: "60px 70px 60px 70px",
                 textAlign: "center", // This centers text inside the grid container
               }}
@@ -156,7 +156,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center", // Center content horizontally within this grid item
+                  // alignItems: "center", // Center content horizontally within this grid item
                 }}
               >
                 <Typography
@@ -196,7 +196,7 @@ function About() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                  // alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -214,7 +214,7 @@ function About() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  alignItems: "center",
+                  // alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -233,7 +233,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center", // Center content horizontally within this grid item
+                  // alignItems: "center", // Center content horizontally within this grid item
                 }}
               >
                 <Typography
@@ -280,7 +280,7 @@ function About() {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
+                  // alignItems: "center",
                   justifyContent: "center",
                 }}
               >
@@ -290,7 +290,7 @@ function About() {
                     fontSize: "56px",
                     fontWeight: 700,
                     lineHeight: "78px",
-                    textAlign: "left",
+                    textAlign: "center",
                     color: "#FFFFFF",
                     padding: "20px 0px 12px 0px",
                   }}
@@ -306,7 +306,7 @@ function About() {
                     textAlign: "center",
                     color: "#FFFFFF",
                     maxWidth: "60%",
-                    wordWrap: "break-word",
+                    wordWrap: "break-word", margin: "0 auto",
                   }}
                 >
                   {posts[0]?.data.chhoseusdesc}
@@ -318,7 +318,7 @@ function About() {
                 spacing={0} // Reduced spacing between items
                 style={{
                   display: "flex",
-                  alignItems: "center",
+                  // alignItems: "center",
                   justifyContent: "center",
                   padding: "40px 0px 0px 10%", // Adjust this padding if needed
                 }}
@@ -334,7 +334,7 @@ function About() {
                       textAlign: "center",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "flex-start", // Align left for content within items
+                      // alignItems: "flex-start", // Align left for content within items
                       justifyContent: "center",
                       marginBottom: "10px", // Reduce space at the bottom if needed
                     }}
@@ -371,7 +371,7 @@ function About() {
                 spacing={0} // Reduced spacing between Grid items
                 style={{
                   display: "flex",
-                  alignItems: "center",
+                  // alignItems: "center",
                   justifyContent: "center",
                   padding: "40px 0px 0px 0px",
                 }}
@@ -385,7 +385,7 @@ function About() {
                     display: "flex",
                     flexDirection: "column", // Stack items vertically
                     justifyContent: "center",
-                    alignItems: "center",
+                    // alignItems: "center",
                     height: "100%",
                   }}
                 >
@@ -440,7 +440,7 @@ function About() {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center",
+                    // alignItems: "center",
                     height: "100%",
                   }}
                 >

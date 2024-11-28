@@ -28,7 +28,8 @@ function Subscribe() {
     fetchPosts();
   }, []);
 
-  const validateEmail = (email) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const validateEmail = (email:any) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
   };
@@ -51,7 +52,7 @@ function Subscribe() {
         padding: "30px 80px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+       
         justifyContent: "center",
         gap: isSmallScreen ? "16px" : "24px",
       }}
@@ -75,10 +76,10 @@ function Subscribe() {
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
-              textAlign: "justify",
+              textAlign: "center",
               marginTop: "15px",
               color: "#6D6D6D",
-              padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
+            
             }}
           >
             {posts[0]?.data.title}

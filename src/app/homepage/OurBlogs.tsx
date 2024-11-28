@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward"; // Importing Material UI Arrow icon
+// import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward"; // Importing Material UI Arrow icon
 
 const OurBlogs: React.FC = () => {
   // Mock data for blogs
@@ -215,14 +215,14 @@ const OurBlogs: React.FC = () => {
                   style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems: "center",
+                    // alignItems: "center",
                     fontWeight: "bold",
                   }}
                 >
                   {blog.title}
-                  <ArrowOutwardIcon
+                  {/* <ArrowOutwardIcon
                     style={{ color: "#007BFF", fontSize: "20px" }}
-                  />
+                  /> */}
                 </h3>
                 <p style={{ fontWeight: "normal" }}>{blog.description}</p>{" "}
                 {/* Normal font for description */}
@@ -239,7 +239,7 @@ const OurBlogs: React.FC = () => {
           style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            // alignItems: "center",
             marginTop: "20px",
           }}
         >

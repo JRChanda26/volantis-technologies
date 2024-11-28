@@ -40,7 +40,7 @@ function StaffSmarter() {
           height: "100vh",
           overflow: "hidden",
           display: "flex",
-          alignItems: "center",
+          // alignItems: "center",
           justifyContent: "center",
           color: "white",
           textAlign: "center",
@@ -76,7 +76,7 @@ function StaffSmarter() {
             padding: "0px 50px 0px 78px",
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+            // alignItems: "flex-start",
             justifyContent: "center",
             gap: "16px",
           }}
