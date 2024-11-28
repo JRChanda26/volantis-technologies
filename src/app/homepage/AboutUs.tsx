@@ -44,16 +44,17 @@ function AboutUs() {
   return (
     <div
       style={{
-        padding: isSmallScreen ? "20px 10px" : "40px 20px",
+        padding: "40px 20px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        // alignItems: "center",
         justifyContent: "center",
-        gap: isSmallScreen ? "8px" : "16px",
+        // gap: isSmallScreen ? "8px" : "16px",
       }}
     >
       {posts.length > 0 && (
         <>
+        <div style={{display:'flex',justifyContent:'center',textAlign:'center',flexDirection:'column'}}>
           <Typography
             style={{
               fontFamily: "Poppins",
@@ -71,15 +72,16 @@ function AboutUs() {
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
-              textAlign: "justify",
-              marginTop: "15px",
+              textAlign: "center",              marginTop: "15px",
               color: "#6D6D6D",
-            maxWidth:'58%'
+            maxWidth:'58%',
+            marginLeft: 'auto',  // Aligns the description to the center
+      marginRight: 'auto', // Ensures the description is centered
               // padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
             }}
           >
             {posts[0]?.data.description}
-          </Typography>
+          </Typography></div>
           
           <div style={{ position: "relative", width: "100%" }}>
             {/* Prismic Image */}

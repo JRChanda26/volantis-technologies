@@ -1,5 +1,5 @@
 "use client";
-import { Button, Typography } from "@mui/material";
+
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 import AboutUs from "../homepage/AboutUs";
@@ -11,6 +11,7 @@ import LatestNews from "../homepage/LatestNews";
 import ServicesOfferedbyUs from "../homepage/ServicesOfferedbyUs";
 import Subscribe from "../homepage/Subscribe";
 import Testimonials from "../homepage/Testimonials";
+import { Typography } from "@mui/material";
 
 function StaffSmarter() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -39,7 +40,7 @@ function StaffSmarter() {
           height: "100vh",
           overflow: "hidden",
           display: "flex",
-          alignItems: "center",
+          // alignItems: "center",
           justifyContent: "center",
           color: "white",
           textAlign: "center",
@@ -75,7 +76,7 @@ function StaffSmarter() {
             padding: "0px 50px 0px 78px",
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
+            // alignItems: "flex-start",
             justifyContent: "center",
             gap: "16px",
           }}

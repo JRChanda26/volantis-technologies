@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 import {
@@ -14,6 +13,9 @@ import {
 function Subscribe() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>([]);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
+  const [emailHelperText, setEmailHelperText] = useState('');
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -26,13 +28,31 @@ function Subscribe() {
     fetchPosts();
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const validateEmail = (email:any) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+  };
+
+  const handleSubmit = () => {
+    if (!validateEmail(email)) {
+      setEmailError(true);
+      setEmailHelperText("Please enter a valid email address.");
+    } else {
+      setEmailError(false);
+      setEmailHelperText('');
+      // handle your submit logic, like sending email or making an API call.
+      console.log("Form submitted with email:", email);
+    }
+  };
+
   return (
     <div
       style={{
         padding: "30px 80px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+       
         justifyContent: "center",
         gap: isSmallScreen ? "16px" : "24px",
       }}
@@ -56,10 +76,10 @@ function Subscribe() {
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
-              textAlign: "justify",
+              textAlign: "center",
               marginTop: "15px",
               color: "#6D6D6D",
-              padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
+            
             }}
           >
             {posts[0]?.data.title}
@@ -74,6 +94,8 @@ function Subscribe() {
                 fullWidth
                 variant="outlined"
                 placeholder={posts[0]?.data.placeholder || "Enter your Email"}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{
                   borderRadius: "12px",
                   border: "1px solid #000000",
@@ -82,9 +104,7 @@ function Subscribe() {
                   endAdornment: (
                     <InputAdornment position="end">
                       <IconButton
-                        onClick={() => {
-                          console.log("Button clicked");
-                        }}
+                        onClick={handleSubmit}
                         sx={{
                           fontSize: "14px",
                           textTransform: "none",
@@ -104,6 +124,8 @@ function Subscribe() {
                     </InputAdornment>
                   ),
                 }}
+                error={emailError}
+                helperText={emailHelperText}
               />
             </Grid>
           </Grid>

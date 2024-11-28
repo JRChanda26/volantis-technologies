@@ -22,16 +22,19 @@ function Career() {
   return (
     <>
       <Header />
-      <div>
-        <div>
+      <div style={{paddingTop:'50px'}}>
+        <div >
           {/* Image and Text Section */}
           <section
             style={{
               display: "flex",
               flexDirection: "row",
-              alignItems: "center",
+             
+              // alignItems: "center",
               justifyContent: "space-between",
-              padding: "70px",
+
+              paddingTop:'70px'
+              // padding: "70px",
               // padding: "2rem",
               // marginBottom: "2rem",
             }}
@@ -86,7 +89,7 @@ function Career() {
             style={{
               display: "flex",
               flexDirection: "row",
-              alignItems: "flex-start",
+              // alignItems: "flex-start",
               justifyContent: "space-between",
               backgroundColor: "#f9f9f9",
               paddingLeft: "15rem",

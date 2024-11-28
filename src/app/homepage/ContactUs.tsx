@@ -114,11 +114,11 @@ function ContactUs() {
     <div>
       <div
         style={{
-          padding: isSmallScreen ? "20px 10px" : "40px 20px",
+          padding: "40px 20px",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          // justifyContent: "center",
+          // alignItems: "center",
+          justifyContent: "center",
           gap: isSmallScreen ? "16px" : "24px",
         }}
       >
@@ -141,10 +141,10 @@ function ContactUs() {
                 fontSize: "16px",
                 fontWeight: 400,
                 lineHeight: "24px",
-                textAlign: "justify",
-                marginTop: "15px",
+                textAlign: "center",
+                padding: "10px",
                 color: "#6D6D6D",
-                padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
+                // padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
               }}
             >
               {posts[0]?.data.description}
@@ -152,121 +152,119 @@ function ContactUs() {
           </>
         )}
 
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Grid container spacing={isSmallScreen ? 2 : 3}>
-            {/* First Row: First Name and Last Name */}
-            <Grid item xs={12} sm={6}>
-              <Typography style={label}>{posts[0]?.data.label1}</Typography>
-              <TextField
-                fullWidth
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                placeholder={
-                  posts[0]?.data.placeholder1 || "Enter your first name"
-                }
-                variant="outlined"
-                error={!!errors.firstName}
-                helperText={errors.firstName}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography style={label}>{posts[0]?.data.label2}</Typography>
-              <TextField
-                fullWidth
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                placeholder={
-                  posts[0]?.data.placeholder2 || "Enter your last name"
-                }
-                variant="outlined"
-                error={!!errors.lastName}
-                helperText={errors.lastName}
-              />
-            </Grid>
+<form
+  onSubmit={handleSubmit}
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    // alignItems: "center",  // Centers the form content
+    justifyContent: 'center',  // Centers the form vertically
+    width: "100%",  // Ensure the form takes up full width on smaller screens
+    // maxWidth: "600px",  // Limit the width on larger screens to make it more centered
+    margin: "0 auto",  // Center the form horizontally
+  }}
+>
+  <Grid container spacing={isSmallScreen ? 2 : 3} justifyContent="center">
+    {/* First Row: First Name and Last Name */}
+    <Grid item xs={12} sm={5}>
+      <Typography style={label}>{posts[0]?.data.label1}</Typography>
+      <TextField
+        fullWidth
+        name="firstName"
+        value={formData.firstName}
+        onChange={handleChange}
+        placeholder={posts[0]?.data.placeholder1 || "Enter your first name"}
+        variant="outlined"
+        error={!!errors.firstName}
+        helperText={errors.firstName}
+      />
+    </Grid>
+    <Grid item xs={12} sm={5}>
+      <Typography style={label}>{posts[0]?.data.label2}</Typography>
+      <TextField
+        fullWidth
+        name="lastName"
+        value={formData.lastName}
+        onChange={handleChange}
+        placeholder={posts[0]?.data.placeholder2 || "Enter your last name"}
+        variant="outlined"
+        error={!!errors.lastName}
+        helperText={errors.lastName}
+      />
+    </Grid>
 
-            {/* Second Row: Email and Contact Number */}
-            <Grid item xs={12} sm={6}>
-              <Typography style={label}>{posts[0]?.data.label3}</Typography>
-              <TextField
-                fullWidth
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder={posts[0]?.data.placeholder3 || "Enter your email"}
-                type="email"
-                variant="outlined"
-                error={!!errors.email}
-                helperText={errors.email}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography style={label}>{posts[0]?.data.label4}</Typography>
-              <TextField
-                fullWidth
-                name="contactNumber"
-                value={formData.contactNumber}
-                onChange={handleChange}
-                placeholder={
-                  posts[0]?.data.placeholder4 || "Enter your contact number"
-                }
-                type="tel"
-                variant="outlined"
-                error={!!errors.contactNumber}
-                helperText={errors.contactNumber}
-              />
-            </Grid>
+    {/* Second Row: Email and Contact Number */}
+    <Grid item xs={12} sm={5}>
+      <Typography style={label}>{posts[0]?.data.label3}</Typography>
+      <TextField
+        fullWidth
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder={posts[0]?.data.placeholder3 || "Enter your email"}
+        type="email"
+        variant="outlined"
+        error={!!errors.email}
+        helperText={errors.email}
+      />
+    </Grid>
+    <Grid item xs={12} sm={5}>
+      <Typography style={label}>{posts[0]?.data.label4}</Typography>
+      <TextField
+        fullWidth
+        name="contactNumber"
+        value={formData.contactNumber}
+        onChange={handleChange}
+        placeholder={posts[0]?.data.placeholder4 || "Enter your contact number"}
+        type="tel"
+        variant="outlined"
+        error={!!errors.contactNumber}
+        helperText={errors.contactNumber}
+      />
+    </Grid>
 
-            {/* Third Row: Message */}
-            <Grid item xs={12}>
-              <Typography style={label}>{posts[0]?.data.label5}</Typography>
-              <TextField
-                fullWidth
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder={
-                  posts[0]?.data.placeholder5 || "Enter your message"
-                }
-                multiline
-                rows={4}
-                variant="outlined"
-                error={!!errors.message}
-                helperText={errors.message}
-              />
-            </Grid>
-          </Grid>
+    {/* Third Row: Message */}
+    <Grid item xs={10}>
+      <Typography style={label}>{posts[0]?.data.label5}</Typography>
+      <TextField
+        fullWidth
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        placeholder={posts[0]?.data.placeholder5 || "Enter your message"}
+        multiline
+        rows={4}
+        variant="outlined"
+        error={!!errors.message}
+        helperText={errors.message}
+      />
+    </Grid>
+  </Grid>
 
-          <Box display="flex" justifyContent="center" marginTop="20px">
-            <Button
-              type="submit"
-              variant="contained"
-              style={{
-                fontFamily: "Poppins",
-                fontSize: "14px",
-                textTransform: "none",
-                fontWeight: 700,
-                color: "#FFFFFF",
-                background: "#1874DA",
-                cursor: "pointer",
-                borderRadius: "8px",
-                padding: "10px 100px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              {posts[0]?.data.button}
-            </Button>
-          </Box>
-        </form>
+  <Box display="flex" justifyContent="center" marginTop="20px">
+    <Button
+      type="submit"
+      variant="contained"
+      style={{
+        fontFamily: "Poppins",
+        fontSize: "14px",
+        textTransform: "none",
+        fontWeight: 700,
+        color: "#FFFFFF",
+        background: "#1874DA",
+        cursor: "pointer",
+        borderRadius: "8px",
+        padding: "10px 100px",
+        display: "flex",
+        // alignItems: "center",
+        gap: "8px",
+      }}
+    >
+      {posts[0]?.data.button}
+    </Button>
+  </Box>
+</form>
+
       </div>
     </div>
   );

@@ -39,35 +39,38 @@ function Header() {
         flexDirection: "row",
         backgroundColor: "#fff",
         width: "100%",
-
+        fontFamily: "Poppins",
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
-        padding: "10px 20px",
+        padding: "20px 20px ",
         justifyContent: "space-between",
       }}
     >
       {/* Logo Section */}
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: "flex", justifyContent:'center'}}>
+         <Link
+          href="/home">
         <PrismicNextImage
           field={posts[0]?.data.volantisimage}
           alt=""
           style={{
             height: "60px", // Adjust height
-            // width: "150px",
+            width: "80%",
             objectFit: "contain", // Optional: Ensures the image maintains its aspect ratio
           }}
-        />
-    </div>
+        /></Link>
+        {/* <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} /> */}
+      </div>
 
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "20px", justifyItems: "center" }}>
         <Link
           href="/home"
           style={{
             textDecoration: "none",
             color: activeTab === "/home" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/home" ? "bold" : "500",
-            borderBottom: activeTab === "/home" ? "2px solid #1e88e5" : "none",
+            // borderBottom: activeTab === "/home" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab1}
@@ -82,23 +85,24 @@ function Header() {
           <span
             style={{
               display: "flex",
-              alignItems: "center",
+              // alignItems: "center",
+              justifyContent:'center',
               gap: "5px",
               textDecoration: "none",
               color: "#000",
-              fontSize: "14px",
+               fontSize: "16px",
               fontWeight: "500",
             }}
           >
             {posts[0]?.data.tab2}
-            <span style={{ fontSize: "12px" }}>▼</span>
+            {/* <span style={{ fontSize: "14px" }}>▼</span> */}
           </span>
           {isDropdownVisible && (
             <div
               style={{
                 position: "absolute",
                 top: "100%",
-                left: "0",
+                right: "-70px",
                 background: "#fff",
                 border: "1px solid #ddd",
                 borderRadius: "4px",
@@ -114,9 +118,7 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/aiservice") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/aiservice1")
-                    ? "bold"
-                    : "normal",
+                  fontWeight: isActive("/services/aiservice1") ? "bold" : "normal",
                   backgroundColor: isActive("/services/aiservice")
                     ? "#f1f1f1"
                     : "transparent",
@@ -131,9 +133,7 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/staffing") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/staffing")
-                    ? "bold"
-                    : "normal",
+                  fontWeight: isActive("/services/staffing") ? "bold" : "normal",
                   backgroundColor: isActive("/services/staffing")
                     ? "#f1f1f1"
                     : "transparent",
@@ -148,9 +148,7 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/devlopment") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/devlopment")
-                    ? "bold"
-                    : "normal",
+                  fontWeight: isActive("/services/devlopment") ? "bold" : "normal",
                   backgroundColor: isActive("/services/devlopment")
                     ? "#f1f1f1"
                     : "transparent",
@@ -165,9 +163,7 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/engineering") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/engineering")
-                    ? "bold"
-                    : "normal",
+                  fontWeight: isActive("/services/engineering") ? "bold" : "normal",
                   backgroundColor: isActive("/services/engineering")
                     ? "#f1f1f1"
                     : "transparent",
@@ -185,9 +181,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/about" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+             fontSize: "16px",
             fontWeight: activeTab === "/about" ? "bold" : "500",
-            borderBottom: activeTab === "/about" ? "2px solid #1e88e5" : "none",
+            // borderBottom: activeTab === "/about" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab3}
@@ -197,9 +193,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/blog" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+             fontSize: "16px",
             fontWeight: activeTab === "/blog" ? "bold" : "500",
-            borderBottom: activeTab === "/blog" ? "2px solid #1e88e5" : "none",
+            // borderBottom: activeTab === "/blog" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab4}
@@ -209,10 +205,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/career" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+             fontSize: "16px",
             fontWeight: activeTab === "/career" ? "bold" : "500",
-            borderBottom:
-              activeTab === "/career" ? "2px solid #1e88e5" : "none",
+            // borderBottom: activeTab === "/career" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab5}
@@ -222,10 +217,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/contact" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+             fontSize: "16px",
             fontWeight: activeTab === "/contact" ? "bold" : "500",
-            borderBottom:
-              activeTab === "/contact" ? "2px solid #1e88e5" : "none",
+            // borderBottom: activeTab === "/contact" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab6}
@@ -239,7 +233,7 @@ function Header() {
           color: "#fff",
           border: "none",
           padding: "8px 16px",
-          fontSize: "14px",
+           fontSize: "16px",
           fontWeight: "500",
           borderRadius: "4px",
           cursor: "pointer",

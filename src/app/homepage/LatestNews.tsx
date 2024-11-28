@@ -137,7 +137,7 @@ function LatestNews() {
                     style={{
                       display: "flex",
                       justifyContent: "space-between",
-                      alignItems: "center",
+                      // alignItems: "center",
                       marginTop: "auto",
                     }}
                   >
@@ -147,6 +147,7 @@ function LatestNews() {
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
+                        textAlign:'center'
                       }}
                     >
                       {card.date}

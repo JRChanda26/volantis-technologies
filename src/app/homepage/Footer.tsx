@@ -50,7 +50,7 @@ function Footer() {
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+      // alignItems: "center",
         padding: "10px",
       }}
     >
@@ -58,15 +58,18 @@ function Footer() {
         container
         spacing={2}
         style={{
+          display:'flex',
           justifyContent: "center",
-          alignItems: "stretch",
+          // alignItems: "stretch",
         }}
       >
         {/* Logo and Social Links */}
         <Grid item xs={12} sm={6} md={2}>
           <Box display="flex" flexDirection="column" height="100%">
             <Box mb={2}>
-              <PrismicNextImage field={posts[0]?.data.volantis} alt={""} />
+            <Link
+          href="/home">
+              <PrismicNextImage field={posts[0]?.data.volantis} alt={""} /></Link>
             </Box>
             <Box display="flex" gap={2}>
             <Link 
