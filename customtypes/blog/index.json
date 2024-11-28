@@ -129,6 +129,22 @@
           "placeholder": ""
         }
       },
+      "blogbgimg2": {
+        "type": "Image",
+        "config": {
+          "label": "BlogBgImg2",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogbgimg3": {
+        "type": "Image",
+        "config": {
+          "label": "BlogBgImg3",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -19,7 +19,7 @@ function LatestNews() {
   }, []);
 
   const description: React.CSSProperties = {
-    fontFamily: "Satoshi",
+     fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     textAlign: "left",
@@ -27,7 +27,7 @@ function LatestNews() {
   };
 
   const title: React.CSSProperties = {
-    fontFamily: "Satoshi",
+     fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     textAlign: "left",
@@ -47,7 +47,7 @@ function LatestNews() {
       >
         <Typography
           style={{
-            fontFamily: "Satoshi",
+             fontFamily: "Poppins",
             fontSize: "56px",
             fontWeight: 700,
           }}
@@ -57,7 +57,7 @@ function LatestNews() {
 
         <Typography
           style={{
-            fontFamily: "Helvetica",
+            fontFamily: "Poppins",
             fontSize: "16px",
             fontWeight: 400,
             color: "#6D6D6D",
@@ -143,7 +143,7 @@ function LatestNews() {
                   >
                     <Typography
                       style={{
-                        fontFamily: "Satoshi",
+                         fontFamily: "Poppins",
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
@@ -151,9 +151,10 @@ function LatestNews() {
                     >
                       {card.date}
                     </Typography>
+                    <Link href="/blog" >
                     <Button
                       style={{
-                        fontFamily: "Satoshi",
+                         fontFamily: "Poppins",
                         fontSize: "12px",
                         textTransform: "none",
                         fontWeight: 400,
@@ -164,7 +165,7 @@ function LatestNews() {
                       onClick={() => console.log(`Clicked button for: ${card.title}`)}
                     >
                       {card.button}
-                    </Button>
+                    </Button></Link>
                   </div>
                 </div>
               </Box>
@@ -184,7 +185,7 @@ function LatestNews() {
          <Link href="/blog" >
         <Button
           style={{
-            fontFamily: "Satoshi",
+             fontFamily: "Poppins",
             fontSize: "14px",
             textTransform: "none",
             fontWeight: 400,

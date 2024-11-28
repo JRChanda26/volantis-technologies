@@ -39,6 +39,7 @@ function Header() {
         flexDirection: "row",
         backgroundColor: "#fff",
         width: "100%",
+
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
         padding: "10px 20px",
@@ -47,8 +48,16 @@ function Header() {
     >
       {/* Logo Section */}
       <div style={{ display: "flex", alignItems: "center" }}>
-        <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} />
-      </div>
+        <PrismicNextImage
+          field={posts[0]?.data.volantisimage}
+          alt=""
+          style={{
+            height: "60px", // Adjust height
+            // width: "150px",
+            objectFit: "contain", // Optional: Ensures the image maintains its aspect ratio
+          }}
+        />
+    </div>
 
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
         <Link
@@ -105,7 +114,9 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/aiservice") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/aiservice1") ? "bold" : "normal",
+                  fontWeight: isActive("/services/aiservice1")
+                    ? "bold"
+                    : "normal",
                   backgroundColor: isActive("/services/aiservice")
                     ? "#f1f1f1"
                     : "transparent",
@@ -120,7 +131,9 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/staffing") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/staffing") ? "bold" : "normal",
+                  fontWeight: isActive("/services/staffing")
+                    ? "bold"
+                    : "normal",
                   backgroundColor: isActive("/services/staffing")
                     ? "#f1f1f1"
                     : "transparent",
@@ -135,7 +148,9 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/devlopment") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/devlopment") ? "bold" : "normal",
+                  fontWeight: isActive("/services/devlopment")
+                    ? "bold"
+                    : "normal",
                   backgroundColor: isActive("/services/devlopment")
                     ? "#f1f1f1"
                     : "transparent",
@@ -150,7 +165,9 @@ function Header() {
                   padding: "10px 15px",
                   textDecoration: "none",
                   color: isActive("/services/engineering") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/services/engineering") ? "bold" : "normal",
+                  fontWeight: isActive("/services/engineering")
+                    ? "bold"
+                    : "normal",
                   backgroundColor: isActive("/services/engineering")
                     ? "#f1f1f1"
                     : "transparent",
@@ -194,7 +211,8 @@ function Header() {
             color: activeTab === "/career" ? "#1e88e5" : "#000",
             fontSize: "14px",
             fontWeight: activeTab === "/career" ? "bold" : "500",
-            borderBottom: activeTab === "/career" ? "2px solid #1e88e5" : "none",
+            borderBottom:
+              activeTab === "/career" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab5}
@@ -206,7 +224,8 @@ function Header() {
             color: activeTab === "/contact" ? "#1e88e5" : "#000",
             fontSize: "14px",
             fontWeight: activeTab === "/contact" ? "bold" : "500",
-            borderBottom: activeTab === "/contact" ? "2px solid #1e88e5" : "none",
+            borderBottom:
+              activeTab === "/contact" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab6}

@@ -736,6 +736,28 @@ interface BlogDocumentData {
   blogdate3: prismic.KeyTextField;
 
   /**
+   * BlogBgImg2 field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.blogbgimg2
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  blogbgimg2: prismic.ImageField<never>;
+
+  /**
+   * BlogBgImg3 field in *Blog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog.blogbgimg3
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  blogbgimg3: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Blog*
    *
    * - **Field Type**: Slice Zone

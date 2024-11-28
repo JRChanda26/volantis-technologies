@@ -20,7 +20,7 @@ function AboutUs() {
   }, []);
 
   const title: React.CSSProperties = {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "Poppins",
     fontSize: isSmallScreen ? "14px" : "16px",
     fontWeight: 400,
     lineHeight: isSmallScreen ? "20px" : "24px",
@@ -31,7 +31,7 @@ function AboutUs() {
   };
 
   const description: React.CSSProperties = {
-    fontFamily: "Satoshi, sans-serif",
+    fontFamily: "Poppins",
     fontSize: isSmallScreen ? "32px" : "56px",
     fontWeight: 700,
     lineHeight: isSmallScreen ? "42px" : "78px",
@@ -56,7 +56,7 @@ function AboutUs() {
         <>
           <Typography
             style={{
-              fontFamily: "Satoshi, sans-serif",
+              fontFamily: "Poppins",
               fontSize: isSmallScreen ? "32px" : "56px",
               fontWeight: 700,
               color: "#000000",
@@ -67,19 +67,20 @@ function AboutUs() {
           </Typography>
           <Typography
             sx={{
-              fontFamily: "Satoshi, sans-serif",
+              fontFamily: "Poppins",
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
               textAlign: "justify",
               marginTop: "15px",
               color: "#6D6D6D",
-              padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
+            maxWidth:'58%'
+              // padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
             }}
           >
             {posts[0]?.data.description}
           </Typography>
-
+          
           <div style={{ position: "relative", width: "100%" }}>
             {/* Prismic Image */}
             <PrismicNextImage
