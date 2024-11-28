@@ -1,18 +1,21 @@
+
+
 "use client";
 
 import { useState, useEffect } from "react";
-import { client } from "../../../prismic-configuration";
+import { client } from "../../../../prismic-configuration";
 import { Button, Grid, Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
+import Header from "@/app/homepage/Header";
 
-function GenerativeAIServices() {
+function DesignServices() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await client.getAllByType("generativeaiservices" as any);
+      const response = await client.getAllByType("design_services" as any);
       setPosts(response);
     };
     fetchPosts();
@@ -31,7 +34,7 @@ function GenerativeAIServices() {
   };
 
   return (
-    <div
+    <><Header /><div
       style={{
         display: "flex",
         justifyContent: "center",
@@ -92,7 +95,7 @@ function GenerativeAIServices() {
           }}
         >
           <PrismicNextImage
-            field={posts[0]?.data.generativeaiservicesimg}
+            field={posts[0]?.data.design_services}
             alt={""}
             style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
           />
@@ -107,21 +110,21 @@ function GenerativeAIServices() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-           
+
             padding: "0 20px", // Adds spacing around text
           }}
         >
           <div>
             <Typography
               style={{
-               fontFamily: "Satoshi Variable",
+                fontFamily: "Satoshi Variable",
                 fontSize: "14px",
                 fontWeight: 400,
                 lineHeight: "15px",
                 textAlign: "left" as const,
-                
+
                 color: "#7A7A7A",
-                padding:'24px 10% 24px 0px'
+                padding: '24px 10% 24px 0px'
               }}
             >
               {posts[0]?.data.imagedesc}
@@ -156,7 +159,6 @@ function GenerativeAIServices() {
                 padding: "10px 50px",
                 display: "flex",
                 marginTop: "20px",
-              
               }}
             >
               {posts[0]?.data.button}
@@ -164,8 +166,8 @@ function GenerativeAIServices() {
           </div>
         </Grid>
       </Grid>
-    </div>
+    </div></>
   );
 }
 
-export default GenerativeAIServices;
+export default DesignServices;
