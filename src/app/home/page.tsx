@@ -82,7 +82,7 @@ function StaffSmarter() {
         >
           <Typography
             style={{
-              fontFamily: "Satoshi, sans-serif",
+              fontFamily: "Poppins",
               fontSize: "56px",
               fontWeight: 700,
               lineHeight: "80px",
@@ -95,7 +95,7 @@ function StaffSmarter() {
           </Typography>
           <Typography
             sx={{
-              fontFamily: "Satoshi, sans-serif",
+              fontFamily: "Poppins",
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
@@ -109,14 +109,14 @@ function StaffSmarter() {
           >
             {posts[0]?.data.description1}
           </Typography>
-          <Button
+          {/* <Button
             style={{
               background: "#1874DA",
               color: "#FFFFFF",
               borderRadius: "8px",
               padding: "9px 23px 9px 23px",
               textTransform: "none",
-              fontFamily: "Satoshi",
+              fontFamily: "Poppins",
               fontSize: "18px",
               fontWeight: 500,
               lineHeight: "32px",
@@ -125,7 +125,7 @@ function StaffSmarter() {
             }}
           >
             {posts[0]?.data.button_text1}
-          </Button>
+          </Button> */}
         </div>
         {/* {data.slide_text1} */}
       </div>

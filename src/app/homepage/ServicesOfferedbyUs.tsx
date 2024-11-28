@@ -18,7 +18,7 @@ function ServicesOfferedbyUs() {
   }, []);
 
   const descriptionStyle: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
@@ -27,7 +27,7 @@ function ServicesOfferedbyUs() {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     lineHeight: "24px",
@@ -48,8 +48,8 @@ function ServicesOfferedbyUs() {
       <Box textAlign="center" mb={5}>
         <Typography
           sx={{
-            fontFamily: "Satoshi",
-            fontSize: { xs: "32px", md: "56px" },
+            fontFamily: "Poppins",
+            fontSize:  "56px",
             fontWeight: 700,
             textAlign: "center",
             mb: 2,
@@ -59,12 +59,12 @@ function ServicesOfferedbyUs() {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "Helvetica",
+            fontFamily: "Poppins",
             fontSize: "16px",
             fontWeight: 400,
             textAlign: "center",
             color: "#6D6D6D",
-            padding: "18px 0px 50px 0px",
+            padding: "18px 0px 10px 0px",
           }}
         >
           {posts[0]?.data.description}
@@ -74,7 +74,7 @@ function ServicesOfferedbyUs() {
       {/* Responsive Grid */}
       <Grid container spacing={4} style={{display:'flex',justifyContent:'center'}}>
         {/* Map through the first 3 items */}
-        {[0, 1, 2].map((index) => {
+        {[0, 1, 2,3].map((index) => {
           const card = {
             image: posts[0]?.data[`card_image${index + 1}`],
             title: posts[0]?.data[`card_title${index + 1}`],
@@ -89,7 +89,7 @@ function ServicesOfferedbyUs() {
               key={index}
               xs={12}
               sm={6}
-              md={3.5}
+              md={3}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -141,7 +141,7 @@ function ServicesOfferedbyUs() {
         })}
 
         {/* Center the last 2 items */}
-        <Grid
+        {/* <Grid
           container
           item
           xs={12}
@@ -212,7 +212,7 @@ function ServicesOfferedbyUs() {
               </Grid>
             );
           })}
-        </Grid>
+        </Grid> */}
       </Grid>
     </Box>
   );

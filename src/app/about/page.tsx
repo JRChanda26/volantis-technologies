@@ -26,7 +26,7 @@ function About() {
     background: "none",
     borderRadius: "12px",
     padding: "8px",
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     lineHeight: "24px",
@@ -41,7 +41,7 @@ function About() {
   };
 
   const title: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     lineHeight: "24px",
@@ -52,7 +52,7 @@ function About() {
     padding: "10px 0px 10px 0px",
   };
   const desc: React.CSSProperties = {
-    fontFamily: "Satoshi, sans-serif", // Include a fallback font
+    fontFamily: "Poppins", // Include a fallback font
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
@@ -67,7 +67,7 @@ function About() {
       <Header />
       <div
         style={{
-          padding:'55px ',
+          paddingTop:'80px ',
           display: "flex",
           flexDirection: "column",
           // alignItems: "center",
@@ -79,7 +79,7 @@ function About() {
           <>
             <Typography
               style={{
-                fontFamily: "Satoshi, sans-serif",
+                fontFamily: "Poppins",
                 fontSize: isSmallScreen ? "32px" : "56px",
                 fontWeight: 700,
                 color: "#1874DA",
@@ -90,7 +90,7 @@ function About() {
             </Typography>
             <Typography
               sx={{
-                fontFamily: "Satoshi, sans-serif",
+                fontFamily: "Poppins",
                 fontSize: "16px",
                 fontWeight: 400,
                 lineHeight: "24px",
@@ -138,7 +138,7 @@ function About() {
                 <div>
                   <Typography
                     style={{
-                      fontFamily: "Satoshi",
+                      fontFamily: "Poppins",
                       fontSize: "40px",
                       fontWeight: 500,
                       lineHeight: "24px",
@@ -152,7 +152,7 @@ function About() {
                   </Typography>
                   <Typography
                     style={{
-                      fontFamily: "Satoshi Variable",
+                      fontFamily: "Poppins",
                       fontSize: "18px",
                       fontWeight: 400,
                       lineHeight: "27px",
@@ -221,7 +221,7 @@ function About() {
                 <div>
                   <Typography
                     style={{
-                      fontFamily: "Satoshi",
+                      fontFamily: "Poppins",
                       fontSize: "40px",
                       fontWeight: 500,
                       lineHeight: "24px",
@@ -235,7 +235,7 @@ function About() {
                   </Typography>
                   <Typography
                     style={{
-                      fontFamily: "Satoshi Variable",
+                      fontFamily: "Poppins",
                       fontSize: "18px",
                       fontWeight: 400,
                       lineHeight: "27px",
@@ -269,7 +269,7 @@ function About() {
               >
                 <Typography
                   style={{
-                    fontFamily: "Satoshi Variable, sans-serif",
+                    fontFamily: "Poppins",
                     fontSize: "56px",
                     fontWeight: 700,
                     lineHeight: "78px",
@@ -282,7 +282,7 @@ function About() {
                 </Typography>
                 <Typography
                   style={{
-                    fontFamily: "Satoshi, sans-serif",
+                    fontFamily: "Poppins",
                     fontSize: "16px",
                     fontWeight: 400,
                     lineHeight: "24px",
@@ -339,7 +339,7 @@ function About() {
             <div>
               <Typography
                 style={{
-                  fontFamily: "Satoshi, sans-serif",
+                  fontFamily: "Poppins",
                   fontSize: isSmallScreen ? "32px" : "56px",
                   fontWeight: 700,
                   color: "#1874DA",
@@ -436,7 +436,7 @@ function About() {
                   {" "}
                   <Typography
                     sx={{
-                      fontFamily: "Satoshi, sans-serif",
+                      fontFamily: "Poppins",
                       fontSize: "20px",
                       fontWeight: 400,
                       lineHeight: "30px",

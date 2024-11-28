@@ -23,7 +23,7 @@ function Career() {
     <>
       <Header />
       <div>
-        <div style={{ fontFamily: "Arial, sans-serif", lineHeight: 1.6 }}>
+        <div>
           {/* Image and Text Section */}
           <section
             style={{
@@ -31,23 +31,41 @@ function Career() {
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",
-              padding: "2rem",
-              marginBottom: "2rem",
+              padding: "70px",
+              // padding: "2rem",
+              // marginBottom: "2rem",
             }}
           >
             {/* Text Content */}
             <div style={{ flex: "1", paddingLeft: "13.5rem" }}>
               <h1
                 style={{
-                  marginBottom: "1rem",
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
-                  color: "#0056D2",
+                  // marginBottom: "1rem",
+                  fontFamily: "Poppins",
+                  fontSize: "56px",
+                  fontWeight: 700,
+                  color: "#1874DA",
+                  textAlign: "center",
+                  maxWidth: "80%",
                 }}
               >
                 {posts[0]?.data.heading1}
               </h1>
-              <p>{posts[0]?.data.description1}</p>
+              <p
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "20px",
+                  fontWeight: 400,
+                  lineHeight: "24px",
+                  textAlign: "justify",
+
+                  color: "#6D6D6D",
+                  padding: "20px ",
+                  maxWidth: "80%",
+                }}
+              >
+                {posts[0]?.data.description1}
+              </p>
             </div>
 
             <PrismicNextImage
@@ -78,10 +96,11 @@ function Career() {
             <div style={{ flex: "1", paddingRight: "2rem" }}>
               <h2
                 style={{
-                  marginBottom: "1rem",
-                  fontSize: "2.5rem",
-                  fontWeight: "bold",
-                  color: "#0056D2",
+                  // marginBottom: "1rem",
+                  fontFamily: "Poppins",
+                  fontSize: "56px",
+                  fontWeight: 700,
+                  color: "#1874DA",
                 }}
               >
                 {posts[0]?.data.heading2}
@@ -89,8 +108,11 @@ function Career() {
               <details style={{ margin: "1rem 0" }}>
                 <summary
                   style={{
+                    fontFamily: "Poppins",
+                    fontSize: "20px",
+                    fontWeight: 400,
+                    lineHeight: "24px",
                     cursor: "pointer",
-                    fontSize: "1.2rem",
                     color: "#1874DA",
                   }}
                 >
@@ -103,24 +125,24 @@ function Career() {
                   style={{
                     cursor: "pointer",
                     fontSize: "1.2rem",
-                    color: "#1874DA",
+                    color: "#1874DA",   fontFamily: "Poppins",
                   }}
                 >
                   {posts[0]?.data.oppertunity2}
                 </summary>
-                <p style={{ marginTop: "0.5rem" }}>{posts[0]?.data.role2}</p>
+                <p style={{ marginTop: "0.5rem",   fontFamily: "Poppins", }}>{posts[0]?.data.role2}</p>
               </details>
               <details style={{ margin: "1rem 0" }}>
                 <summary
                   style={{
                     cursor: "pointer",
                     fontSize: "1.2rem",
-                    color: "#1874DA",
+                    color: "#1874DA",   fontFamily: "Poppins",
                   }}
                 >
                   {posts[0]?.data.oppertunity3}
                 </summary>
-                <p style={{ marginTop: "0.5rem" }}>{posts[0]?.data.role3}</p>
+                <p style={{ marginTop: "0.5rem",   fontFamily: "Poppins", }}>{posts[0]?.data.role3}</p>
               </details>
             </div>
 
@@ -156,13 +178,14 @@ function Career() {
             <h2
               style={{
                 fontSize: "1.8rem",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",   fontFamily: "Poppins",
               }}
             >
               {posts[0]?.data.heading3}{" "}
             </h2>
             <button
               style={{
+                fontFamily: "Poppins",
                 marginTop: "1rem",
                 padding: "0.8rem 1.5rem",
                 backgroundColor: "#fff",
@@ -179,8 +202,8 @@ function Career() {
           </section>
         </div>
       </div>
-      <ContactUs/>
-      <Footer/>
+      <ContactUs />
+      <Footer />
     </>
   );
 }

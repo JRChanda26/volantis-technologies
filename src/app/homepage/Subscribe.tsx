@@ -41,7 +41,7 @@ function Subscribe() {
         <>
           <Typography
             style={{
-              fontFamily: "Satoshi, sans-serif",
+               fontFamily: "Poppins",
               fontSize: isSmallScreen ? "32px" : "56px",
               fontWeight: 700,
               color: "#000000",
@@ -52,7 +52,7 @@ function Subscribe() {
           </Typography>
           <Typography
             sx={{
-              fontFamily: "Satoshi, sans-serif",
+               fontFamily: "Poppins",
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import { Typography } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function GlobalPartnership() {
@@ -19,46 +19,45 @@ function GlobalPartnership() {
   }, []);
 
   const textStyle: React.CSSProperties = {
-    fontFamily: "Satoshi, sans-serif",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
-    lineHeight: "48px",
+    lineHeight: "24px",
     textAlign: "center",
     textUnderlinePosition: "from-font",
     textDecorationSkipInk: "none",
-    // padding: "0px 4px 0px 30px",
   };
 
   return (
-    <div
-      style={{
-        padding: "0px 50px 0px 78px",
+    <Box
+      sx={{
+        padding:'37px',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        gap: "16px",
+        gap: "32px",
       }}
     >
       <Typography
-        style={{
-          fontFamily: "Satoshi, sans-serif",
-          fontSize: "56px",
+        sx={{
+          fontFamily: "Poppins",
+          fontSize: { xs: "32px", sm: "48px", md: "56px" },
           fontWeight: 700,
-          lineHeight: "80px",
-          textAlign: "left",
-          textUnderlinePosition: "from-font",
-          textDecorationSkipInk: "none",
+          lineHeight: { xs: "40px", sm: "64px", md: "80px" },
+          textAlign: "center",
           color: "#000000",
+          paddingBottom:'10px'
         }}
       >
         {posts[0]?.data.title2}
       </Typography>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row", // Change to column for a vertical list
-          gap: "16px",
+
+      <Grid
+        container
+        spacing={{ xs: 4, sm: 6, md: 8 }}
+        sx={{
+          justifyContent: "space-evenly",
+          // alignItems: "stretch", // Ensures all items have the same height
         }}
       >
         {[
@@ -69,27 +68,42 @@ function GlobalPartnership() {
           { text: posts[0]?.data.slide_text5, image: posts[0]?.data.slide_icon5 },
           { text: posts[0]?.data.slide_text6, image: posts[0]?.data.slide_icon6 },
         ].map((item, index) => (
-          <div
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={2}
             key={index}
-            style={{
+            sx={{
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              gap: "8px",
+              // justifyContent: "space-between",
+              textAlign: "center",
             }}
           >
             {item.image && (
-              <PrismicNextImage
-                field={item.image}
-                style={{ width: "40px", height: "40px" }}
-                alt={item.image?.alt || ""}
-              />
+              <Box
+                component="div"
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
+                <PrismicNextImage
+                  field={item.image}
+                  style={{ width: "40px", height: "40px" }}
+                  alt={item.image?.alt || ""}
+                />
+              </Box>
             )}
             <Typography style={textStyle}>{item.text}</Typography>
-          </div>
+          </Grid>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   );
 }
 

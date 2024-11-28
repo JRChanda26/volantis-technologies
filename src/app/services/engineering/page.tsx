@@ -21,7 +21,7 @@ function EngineeringServices() {
   }, []);
 
   const textStyle: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
@@ -52,7 +52,7 @@ function EngineeringServices() {
       >
         <Typography
           style={{
-            fontFamily: "Satoshi",
+            fontFamily: "Poppins",
             fontSize: "56px",
             fontWeight: 700,
             color: "#1874DA",
@@ -63,7 +63,7 @@ function EngineeringServices() {
 
         <Typography
           style={{
-            fontFamily: "Helvetica",
+            fontFamily: "Poppins",
             fontSize: "16px",
             fontWeight: 400,
             color: "#6D6D6D",
@@ -116,7 +116,7 @@ function EngineeringServices() {
           <div>
             <Typography
               style={{
-                fontFamily: "Satoshi Variable",
+                fontFamily: "Poppins",
                 fontSize: "14px",
                 fontWeight: 400,
                 lineHeight: "15px",
@@ -130,7 +130,7 @@ function EngineeringServices() {
             </Typography>
             <Typography
               style={{
-                fontFamily: "Satoshi",
+                fontFamily: "Poppins",
                 fontSize: "16px",
                 fontWeight: 700,
                 lineHeight: "24px",
@@ -147,7 +147,7 @@ function EngineeringServices() {
 
             <Button
               style={{
-                fontFamily: "Satoshi",
+                fontFamily: "Poppins",
                 fontSize: "18px",
                 textTransform: "none",
                 fontWeight: 400,

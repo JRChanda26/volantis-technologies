@@ -31,7 +31,7 @@ function Testimonials() {
     >
       <Typography
         style={{
-          fontFamily: "Satoshi, sans-serif",
+           fontFamily: "Poppins",
           fontSize: "56px",
           fontWeight: 700,
           textAlign: "left",
@@ -42,7 +42,7 @@ function Testimonials() {
       </Typography>
       <Typography
         sx={{
-          fontFamily: "Satoshi",
+           fontFamily: "Poppins",
           fontSize: "16px",
           fontWeight: 400,
           textAlign: "justify",
@@ -92,7 +92,7 @@ function Testimonials() {
     />
     <Typography
       sx={{
-        fontFamily: "Satoshi",
+         fontFamily: "Poppins",
         fontSize: "16px",
         fontWeight: 400,
         lineHeight: "24px",
@@ -106,7 +106,7 @@ function Testimonials() {
     </Typography>
     <Typography
       sx={{
-        fontFamily: "Satoshi",
+         fontFamily: "Poppins",
         fontSize: "16px",
         fontWeight: 400,
         textAlign: "justify",
