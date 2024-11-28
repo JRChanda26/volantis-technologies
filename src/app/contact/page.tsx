@@ -29,6 +29,7 @@ function Contact() {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response = await client.getAllByType("contact" as any);
       setPosts(response);
     };
