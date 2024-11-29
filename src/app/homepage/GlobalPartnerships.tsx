@@ -6,12 +6,12 @@ import { Typography, Box, Grid } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function GlobalPartnership() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("home" as any);
       setPosts(response);
     };

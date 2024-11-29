@@ -5,14 +5,14 @@ import { Typography, useMediaQuery, useTheme, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function AboutUs() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("about_us" as any);
       setPosts(response);
     };

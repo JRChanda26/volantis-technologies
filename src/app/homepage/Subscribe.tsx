@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 function Subscribe() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>([]);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
@@ -21,14 +21,14 @@ function Subscribe() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("subscribe" as any);
       setPosts(response);
     };
     fetchPosts();
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const validateEmail = (email:any) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);

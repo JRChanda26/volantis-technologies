@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 
 function ContactUs() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>([]);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -33,7 +33,7 @@ function ContactUs() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("contact" as any);
       setPosts(response);
     };

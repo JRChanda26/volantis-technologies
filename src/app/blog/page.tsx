@@ -8,12 +8,12 @@ import { PrismicNextImage } from "@prismicio/next";
 import { Box, Grid, Typography } from "@mui/material";
  
 const OurBlogs: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>("");
  
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("blog" as any);
       setPosts(response);
     };

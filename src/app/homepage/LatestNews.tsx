@@ -6,13 +6,11 @@ import { Button, Typography, Grid, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 function LatestNews() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [posts, setPosts] = useState<any>("");
+    const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await client.getAllByType("latest_news" as any);
+       const response = await client.getAllByType("latest_news" as any);
       setPosts(response);
     };
     fetchPosts();
