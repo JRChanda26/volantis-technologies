@@ -22,7 +22,7 @@ function Testimonials() {
         padding: "0px 50px 20px 78px",
         display: "flex",
         flexDirection: "column",
-         
+         background: '#F6F6F6',
         justifyContent: "center",
         gap: "16px",
       }}

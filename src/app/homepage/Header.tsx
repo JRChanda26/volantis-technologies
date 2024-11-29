@@ -5,15 +5,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
+import Button from "@mui/material/Button";
+import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 
 function Header() {
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
   const pathname = usePathname(); // Get the current path
 
   // Check if the current path matches a given path
   const isActive = (path: string) => pathname === path;
 
   const [posts, setPosts] = useState<any>([]);
+  const [dropdownVisible, setDropdownVisible] = useState(false); // State to track the visibility of the dropdown
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -23,8 +25,12 @@ function Header() {
     fetchPosts();
   }, []);
 
-  // Default active tab is /home (tab 1)
+
+
   const activeTab = isActive("/home") ? "/home" : pathname;
+
+  // Toggle dropdown visibility when clicking on "tab2"
+  const toggleDropdown = () => setDropdownVisible((prev) => !prev);
 
   return (
     <div
@@ -41,24 +47,44 @@ function Header() {
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
         padding: "10px 20px",
-        justifyContent: "space-between",
-        height: "100px",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        height: "15%",
+        flexWrap: "wrap", // Added to handle responsiveness
       }}
     >
       {/* Logo Section */}
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
         <Link href="/home">
-          <PrismicNextImage field={posts[0]?.data.volantisimage} alt={""} />
+          <PrismicNextImage
+            field={posts[0]?.data.volantisimage}
+            alt={""}
+            style={{
+              width: '100%',
+              maxWidth: '200px',
+              height: 'auto',
+            }}
+          />
         </Link>
       </div>
 
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+      {/* Navigation Links */}
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          alignItems: "center",
+          flex: 2,
+          // justifyContent: "flex-end", // Ensures the menu is on the right
+          flexWrap: "wrap", // Added to wrap the navigation on small screens
+        }}
+      >
         <Link
           href="/home"
           style={{
             textDecoration: "none",
             color: activeTab === "/home" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/home" ? "bold" : "500",
             borderBottom: activeTab === "/home" ? "2px solid #1e88e5" : "none",
           }}
@@ -66,32 +92,31 @@ function Header() {
           {posts[0]?.data.tab1}
         </Link>
 
-        {/* Services Dropdown */}
-        <div
-          style={{ position: "relative", cursor: "pointer" }}
-          onMouseEnter={() => setDropdownVisible(true)}
-          onMouseLeave={() => setDropdownVisible(false)}
-        >
+        {/* Services Dropdown (Visible on click) */}
+        <div style={{ position: "relative", cursor: "pointer", fontFamily: "Poppins" }}>
           <span
+            onClick={toggleDropdown}
             style={{
-              display: "flex",
-              alignItems: "center",
               gap: "5px",
               textDecoration: "none",
               color: "#000",
-              fontSize: "14px",
+              fontSize: "16px",
               fontWeight: "500",
+              cursor: "pointer",
             }}
           >
             {posts[0]?.data.tab2}
-            <span style={{ fontSize: "12px" }}>▼</span>
+            <KeyboardArrowDownSharpIcon />
           </span>
-          {isDropdownVisible && (
+
+          {/* Dropdown Menu */}
+          {dropdownVisible && (
             <div
               style={{
                 position: "absolute",
                 top: "100%",
-                left: "0",
+                right: '-70px',
+                marginTop: '5px',
                 background: "#fff",
                 border: "1px solid #ddd",
                 borderRadius: "4px",
@@ -101,61 +126,53 @@ function Header() {
               }}
             >
               <Link
-                href="/service1"
+                href="/services/aiservice"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service1") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service1") ? "bold" : "normal",
-                  backgroundColor: isActive("/service1")
-                    ? "#f1f1f1"
-                    : "transparent",
+                  color: isActive("/services/aiservice") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/aiservice") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/aiservice") ? "#f1f1f1" : "transparent",
                 }}
               >
                 {posts[0]?.data.service1}
               </Link>
               <Link
-                href="/service2"
+                href="/services/staffing"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service2") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service2") ? "bold" : "normal",
-                  backgroundColor: isActive("/service2")
-                    ? "#f1f1f1"
-                    : "transparent",
+                  color: isActive("/services/staffing") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/staffing") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/staffing") ? "#f1f1f1" : "transparent",
                 }}
               >
                 {posts[0]?.data.service2}
               </Link>
               <Link
-                href="/service3"
+                href="/services/devlopment"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service3") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service3") ? "bold" : "normal",
-                  backgroundColor: isActive("/service3")
-                    ? "#f1f1f1"
-                    : "transparent",
+                  color: isActive("/services/devlopment") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/devlopment") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/devlopment") ? "#f1f1f1" : "transparent",
                 }}
               >
                 {posts[0]?.data.service3}
               </Link>
               <Link
-                href="/service4"
+                href="/services/engineering"
                 style={{
                   display: "block",
                   padding: "10px 15px",
                   textDecoration: "none",
-                  color: isActive("/service4") ? "#1e88e5" : "#000",
-                  fontWeight: isActive("/service4") ? "bold" : "normal",
-                  backgroundColor: isActive("/service4")
-                    ? "#f1f1f1"
-                    : "transparent",
+                  color: isActive("/services/engineering") ? "#1e88e5" : "#000",
+                  fontWeight: isActive("/services/engineering") ? "bold" : "normal",
+                  backgroundColor: isActive("/services/engineering") ? "#f1f1f1" : "transparent",
                 }}
               >
                 {posts[0]?.data.service4}
@@ -170,7 +187,7 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/about" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/about" ? "bold" : "500",
             borderBottom: activeTab === "/about" ? "2px solid #1e88e5" : "none",
           }}
@@ -182,7 +199,7 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/blog" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/blog" ? "bold" : "500",
             borderBottom: activeTab === "/blog" ? "2px solid #1e88e5" : "none",
           }}
@@ -194,10 +211,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/career" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/career" ? "bold" : "500",
-            borderBottom:
-              activeTab === "/career" ? "2px solid #1e88e5" : "none",
+            borderBottom: activeTab === "/career" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab5}
@@ -207,10 +223,9 @@ function Header() {
           style={{
             textDecoration: "none",
             color: activeTab === "/contact" ? "#1e88e5" : "#000",
-            fontSize: "14px",
+            fontSize: "16px",
             fontWeight: activeTab === "/contact" ? "bold" : "500",
-            borderBottom:
-              activeTab === "/contact" ? "2px solid #1e88e5" : "none",
+            borderBottom: activeTab === "/contact" ? "2px solid #1e88e5" : "none",
           }}
         >
           {posts[0]?.data.tab6}
@@ -218,16 +233,19 @@ function Header() {
       </div>
 
       {/* Employee Login Button */}
-      <button
+      <Button
         style={{
           backgroundColor: "#1e88e5",
           color: "#fff",
           border: "none",
-          padding: "8px 16px",
-          fontSize: "14px",
+          height: '60px',
+          width: '150px',
+          fontSize: "16px",
           fontWeight: "500",
           borderRadius: "4px",
           cursor: "pointer",
+          textTransform: 'none',
+          fontFamily: 'Poppins',
         }}
         onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor = "#1565c0")
@@ -237,7 +255,7 @@ function Header() {
         }
       >
         {posts[0]?.data.button}
-      </button>
+      </Button>
     </div>
   );
 }

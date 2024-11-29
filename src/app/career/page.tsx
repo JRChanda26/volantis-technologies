@@ -22,7 +22,7 @@ function Career() {
   return (
     <>
       <Header />
-      <div style={{paddingTop:'50px'}}>
+      <div style={{paddingTop:'60px',background: '#F6F6F6'}}>
         <div >
           {/* Image and Text Section */}
           <section
@@ -49,7 +49,7 @@ function Career() {
                   fontWeight: 700,
                   color: "#1874DA",
                   textAlign: "center",
-                  maxWidth: "80%",
+                  maxWidth: "70%",
                 }}
               >
                 {posts[0]?.data.heading1}

@@ -35,7 +35,7 @@ function GlobalPartnership() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "32px",
+        gap: "32px",background: '#F6F6F6'
       }}
     >
       <Typography
