@@ -8,13 +8,11 @@ import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
 
 function EngineeringServices() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await client.getAllByType("engineering_services" as any);
+       const response = await client.getAllByType("engineering_services" as any);
       setPosts(response);
     };
     fetchPosts();

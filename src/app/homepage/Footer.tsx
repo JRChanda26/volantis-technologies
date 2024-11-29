@@ -6,12 +6,12 @@ import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link"; // Import Link if you're using Next.js
 
 function Footer() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("footer" as any);
       setPosts(response);
     };
@@ -50,7 +50,7 @@ function Footer() {
       style={{
         display: "flex",
         justifyContent: "center",
-      // alignItems: "center",
+      alignItems: "center",
         padding: "10px",
       }}
     >
@@ -60,7 +60,7 @@ function Footer() {
         style={{
           display:'flex',
           justifyContent: "center",
-          // alignItems: "stretch",
+          alignItems: "stretch",
         }}
       >
         {/* Logo and Social Links */}

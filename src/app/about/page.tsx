@@ -9,14 +9,14 @@ import Subscribe from "../homepage/Subscribe";
 import Header from "../homepage/Header";
 
 function About() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("about_us" as any);
       setPosts(response);
     };

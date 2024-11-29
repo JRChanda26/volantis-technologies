@@ -7,12 +7,12 @@ import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
 
 function DesignServices() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("design_services" as any);
       setPosts(response);
     };

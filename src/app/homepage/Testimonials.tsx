@@ -6,13 +6,11 @@ import { Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function Testimonials() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [posts, setPosts] = useState<any>("");
+     const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await client.getAllByType("testimonials" as any);
+       const response = await client.getAllByType("testimonials" as any);
       setPosts(response);
     };
     fetchPosts();

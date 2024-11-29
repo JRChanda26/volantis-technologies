@@ -7,12 +7,12 @@ import Header from "../homepage/Header";
 import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
 function Career() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      
       const response = await client.getAllByType("carrier" as any);
       setPosts(response);
     };
