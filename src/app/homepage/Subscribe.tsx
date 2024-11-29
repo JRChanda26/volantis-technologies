@@ -49,10 +49,10 @@ function Subscribe() {
   return (
     <div
       style={{
-        padding: "30px 80px",
+        padding: "30px 40px 50px 40px",
         display: "flex",
         flexDirection: "column",
-       
+       background: '#F6F6F6',
         justifyContent: "center",
         gap: isSmallScreen ? "16px" : "24px",
       }}

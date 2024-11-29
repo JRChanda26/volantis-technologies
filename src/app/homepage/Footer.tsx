@@ -6,12 +6,10 @@ import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link"; // Import Link if you're using Next.js
 
 function Footer() {
-  
   const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("footer" as any);
       setPosts(response);
     };
@@ -50,15 +48,17 @@ function Footer() {
       style={{
         display: "flex",
         justifyContent: "center",
-      alignItems: "center",
-        padding: "10px",
+        alignItems: "center",
+        padding: "20px 10px 20px 10px",
+        background: '#F6F6F6'
+
       }}
     >
       <Grid
         container
         spacing={2}
         style={{
-          display:'flex',
+          display: "flex",
           justifyContent: "center",
           alignItems: "stretch",
         }}
@@ -67,18 +67,18 @@ function Footer() {
         <Grid item xs={12} sm={6} md={2}>
           <Box display="flex" flexDirection="column" height="100%">
             <Box mb={2}>
-            <Link
-          href="/home">
-              <PrismicNextImage field={posts[0]?.data.volantis} alt={""} /></Link>
+              <Link href="/home">
+                <PrismicNextImage field={posts[0]?.data.volantis} alt={""} />
+              </Link>
             </Box>
             <Box display="flex" gap={2}>
-            <Link 
-    href="https://in.linkedin.com/company/volantis-technologies-pvt-ltd"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <PrismicNextImage field={posts[0]?.data.linkedin} alt="" />
-  </Link>
+              <Link
+                href="https://in.linkedin.com/company/volantis-technologies-pvt-ltd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <PrismicNextImage field={posts[0]?.data.linkedin} alt="" />
+              </Link>
               {/* <PrismicNextImage field={posts[0]?.data.linkedin} alt={""} /> */}
               <PrismicNextImage field={posts[0]?.data.instagram} alt={""} />
               <PrismicNextImage field={posts[0]?.data.twitter} alt={""} />
@@ -107,7 +107,9 @@ function Footer() {
                 <Typography key={descKey} style={desc}>
                   {linkUrl ? (
                     <Link href={linkUrl} passHref>
-                      <span style={{ color: "#000", textDecoration: "underline" }}>
+                      <span
+                        style={{ color: "#000", textDecoration: "underline" }}
+                      >
                         {descText}
                       </span>
                     </Link>

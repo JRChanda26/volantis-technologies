@@ -9,14 +9,12 @@ import Subscribe from "../homepage/Subscribe";
 import Header from "../homepage/Header";
 
 function About() {
-  
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("about_us" as any);
       setPosts(response);
     };
@@ -37,7 +35,7 @@ function About() {
     border: "1px solid #FFFFFF",
     display: "flex", // Add flexbox
     justifyContent: "center", // Horizontal centering
-    // alignItems: "center", // Vertical centering
+    alignItems: "center", // Vertical centering
   };
 
   const title: React.CSSProperties = {
@@ -67,12 +65,12 @@ function About() {
       <Header />
       <div
         style={{
-          paddingTop: "90px ",
+          paddingTop: "120px ",
           display: "flex",
           flexDirection: "column",
-          // alignItems: "center",
+          alignItems: "center",
           justifyContent: "center",
-          gap: isSmallScreen ? "8px" : "10px",
+          gap: isSmallScreen ? "8px" : "10px",background: '#F6F6F6'
         }}
       >
         {posts.length > 0 && (
@@ -83,7 +81,7 @@ function About() {
                 textAlign: "center",
                 flexDirection: "column",
                 justifyContent: "center",
-                // alignItems: "center", // Make sure the content is centered horizontally
+                alignItems: "center", // Make sure the content is centered horizontally
               }}
             >
               <Typography
@@ -104,11 +102,12 @@ function About() {
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "30px",
-                  // textAlign: "center",
+
                   textAlign: "center",
                   marginTop: "15px",
                   color: "#6D6D6D",
-                  maxWidth: "60%", margin: "0 auto",
+                  maxWidth: "60%",
+                  margin: "0 auto",
                 }}
               >
                 {posts[0]?.data.description4}
@@ -121,7 +120,7 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "space-around",
-                padding: "10px 20px 10px 20px",
+                padding: "10px 20px 10px 20px",background: '#F6F6F6'
               }}
             >
               <Grid item xs={12} sm={12} md={12}>
@@ -142,9 +141,10 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                // alignItems: "center", // Ensures vertical centering
+                alignItems: "center", // Ensures vertical centering
                 padding: "60px 70px 60px 70px",
                 textAlign: "center", // This centers text inside the grid container
+                background: '#F6F6F6'
               }}
             >
               <Grid
@@ -156,7 +156,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  // alignItems: "center", // Center content horizontally within this grid item
+                  alignItems: "center", // Center content horizontally within this grid item
                 }}
               >
                 <Typography
@@ -196,7 +196,7 @@ function About() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  // alignItems: "center",
+                  alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -214,7 +214,7 @@ function About() {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  // alignItems: "center",
+                  alignItems: "center",
                 }}
               >
                 <PrismicNextImage
@@ -233,7 +233,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  // alignItems: "center", // Center content horizontally within this grid item
+                  alignItems: "center", // Center content horizontally within this grid item
                 }}
               >
                 <Typography
@@ -280,7 +280,7 @@ function About() {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  // alignItems: "center",
+                  alignItems: "center",
                   justifyContent: "center",
                 }}
               >
@@ -306,7 +306,8 @@ function About() {
                     textAlign: "center",
                     color: "#FFFFFF",
                     maxWidth: "60%",
-                    wordWrap: "break-word", margin: "0 auto",
+                    wordWrap: "break-word",
+                    margin: "0 auto",
                   }}
                 >
                   {posts[0]?.data.chhoseusdesc}
@@ -318,7 +319,7 @@ function About() {
                 spacing={0} // Reduced spacing between items
                 style={{
                   display: "flex",
-                  // alignItems: "center",
+                  alignItems: "center",
                   justifyContent: "center",
                   padding: "40px 0px 0px 10%", // Adjust this padding if needed
                 }}
@@ -334,7 +335,7 @@ function About() {
                       textAlign: "center",
                       display: "flex",
                       flexDirection: "column",
-                      // alignItems: "flex-start", // Align left for content within items
+                      alignItems: "flex-start", // Align left for content within items
                       justifyContent: "center",
                       marginBottom: "10px", // Reduce space at the bottom if needed
                     }}
@@ -371,7 +372,7 @@ function About() {
                 spacing={0} // Reduced spacing between Grid items
                 style={{
                   display: "flex",
-                  // alignItems: "center",
+                  alignItems: "center",
                   justifyContent: "center",
                   padding: "40px 0px 0px 0px",
                 }}
@@ -385,7 +386,7 @@ function About() {
                     display: "flex",
                     flexDirection: "column", // Stack items vertically
                     justifyContent: "center",
-                    // alignItems: "center",
+                    alignItems: "center",
                     height: "100%",
                   }}
                 >
@@ -440,7 +441,7 @@ function About() {
                   style={{
                     display: "flex",
                     justifyContent: "center",
-                    // alignItems: "center",
+                    alignItems: "center",
                     height: "100%",
                   }}
                 >
@@ -480,12 +481,12 @@ function About() {
                 </Grid>
               </Grid>
             </div>
-            <ContactUs />
-            <Subscribe />
-            <Footer />
           </>
         )}
       </div>
+      <ContactUs />
+      <Subscribe />
+      <Footer />
     </>
   );
 }

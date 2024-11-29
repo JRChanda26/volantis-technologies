@@ -35,7 +35,7 @@ function LatestNews() {
   return (
     <div
       style={{
-        padding: "40px 20px",
+        padding: "40px 20px",background: '#F6F6F6'
       }}
     >
       <div

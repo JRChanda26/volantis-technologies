@@ -50,6 +50,7 @@ function AboutUs() {
         // alignItems: "center",
         justifyContent: "center",
         // gap: isSmallScreen ? "8px" : "16px",
+        background: '#F6F6F6'
       }}
     >
       {posts.length > 0 && (

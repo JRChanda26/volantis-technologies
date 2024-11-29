@@ -125,7 +125,7 @@ fontFamily: "Poppins",
             flexDirection: "column",
             // alignItems: "center",
             justifyContent: "center",
-            gap: isSmallScreen ? "16px" : "24px",
+            gap: isSmallScreen ? "16px" : "24px",background: '#F6F6F6'
           }}
         >
           {posts.length > 0 && (

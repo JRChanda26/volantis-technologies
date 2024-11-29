@@ -40,7 +40,7 @@ function ServicesOfferedbyUs() {
   return (
     <Box
       sx={{
-        padding: { xs: "20px", sm: "30px 40px", md: "40px 50px 20px 78px" },
+        padding: { xs: "20px", sm: "30px 40px", md: "40px 50px 20px 78px" },background: '#F6F6F6'
       }}
     >
       {/* Section Header */}
