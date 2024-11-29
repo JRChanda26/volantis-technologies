@@ -145,6 +145,93 @@
           "thumbnails": []
         }
       },
+      "blogimg4": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg4",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogtitle4": {
+        "type": "Text",
+        "config": {
+          "label": "BlogTitle4",
+          "placeholder": ""
+        }
+      },
+      "blogdesc4": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDesc4",
+          "placeholder": ""
+        }
+      },
+      "blogdate4": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDate4",
+          "placeholder": ""
+        }
+      },
+      "blogimg5": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg5",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogimg6": {
+        "type": "Image",
+        "config": {
+          "label": "BlogImg6",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "blogtitle5": {
+        "type": "Text",
+        "config": {
+          "label": "BlogTitle5",
+          "placeholder": ""
+        }
+      },
+      "blogtitle6": {
+        "type": "Text",
+        "config": {
+          "label": "BlogTitle6",
+          "placeholder": ""
+        }
+      },
+      "blogdesc5": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDesc5",
+          "placeholder": ""
+        }
+      },
+      "blogdesc6": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDesc6",
+          "placeholder": ""
+        }
+      },
+      "blogdate5": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDate5",
+          "placeholder": ""
+        }
+      },
+      "blogdate6": {
+        "type": "Text",
+        "config": {
+          "label": "BlogDate6",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
