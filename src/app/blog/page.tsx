@@ -6,42 +6,39 @@ import Footer from "../homepage/Footer";
 import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 import { Box, Grid, Typography } from "@mui/material";
- 
+
 const OurBlogs: React.FC = () => {
-  
-  const [posts, setPosts] = useState<any>("");
- 
+  const [posts, setPosts] = useState<any>([]); // Initialize posts state as an empty array
+
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("blog" as any);
       setPosts(response);
+      // setTotalPosts(response.length); // Set total number of posts
     };
     fetchPosts();
   }, []);
-  // Pagination state
-  // const [, setCurrentPage] = useState(1);
-  // Change page
+
   const description: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     textAlign: "left",
     color: "#7A7A7A",
   };
- 
+
   const title: React.CSSProperties = {
-    fontFamily: "Satoshi",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     textAlign: "left",
     color: "#000000",
   };
- 
+
   return (
     <>
       <Header />
-      <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <div style={{ padding: "20px", fontFamily: "Poppins" }}>
         {/* Blogs Content Section */}
         <div style={{ display: "flex", gap: "20px" }}>
           {/* Main Blog Section with Overlay Text */}
@@ -78,7 +75,7 @@ const OurBlogs: React.FC = () => {
               </p>
             </div>
           </div>
- 
+
           {/* Side Blogs Section */}
           <div
             style={{
@@ -100,7 +97,7 @@ const OurBlogs: React.FC = () => {
                 }}
               />
             </div>
- 
+
             <div style={{ flex: 1 }}>
               <PrismicNextImage
                 field={posts[0]?.data.blogbgimg3}
@@ -115,7 +112,7 @@ const OurBlogs: React.FC = () => {
             </div>
           </div>
         </div>
- 
+
         {/* New Section for Blog Cards */}
         <div style={{ marginTop: "40px" }}>
           {/* Title */}
@@ -134,7 +131,7 @@ const OurBlogs: React.FC = () => {
           >
             {posts[0]?.data.description2}
           </p>
- 
+
           {/* Blog Cards */}
           <Grid
             container
@@ -162,7 +159,7 @@ const OurBlogs: React.FC = () => {
                   flexDirection: "column",
                   textAlign: "center",
                   minWidth: "100%",
-                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
                   borderRadius: "4px",
                   position: "relative",
                   height: "auto",
@@ -179,7 +176,7 @@ const OurBlogs: React.FC = () => {
                     borderRadius: "4px 4px 0 0",
                   }}
                 />
- 
+
                 {/* Card Content */}
                 <div
                   style={{
@@ -196,7 +193,7 @@ const OurBlogs: React.FC = () => {
                   <Typography style={description}>
                     {posts[0]?.data.blogdesc1}
                   </Typography>
- 
+
                   {/* Footer */}
                   <div
                     style={{
@@ -208,7 +205,7 @@ const OurBlogs: React.FC = () => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "Satoshi",
+                        fontFamily: "Poppins",
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
@@ -237,7 +234,7 @@ const OurBlogs: React.FC = () => {
                   flexDirection: "column",
                   textAlign: "center",
                   minWidth: "100%",
-                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
                   borderRadius: "4px",
                   position: "relative",
                   height: "auto",
@@ -254,7 +251,7 @@ const OurBlogs: React.FC = () => {
                     borderRadius: "4px 4px 0 0",
                   }}
                 />
- 
+
                 {/* Card Content */}
                 <div
                   style={{
@@ -271,7 +268,7 @@ const OurBlogs: React.FC = () => {
                   <Typography style={description}>
                     {posts[0]?.data.blogdesc2}
                   </Typography>
- 
+
                   {/* Footer */}
                   <div
                     style={{
@@ -283,7 +280,7 @@ const OurBlogs: React.FC = () => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "Satoshi",
+                        fontFamily: "Poppins",
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
@@ -312,7 +309,7 @@ const OurBlogs: React.FC = () => {
                   flexDirection: "column",
                   textAlign: "center",
                   minWidth: "100%",
-                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
                   borderRadius: "4px",
                   position: "relative",
                   height: "auto",
@@ -329,7 +326,7 @@ const OurBlogs: React.FC = () => {
                     borderRadius: "4px 4px 0 0",
                   }}
                 />
- 
+
                 {/* Card Content */}
                 <div
                   style={{
@@ -346,7 +343,7 @@ const OurBlogs: React.FC = () => {
                   <Typography style={description}>
                     {posts[0]?.data.blogdesc3}
                   </Typography>
- 
+
                   {/* Footer */}
                   <div
                     style={{
@@ -358,7 +355,7 @@ const OurBlogs: React.FC = () => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "Satoshi",
+                        fontFamily: "Poppins",
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
@@ -369,9 +366,231 @@ const OurBlogs: React.FC = () => {
                   </div>
                 </div>
               </Box>
+            </Grid>{" "}
+            <Grid
+              item
+              // key={index}
+              xs={12}
+              sm={6}
+              md={3.5}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "center",
+                  minWidth: "100%",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
+                  borderRadius: "4px",
+                  position: "relative",
+                  height: "auto",
+                  padding: "0px 0px 10px 0px",
+                }}
+              >
+                {/* Card Image */}
+                <PrismicNextImage
+                  field={posts[0]?.data.blogimg4}
+                  alt={""}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "4px 4px 0 0",
+                  }}
+                />
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    height: "100%",
+                  }}
+                >
+                  <Typography style={title}>
+                    {posts[0]?.data.blogtitle4}
+                  </Typography>
+                  <Typography style={description}>
+                    {posts[0]?.data.blogdesc4}
+                  </Typography>
+
+                  {/* Footer */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      // alignItems: "center",
+                      marginTop: "auto",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#1874DA",
+                      }}
+                    >
+                      {posts[0]?.data.blogdate4}
+                    </Typography>
+                  </div>
+                </div>
+              </Box>
+            </Grid><Grid
+              item
+              // key={index}
+              xs={12}
+              sm={6}
+              md={3.5}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "center",
+                  minWidth: "100%",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
+                  borderRadius: "4px",
+                  position: "relative",
+                  height: "auto",
+                  padding: "0px 0px 10px 0px",
+                }}
+              >
+                {/* Card Image */}
+                <PrismicNextImage
+                  field={posts[0]?.data.blogimg5}
+                  alt={""}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "4px 4px 0 0",
+                  }}
+                />
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    height: "100%",
+                  }}
+                >
+                  <Typography style={title}>
+                    {posts[0]?.data.blogtitle5}
+                  </Typography>
+                  <Typography style={description}>
+                    {posts[0]?.data.blogdesc5}
+                  </Typography>
+
+                  {/* Footer */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      // alignItems: "center",
+                      marginTop: "auto",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#1874DA",
+                      }}
+                    >
+                      {posts[0]?.data.blogdate5}
+                    </Typography>
+                  </div>
+                </div>
+              </Box>
+            </Grid><Grid
+              item
+              // key={index}
+              xs={12}
+              sm={6}
+              md={3.5}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  textAlign: "center",
+                  minWidth: "100%",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
+                  borderRadius: "4px",
+                  position: "relative",
+                  height: "auto",
+                  padding: "0px 0px 10px 0px",
+                }}
+              >
+                {/* Card Image */}
+                <PrismicNextImage
+                  field={posts[0]?.data.blogimg6}
+                  alt={""}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    borderRadius: "4px 4px 0 0",
+                  }}
+                />
+
+                {/* Card Content */}
+                <div
+                  style={{
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    height: "100%",
+                  }}
+                >
+                  <Typography style={title}>
+                    {posts[0]?.data.blogtitle6}
+                  </Typography>
+                  <Typography style={description}>
+                    {posts[0]?.data.blogdesc6}
+                  </Typography>
+
+                  {/* Footer */}
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      // alignItems: "center",
+                      marginTop: "auto",
+                    }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "Poppins",
+                        fontSize: "14px",
+                        fontWeight: 400,
+                        color: "#1874DA",
+                      }}
+                    >
+                      {posts[0]?.data.blogdate6}
+                    </Typography>
+                  </div>
+                </div>
+              </Box>
             </Grid>
           </Grid>
- 
         </div>
       </div>
       <Subscribe />
@@ -379,7 +598,5 @@ const OurBlogs: React.FC = () => {
     </>
   );
 };
- 
+
 export default OurBlogs;
- 
- 

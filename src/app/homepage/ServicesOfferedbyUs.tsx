@@ -92,6 +92,7 @@ function ServicesOfferedbyUs() {
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                
               }}
             >
               <Box
@@ -100,11 +101,11 @@ function ServicesOfferedbyUs() {
                   flexDirection: "column",
                   textAlign: "center",
                   minWidth: "100%",
-                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  boxShadow: "0px 10px 12px 0px #0000001A",
                   borderRadius: "4px",
                   position: "relative",
                   height: "auto",
-                  padding: "0px 0px 10px 0px",
+                  padding: "0px 0px 5px 0px",
                 }}
               >
                 {card.image && (
