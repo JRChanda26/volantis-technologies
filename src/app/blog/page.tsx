@@ -39,9 +39,7 @@ const OurBlogs: React.FC = () => {
     <>
       <Header />
       <div style={{ padding: "20px", fontFamily: "Poppins" }}>
-        {/* Blogs Content Section */}
         <div style={{ display: "flex", gap: "20px" }}>
-          {/* Main Blog Section with Overlay Text */}
           <div style={{ flex: 2, position: "relative" }}>
             <PrismicNextImage
               field={posts[0]?.data.blogbgimg}
@@ -57,8 +55,8 @@ const OurBlogs: React.FC = () => {
             <div
               style={{
                 position: "absolute",
-                top: "50%",
-                left: "50%",
+                top: "30%",
+                left: "25%",
                 transform: "translate(-50%, -50%)",
                 color: "white",
                 textAlign: "center",
@@ -134,463 +132,105 @@ const OurBlogs: React.FC = () => {
 
           {/* Blog Cards */}
           <Grid
-            container
-            spacing={4}
+  container
+  spacing={4}
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    padding: "15px",
+  }}
+>
+  {[0, 1, 2, 3, 4, 5].map((index) => {
+    const card = {
+      image: posts[0]?.data[`blogimg${index + 1}`],
+      title: posts[0]?.data[`blogtitle${index + 1}`],
+      description: posts[0]?.data[`blogdesc${index + 1}`],
+      date: posts[0]?.data[`blogdate${index + 1}`],
+      alt: posts[0]?.data[`blogimg${index + 1}_alt`] || "",
+    };
+
+    return (
+      <Grid
+        item
+        key={index}
+        xs={12}
+        sm={6}
+        md={3.5}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            textAlign: "center",
+            minWidth: "100%",
+            boxShadow: "0px 10px 12px 0px #0000001A",
+            borderRadius: "4px",
+            position: "relative",
+            height: "auto",
+            padding: "0px 0px 10px 0px",
+            transition: "transform 0.3s ease-in-out", 
+                  "&:hover": {
+                    transform: "scale(1.05)", 
+                  },
+                  cursor:'pointer'
+          }}
+        >
+          {/* Card Image */}
+          {card.image && (
+            <PrismicNextImage
+              field={card.image}
+              alt={card.alt}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "4px 4px 0 0",
+              }}
+            />
+          )}
+
+          {/* Card Content */}
+          <div
             style={{
+              padding: "20px",
               display: "flex",
-              justifyContent: "center",
-              padding: "15px",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              height: "100%",
             }}
           >
-            <Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
+            <Typography style={title}>{card.title}</Typography>
+            <Typography style={description}>{card.description}</Typography>
+
+            {/* Footer */}
+            <div
+              style={{
                 display: "flex",
-                justifyContent: "center",
+                justifyContent: "space-between",
+                marginTop: "auto",
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
+              <Typography
+                style={{
+                  fontFamily: "Poppins",
+                  fontSize: "14px",
+                  fontWeight: 400,
+                  color: "#1874DA",
                 }}
               >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg1}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
+                {card.date}
+              </Typography>
+            </div>
+          </div>
+        </Box>
+      </Grid>
+    );
+  })}
+</Grid>
 
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle1}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc1}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate1}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
-                }}
-              >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg2}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle2}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc2}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate2}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
-                }}
-              >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg3}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle3}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc3}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate3}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid>{" "}
-            <Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
-                }}
-              >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg4}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle4}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc4}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate4}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid><Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
-                }}
-              >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg5}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle5}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc5}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate5}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid><Grid
-              item
-              // key={index}
-              xs={12}
-              sm={6}
-              md={3.5}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 10px 0px",
-                }}
-              >
-                {/* Card Image */}
-                <PrismicNextImage
-                  field={posts[0]?.data.blogimg6}
-                  alt={""}
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    borderRadius: "4px 4px 0 0",
-                  }}
-                />
-
-                {/* Card Content */}
-                <div
-                  style={{
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    height: "100%",
-                  }}
-                >
-                  <Typography style={title}>
-                    {posts[0]?.data.blogtitle6}
-                  </Typography>
-                  <Typography style={description}>
-                    {posts[0]?.data.blogdesc6}
-                  </Typography>
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      // alignItems: "center",
-                      marginTop: "auto",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontFamily: "Poppins",
-                        fontSize: "14px",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                      }}
-                    >
-                      {posts[0]?.data.blogdate6}
-                    </Typography>
-                  </div>
-                </div>
-              </Box>
-            </Grid>
-          </Grid>
         </div>
       </div>
       <Subscribe />

@@ -49,8 +49,8 @@ function Header() {
         padding: "10px 20px",
         justifyContent: "space-evenly",
         alignItems: "center",
-        height: "15%",
-        flexWrap: "wrap", // Added to handle responsiveness
+        minHeight: "15%",
+        flexWrap: "wrap", 
       }}
     >
       {/* Logo Section */}
@@ -76,7 +76,7 @@ function Header() {
           alignItems: "center",
           flex: 2,
           // justifyContent: "flex-end", // Ensures the menu is on the right
-          flexWrap: "wrap", // Added to wrap the navigation on small screens
+          flexWrap: "wrap",
         }}
       >
         <Link
