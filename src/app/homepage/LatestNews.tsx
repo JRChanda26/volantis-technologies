@@ -6,18 +6,18 @@ import { Button, Typography, Grid, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 function LatestNews() {
-    const [posts, setPosts] = useState<any>("");
+  const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-       const response = await client.getAllByType("latest_news" as any);
+      const response = await client.getAllByType("latest_news" as any);
       setPosts(response);
     };
     fetchPosts();
   }, []);
 
   const description: React.CSSProperties = {
-     fontFamily: "Poppins",
+    fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     textAlign: "left",
@@ -25,17 +25,18 @@ function LatestNews() {
   };
 
   const title: React.CSSProperties = {
-     fontFamily: "Poppins",
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 700,
     textAlign: "left",
     color: "#000000",
   };
- 
+
   return (
     <div
       style={{
-        padding: "40px 20px",background: '#F6F6F6'
+        padding: "40px 20px",
+        background: "#F6F6F6",
       }}
     >
       <div
@@ -45,7 +46,7 @@ function LatestNews() {
       >
         <Typography
           style={{
-             fontFamily: "Poppins",
+            fontFamily: "Poppins",
             fontSize: "56px",
             fontWeight: 700,
           }}
@@ -67,8 +68,11 @@ function LatestNews() {
       </div>
 
       {/* Responsive Grid for Cards */}
-      <Grid container spacing={4} style={{display:'flex',justifyContent:'center'}}>
-
+      <Grid
+        container
+        spacing={4}
+        style={{ display: "flex", justifyContent: "center" }}
+      >
         {[0, 1, 2].map((index) => {
           const card = {
             image: posts[0]?.data[`news_image${index + 1}`],
@@ -81,16 +85,16 @@ function LatestNews() {
 
           return (
             <Grid
-            item
-            key={index}
-            xs={12}
-            sm={6}
-            md={3.5}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+              item
+              key={index}
+              xs={12}
+              sm={6}
+              md={3.5}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Box
                 sx={{
                   display: "flex",
@@ -102,6 +106,11 @@ function LatestNews() {
                   position: "relative",
                   height: "auto",
                   padding: "0px 0px 10px 0px",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                  cursor: "pointer",
                 }}
               >
                 {/* Card Image */}
@@ -128,7 +137,9 @@ function LatestNews() {
                   }}
                 >
                   <Typography style={title}>{card.title}</Typography>
-                  <Typography style={description}>{card.description}</Typography>
+                  <Typography style={description}>
+                    {card.description}
+                  </Typography>
 
                   {/* Footer */}
                   <div
@@ -141,30 +152,33 @@ function LatestNews() {
                   >
                     <Typography
                       style={{
-                         fontFamily: "Poppins",
+                        fontFamily: "Poppins",
                         fontSize: "14px",
                         fontWeight: 400,
                         color: "#1874DA",
-                        textAlign:'center'
+                        textAlign: "center",
                       }}
                     >
                       {card.date}
                     </Typography>
-                    <Link href="/blog" >
-                    <Button
-                      style={{
-                         fontFamily: "Poppins",
-                        fontSize: "12px",
-                        textTransform: "none",
-                        fontWeight: 400,
-                        color: "#1874DA",
-                        background: "#BDE9FF",
-                        borderRadius: "14px",
-                      }}
-                      onClick={() => console.log(`Clicked button for: ${card.title}`)}
-                    >
-                      {card.button}
-                    </Button></Link>
+                    <Link href="/blog">
+                      <Button
+                        style={{
+                          fontFamily: "Poppins",
+                          fontSize: "12px",
+                          textTransform: "none",
+                          fontWeight: 400,
+                          color: "#1874DA",
+                          background: "#BDE9FF",
+                          borderRadius: "14px",
+                        }}
+                        onClick={() =>
+                          console.log(`Clicked button for: ${card.title}`)
+                        }
+                      >
+                        {card.button}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </Box>
@@ -181,24 +195,24 @@ function LatestNews() {
           marginTop: "40px",
         }}
       >
-         <Link href="/blog" >
-        <Button
-          style={{
-             fontFamily: "Poppins",
-            fontSize: "14px",
-            textTransform: "none",
-            fontWeight: 400,
-            color: "#1874DA",
-            border: "1px solid #1874DA",
-            borderRadius: "14px",
-            padding: "10px 50px",
-          }}
-        >
-          {posts[0]?.data.button2}
-          {posts[0]?.data.arrowicon && (
-            <PrismicNextImage field={posts[0]?.data.arrowicon} alt="" />
-          )}
-        </Button>
+        <Link href="/blog">
+          <Button
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "14px",
+              textTransform: "none",
+              fontWeight: 400,
+              color: "#1874DA",
+              border: "1px solid #1874DA",
+              borderRadius: "14px",
+              padding: "10px 50px",
+            }}
+          >
+            {posts[0]?.data.button2}
+            {posts[0]?.data.arrowicon && (
+              <PrismicNextImage field={posts[0]?.data.arrowicon} alt="" />
+            )}
+          </Button>
         </Link>
       </div>
     </div>

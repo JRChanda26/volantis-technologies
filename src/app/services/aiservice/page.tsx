@@ -21,13 +21,21 @@ import Header from "@/app/homepage/Header";
 
 function GenerativeAIServices() {
   const [posts, setPosts] = useState<any>("");
-  const [showForm, setShowForm] = useState(false); // State to manage form visibility
+  const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
     phone: "",
-    selectedServices: [] as string[], // For storing multiple selected services
+    selectedServices: [] as string[],
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+    phone: "",
+    services: "",
   });
 
   useEffect(() => {
@@ -39,18 +47,71 @@ function GenerativeAIServices() {
   }, []);
 
   const handleKnowMoreClick = () => {
-    setShowForm(true); // Show the form modal when the button is clicked
+    setShowForm(true);
   };
 
   const handleClose = () => {
-    setShowForm(false); // Close the modal
+    setShowForm(false);
+  };
+
+  const validateForm = () => {
+    const errors = {
+      name: "",
+      email: "",
+      message: "",
+      phone: "",
+      services: "",
+    };
+    let isValid = true;
+
+    if (!formData.name.trim()) {
+      errors.name = "Name is required";
+      isValid = false;
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      errors.name = "Name should only contain alphabetic characters";
+      isValid = false;
+    }
+
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Email is not valid";
+      isValid = false;
+    }
+
+    if (!formData.message.trim()) {
+      errors.message = "Message is required";
+      isValid = false;
+    } else if (formData.message.length < 10) {
+      errors.message = "Message should be at least 10 characters long";
+      isValid = false;
+    }
+
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone number is required";
+      isValid = false;
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits";
+      isValid = false;
+    }
+
+    if (formData.selectedServices.length === 0) {
+      errors.services = "Please select at least one service";
+      isValid = false;
+    }
+
+    setFormErrors(errors);
+    return isValid;
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here (e.g., send data to API)
-    // alert("Form submitted!");
-    handleClose(); // Close the modal after submission
+    if (validateForm()) {
+      // Handle form submission logic here (e.g., send data to API)
+      // alert("Form submitted!");
+      handleClose();
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -154,7 +215,7 @@ function GenerativeAIServices() {
             <PrismicNextImage
               field={posts[0]?.data.generativeaiservicesimg}
               alt={""}
-              style={{ maxWidth: "80%", height: "auto" }} // Make the image responsive
+              style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
             />
           </Grid>
 
@@ -174,12 +235,12 @@ function GenerativeAIServices() {
               <Typography
                 style={{
                   fontFamily: "Poppins",
-                  fontSize: "14px",
+                  fontSize: "16px",
                   fontWeight: 400,
-                  lineHeight: "15px",
+                  lineHeight: "25px",
                   textAlign: "left" as const,
                   color: "#7A7A7A",
-                  maxWidth: "50%",
+                  maxWidth: "70%",
                   padding: "24px 0 24px 0px",
                 }}
               >
@@ -217,132 +278,230 @@ function GenerativeAIServices() {
                   display: "flex",
                   marginTop: "20px",
                 }}
-                onClick={handleKnowMoreClick} // Show form modal on click
+                onClick={handleKnowMoreClick}
               >
                 {posts[0]?.data.button}
               </Button>
 
               {/* Modal Form (Dialog) */}
-              <Dialog open={showForm} onClose={handleClose}>
-                <DialogTitle>Fill out the form to know more</DialogTitle>
-                <DialogContent>
-                  <form
-                    onSubmit={handleFormSubmit}
+              <div style={{ position: "relative" }}>
+                <Dialog
+                  open={showForm}
+                  onClose={handleClose}
+                  style={{
+                    // background: "none",
+                    minHeight: "70%",
+                    width: "50%",
+                    position: "absolute",
+                    // top: "50%",
+                    left: "25%",
+                    // transform: "translate(-50%, -50%)", // Center the Dialog
+                  }}
+                >
+                  <DialogTitle
                     style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
+                      color: "white",
+                      background: "#1874DA",
+                      fontFamily: "Poppins",
                     }}
                   >
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={6}>
-                        {/* Left Side Fields */}
-                        <TextField
-                          label="Name"
-                          variant="outlined"
-                          fullWidth
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          style={{ marginBottom: "10px" }}
-                        />
-                        <TextField
-                          label="Email"
-                          variant="outlined"
-                          fullWidth
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          style={{ marginBottom: "10px" }}
-                        />
-                        <TextField
-                          label="Message"
-                          variant="outlined"
-                          fullWidth
-                          name="message"
-                          value={formData.message}
-                          onChange={handleInputChange}
-                          multiline
-                          rows={4}
-                          style={{ marginBottom: "20px" }}
-                        />
-                      </Grid>
-
-                      <Grid item xs={12} sm={6}>
-                        {/* Right Side Fields */}
-                        <TextField
-                          label="Phone Number"
-                          variant="outlined"
-                          fullWidth
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          style={{ marginBottom: "10px" }}
-                        />
-                        <FormControl fullWidth style={{ marginBottom: "20px" }}>
-                          <Typography variant="body1" style={{ marginBottom: "10px" }}>
-                            Select Services
-                          </Typography>
-                          <FormGroup>
-                            <FormControlLabel
-                              control={
-                                <Checkbox
-                                  value="service1"
-                                  checked={formData.selectedServices.includes("service1")}
-                                  onChange={handleCheckboxChange}
-                                />
-                              }
-                              label="Generative AI Services "
-                            />
-                            <FormControlLabel
-                              control={
-                                <Checkbox
-                                  value="service2"
-                                  checked={formData.selectedServices.includes("service2")}
-                                  onChange={handleCheckboxChange}
-                                />
-                              }
-                              label="Generative AI Services"
-                            />
-                            <FormControlLabel
-                              control={
-                                <Checkbox
-                                  value="service3"
-                                  checked={formData.selectedServices.includes("service3")}
-                                  onChange={handleCheckboxChange}
-                                />
-                              }
-                              label="Development Services"
-                            /> <FormControlLabel
-                              control={
-                                <Checkbox
-                                  value="service4"
-                                  checked={formData.selectedServices.includes("service4")}
-                                  onChange={handleCheckboxChange}
-                                />
-                              }
-                              label="Engineering & Design Services"
-                            />
-                          </FormGroup>
-                        </FormControl>
-                      </Grid>
-                    </Grid>
-                  </form>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-                    Cancel
-                  </Button>
-                  <Button
-                    type="submit"
-                    onClick={handleFormSubmit}
-                    color="primary"
-                    variant="contained"
+                    Fill out the form to know more
+                  </DialogTitle>
+                  <DialogContent
+                    style={{
+                      background: "#1874DA",
+                    }}
                   >
-                    Submit
-                  </Button>
-                </DialogActions>
-              </Dialog>
+                    <form
+                      onSubmit={handleFormSubmit}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Grid container spacing={3}>
+                        <Grid item xs={12} sm={6}>
+                          {/* Left Side Fields */}
+                          <TextField
+                            label="Name"
+                            variant="outlined"
+                            fullWidth
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            style={{
+                              marginBottom: "10px",
+                              backgroundColor: "white",
+                              fontFamily: "Poppins",
+                            }}
+                            error={!!formErrors.name}
+                            helperText={formErrors.name}
+                          />
+                          <TextField
+                            label="Email"
+                            variant="outlined"
+                            fullWidth
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            style={{
+                              marginBottom: "10px",
+                              backgroundColor: "white",
+                              fontFamily: "Poppins",
+                            }}
+                            error={!!formErrors.email}
+                            helperText={formErrors.email}
+                          />
+                          <TextField
+                            label="Message"
+                            variant="outlined"
+                            fullWidth
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                            multiline
+                            rows={4}
+                            style={{
+                              marginBottom: "20px",
+                              backgroundColor: "white",
+                              fontFamily: "Poppins",
+                            }}
+                            error={!!formErrors.message}
+                            helperText={formErrors.message}
+                          />
+                        </Grid>
+
+                        <Grid item xs={12} sm={6}>
+                          {/* Right Side Fields */}
+                          <TextField
+                            label="Phone Number"
+                            variant="outlined"
+                            fullWidth
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            style={{
+                              marginBottom: "10px",
+                              backgroundColor: "white",
+                              fontFamily: "Poppins",
+                            }}
+                            error={!!formErrors.phone}
+                            helperText={formErrors.phone}
+                          />
+                          <FormControl
+                            fullWidth
+                            style={{ marginBottom: "20px" }}
+                          >
+                            <Typography
+                              variant="body1"
+                              style={{
+                                marginBottom: "10px",
+                                color: "white",
+                                fontFamily: "Poppins",
+                              }}
+                            >
+                              Select Services
+                            </Typography>
+                            <FormGroup style={{ color: "white" }}>
+                              <FormControlLabel
+                                control={
+                                  <Checkbox
+                                    value="service1"
+                                    checked={formData.selectedServices.includes(
+                                      "service1"
+                                    )}
+                                    onChange={handleCheckboxChange}
+                                    style={{ color: "white" }}
+                                  />
+                                }
+                                label="Generative AI Services"
+                              />
+                              <FormControlLabel
+                                control={
+                                  <Checkbox
+                                    value="service2"
+                                    checked={formData.selectedServices.includes(
+                                      "service2"
+                                    )}
+                                    onChange={handleCheckboxChange}
+                                    style={{ color: "white" }}
+                                  />
+                                }
+                                label="Generative AI Services"
+                              />
+                              <FormControlLabel
+                                control={
+                                  <Checkbox
+                                    value="service3"
+                                    checked={formData.selectedServices.includes(
+                                      "service3"
+                                    )}
+                                    onChange={handleCheckboxChange}
+                                    style={{ color: "white" }}
+                                  />
+                                }
+                                label="Development Services"
+                              />
+                              <FormControlLabel
+                                control={
+                                  <Checkbox
+                                    value="service4"
+                                    checked={formData.selectedServices.includes(
+                                      "service4"
+                                    )}
+                                    onChange={handleCheckboxChange}
+                                    style={{ color: "white" }}
+                                  />
+                                }
+                                label="Engineering & Design Services"
+                              />
+                            </FormGroup>
+                            {formErrors.services && (
+                              <Typography
+                                style={{
+                                  color: "red",
+                                  fontSize: "12px",
+                                }}
+                              >
+                                {formErrors.services}
+                              </Typography>
+                            )}
+                          </FormControl>
+                        </Grid>
+                      </Grid>
+                    </form>
+                  </DialogContent>
+                  <DialogActions style={{ background: "#1874DA" }}>
+                    <Button
+                      onClick={handleClose}
+                      color="primary"
+                      style={{
+                        color: "#1874DA",
+                        background: "#FFFFFF",
+                        textTransform: "none",
+                        fontFamily: "Poppins",
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="submit"
+                      onClick={handleFormSubmit}
+                      color="primary"
+                      variant="contained"
+                      style={{
+                        color: "#1874DA",
+                        background: "#FFFFFF",
+                        textTransform: "none",
+                        fontFamily: "Poppins",
+                      }}
+                    >
+                      Submit
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
             </div>
           </Grid>
         </Grid>

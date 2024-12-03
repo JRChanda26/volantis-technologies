@@ -106,6 +106,11 @@ function ServicesOfferedbyUs() {
                   position: "relative",
                   height: "auto",
                   padding: "0px 0px 5px 0px",
+                  transition: "transform 0.3s ease-in-out", 
+                  "&:hover": {
+                    transform: "scale(1.05)", 
+                  },
+                  cursor:'pointer'
                 }}
               >
                 {card.image && (
