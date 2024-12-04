@@ -155,9 +155,10 @@ function StaffingServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          paddingTop: "120px ",
+          paddingBottom:'2%',
           flexDirection: "column",
-          height: "100vh", // This ensures it takes full viewport height
+          // height: "100vh", // This ensures it takes full viewport height
         }}
       >
         <div
@@ -214,7 +215,7 @@ function StaffingServices() {
             <PrismicNextImage
               field={posts[0]?.data.staffing_services}
               alt={""}
-              style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
+              style={{ maxWidth: "90%", height: "auto" }} // Make the image responsive
             />
           </Grid>
 

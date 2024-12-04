@@ -154,9 +154,9 @@ function DevelopmentServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          paddingTop: "120px ",
           flexDirection: "column",
-          height: "100vh", // This ensures it takes full viewport height
+         paddingBottom:'2%'
         }}
       >
         <div
@@ -213,7 +213,7 @@ function DevelopmentServices() {
             <PrismicNextImage
               field={posts[0]?.data.developmentservices}
               alt={""}
-              style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
+              style={{  maxWidth: "90%", height: "auto" }} // Make the image responsive
             />
           </Grid>
 
