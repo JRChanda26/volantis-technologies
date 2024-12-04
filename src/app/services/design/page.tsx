@@ -38,9 +38,10 @@ function DesignServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          padding: "20px",
+          paddingTop: "120px ",
           flexDirection: "column",
-          height: "100vh", // This ensures it takes full viewport height
+          paddingBottom:'2%'
+          // height: "100vh", // This ensures it takes full viewport height
         }}
       >
         <div

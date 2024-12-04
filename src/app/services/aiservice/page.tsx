@@ -155,9 +155,10 @@ function GenerativeAIServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          paddingTop: "120px ",
           flexDirection: "column",
-          height: "100vh",
+          paddingBottom:'2%'
+          // height: "100vh",
         }}
       >
         <div
@@ -215,7 +216,7 @@ function GenerativeAIServices() {
             <PrismicNextImage
               field={posts[0]?.data.generativeaiservicesimg}
               alt={""}
-              style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
+              style={{ maxWidth: "90%", height: "auto" }} // Make the image responsive
             />
           </Grid>
 

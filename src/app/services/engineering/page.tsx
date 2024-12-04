@@ -155,9 +155,10 @@ function EngineeringServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "50px",
+          paddingTop: "120px ",
           flexDirection: "column",
-          height: "100vh", // This ensures it takes full viewport height
+          paddingBottom:'2%'
+          // height: "100vh", // This ensures it takes full viewport height
         }}
       >
         <div
@@ -214,7 +215,7 @@ function EngineeringServices() {
             <PrismicNextImage
               field={posts[0]?.data.engineering_services}
               alt={""}
-              style={{ maxWidth: "100%", height: "auto" }} // Make the image responsive
+              style={{ maxWidth: "90%", height: "auto" }} // Make the image responsive
             />
           </Grid>
 
