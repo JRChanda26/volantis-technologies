@@ -206,6 +206,7 @@ function LatestNews() {
               border: "1px solid #1874DA",
               borderRadius: "14px",
               padding: "10px 50px",
+              gap:'12px'
             }}
           >
             {posts[0]?.data.button2}

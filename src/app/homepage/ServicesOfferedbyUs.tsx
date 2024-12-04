@@ -21,7 +21,7 @@ function ServicesOfferedbyUs() {
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
-    textAlign: "justify",
+    textAlign: "left",
     color: "#7A7A7A",
   };
 
@@ -31,10 +31,8 @@ function ServicesOfferedbyUs() {
     fontWeight: 700,
     lineHeight: "24px",
     textAlign: "left",
-    textUnderlinePosition: "from-font",
-    textDecorationSkipInk: "none",
     color: "#000000",
-    paddingBottom: "5px",
+    paddingBottom: "14px",
   };
 
   return (
@@ -71,8 +69,8 @@ function ServicesOfferedbyUs() {
       </Box>
 
       {/* Responsive Grid */}
-      <Grid container spacing={4} style={{display:'flex',justifyContent:'center'}}>
-        {/* Map through the first 3 items */}
+      <Grid container spacing={2} style={{display:'flex',justifyContent:'space-evenly'}}>
+     
         {[0, 1, 2,3].map((index) => {
           const card = {
             image: posts[0]?.data[`card_image${index + 1}`],
@@ -99,13 +97,15 @@ function ServicesOfferedbyUs() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  textAlign: "center",
-                  minWidth: "100%",
-                  boxShadow: "0px 10px 12px 0px #0000001A",
+                  // width:'360px',
+                  // height:'460px',
+                  // textAlign: "center",
+                  // minWidth: "100%",
+                  boxShadow: "0px 5px 5px 0px #0000001A",
                   borderRadius: "4px",
                   position: "relative",
-                  height: "auto",
-                  padding: "0px 0px 5px 0px",
+                  // height: "auto",
+                  // padding: "0px 0px 5px 0px",
                   transition: "transform 0.3s ease-in-out", 
                   "&:hover": {
                     transform: "scale(1.05)", 
@@ -123,22 +123,22 @@ function ServicesOfferedbyUs() {
                     }}
                   />
                 )}
-                <div style={{padding:'20px'}}>
+                <div style={{padding:'29px 24px 39px 25px'}}>
                 <Typography style={titleStyle}>{card.title}</Typography>
                 <Typography style={descriptionStyle}>{card.description}</Typography>
-                {card.icon && (
-                  <PrismicNextImage
-                    field={card.icon}
-                    alt=""
-                    style={{
-                      position: "absolute",
-                      bottom: "10px",
-                      left: "10px",
-                      cursor: "pointer",
-                      padding: "10px 10px 5px 10px",
-                    }}
-                  />
-                )}
+               
+                   <PrismicNextImage
+                   field={posts[0]?.data.card_icon}
+                   alt=""
+                   style={{
+                     position: "absolute",
+                     bottom: "10px",
+                     left: "10px",
+                     cursor: "pointer",
+                    //  padding: "10px 10px 5px 10px",
+                   }}
+                 />
+                
                 </div>
               </Box>
             </Grid>

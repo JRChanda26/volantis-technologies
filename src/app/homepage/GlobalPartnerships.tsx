@@ -6,12 +6,10 @@ import { Typography, Box, Grid } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function GlobalPartnership() {
-  
   const [posts, setPosts] = useState<any>("");
 
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("home" as any);
       setPosts(response);
     };
@@ -24,18 +22,18 @@ function GlobalPartnership() {
     fontWeight: 700,
     lineHeight: "24px",
     textAlign: "center",
-    textUnderlinePosition: "from-font",
-    textDecorationSkipInk: "none",
+   
   };
 
   return (
     <Box
       sx={{
-        padding:'37px',
+        padding: "40px 59px 49px 58px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        gap: "32px",background: '#F6F6F6'
+        // alignItems: "center",
+        gap: "32px",
+        background: "#F6F6F6",
       }}
     >
       <Typography
@@ -46,7 +44,7 @@ function GlobalPartnership() {
           lineHeight: { xs: "40px", sm: "64px", md: "80px" },
           textAlign: "center",
           color: "#000000",
-          paddingBottom:'10px'
+          paddingBottom: "37px",
         }}
       >
         {posts[0]?.data.title2}
@@ -54,19 +52,38 @@ function GlobalPartnership() {
 
       <Grid
         container
-        spacing={{ xs: 4, sm: 6, md: 8 }}
+        spacing={4}
+        // spacing={{ xs: 4, sm: 6, md: 8 }}
         sx={{
-          justifyContent: "space-evenly",
-          // alignItems: "stretch", // Ensures all items have the same height
+          justifyContent: "space-between",
+          alignItems: "stretch", 
         }}
       >
         {[
-          { text: posts[0]?.data.slide_text1, image: posts[0]?.data.slide_icon1 },
-          { text: posts[0]?.data.slide_text2, image: posts[0]?.data.slide_icon2 },
-          { text: posts[0]?.data.slide_text3, image: posts[0]?.data.slide_icon3 },
-          { text: posts[0]?.data.slide_text4, image: posts[0]?.data.slide_icon4 },
-          { text: posts[0]?.data.slide_text5, image: posts[0]?.data.slide_icon5 },
-          { text: posts[0]?.data.slide_text6, image: posts[0]?.data.slide_icon6 },
+          {
+            text: posts[0]?.data.slide_text1,
+            image: posts[0]?.data.slide_icon1,
+          },
+          {
+            text: posts[0]?.data.slide_text2,
+            image: posts[0]?.data.slide_icon2,
+          },
+          {
+            text: posts[0]?.data.slide_text3,
+            image: posts[0]?.data.slide_icon3,
+          },
+          {
+            text: posts[0]?.data.slide_text4,
+            image: posts[0]?.data.slide_icon4,
+          },
+          {
+            text: posts[0]?.data.slide_text5,
+            image: posts[0]?.data.slide_icon5,
+          },
+          {
+            text: posts[0]?.data.slide_text6,
+            image: posts[0]?.data.slide_icon6,
+          },
         ].map((item, index) => (
           <Grid
             item
@@ -78,7 +95,7 @@ function GlobalPartnership() {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              // justifyContent: "space-between",
+              justifyContent: "center",
               textAlign: "center",
             }}
           >

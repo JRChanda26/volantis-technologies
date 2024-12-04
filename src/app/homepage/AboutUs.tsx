@@ -5,14 +5,12 @@ import { Typography, useMediaQuery, useTheme, Box } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function AboutUs() {
-  
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("about_us" as any);
       setPosts(response);
     };
@@ -25,8 +23,7 @@ function AboutUs() {
     fontWeight: 400,
     lineHeight: isSmallScreen ? "20px" : "24px",
     textAlign: "center",
-    textUnderlinePosition: "from-font",
-    textDecorationSkipInk: "none",
+   
     color: "#FFFFFF",
   };
 
@@ -44,46 +41,56 @@ function AboutUs() {
   return (
     <div
       style={{
-        padding: "40px 20px",
+        padding: "84px 24px",
         display: "flex",
         flexDirection: "column",
-        // alignItems: "center",
+        alignItems: "center",
         justifyContent: "center",
         // gap: isSmallScreen ? "8px" : "16px",
-        background: '#F6F6F6'
+        background: "#F6F6F6",
       }}
     >
       {posts.length > 0 && (
         <>
-        <div style={{display:'flex',justifyContent:'center',textAlign:'center',flexDirection:'column'}}>
-          <Typography
+          <div
             style={{
-              fontFamily: "Poppins",
-              fontSize: isSmallScreen ? "32px" : "56px",
-              fontWeight: 700,
-              color: "#000000",
+              display: "flex",
+              justifyContent: "center",
               textAlign: "center",
+              alignItems:'center',
+              flexDirection: "column",
             }}
           >
-            {posts[0]?.data.heading}
-          </Typography>
-          <Typography
-            sx={{
-              fontFamily: "Poppins",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "24px",
-              textAlign: "center",              marginTop: "15px",
-              color: "#6D6D6D",
-            maxWidth:'58%',
-            marginLeft: 'auto',  // Aligns the description to the center
-      marginRight: 'auto', // Ensures the description is centered
-              // padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
-            }}
-          >
-            {posts[0]?.data.description}
-          </Typography></div>
-          
+            <Typography
+              style={{
+                fontFamily: "Poppins",
+                fontSize: isSmallScreen ? "32px" : "56px",
+                fontWeight: 700,
+                color: "#000000",
+                textAlign: "center",
+              }}
+            >
+              {posts[0]?.data.heading}
+            </Typography>
+            <Typography
+              sx={{
+                fontFamily: "Poppins",
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "21px",
+                textAlign: "justify",
+                marginTop: "15px",
+                color: "#6D6D6D",
+               alignItems:'center',
+                marginLeft: "auto", 
+                marginRight: "auto", 
+                padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
+              }}
+            >
+              {posts[0]?.data.description}
+            </Typography>
+          </div>
+
           <div style={{ position: "relative", width: "100%" }}>
             {/* Prismic Image */}
             <PrismicNextImage
@@ -103,14 +110,14 @@ function AboutUs() {
                 left: "50%",
                 transform: "translate(-50%, -50%)",
                 display: "flex",
-                flexDirection: isSmallScreen ? "column" : "row",
+                flexDirection: isSmallScreen ? "row" : "row",
                 justifyContent: "center",
                 gap: isSmallScreen ? "20px" : "90px",
                 width: "100%",
                 textAlign: "center",
               }}
             >
-              {/* Title 1 and Description 1 */}
+             
               <Box
                 sx={{
                   display: "flex",
@@ -119,7 +126,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography variant="h6" style={title}>
+                <Typography  style={title}>
                   {posts[0]?.data.title1}
                 </Typography>
                 <Typography style={description}>
@@ -136,7 +143,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography variant="h6" style={title}>
+                <Typography  style={title}>
                   {posts[0]?.data.title2}
                 </Typography>
                 <Typography style={description}>
@@ -153,7 +160,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography variant="h6" style={title}>
+                <Typography  style={title}>
                   {posts[0]?.data.title3}
                 </Typography>
                 <Typography style={description}>

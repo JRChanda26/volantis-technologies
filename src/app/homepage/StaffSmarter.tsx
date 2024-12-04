@@ -2,15 +2,15 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import Subscribe from "./Subscribe";
-import GlobalPartnership from "./GlobalPartnerships";
-import AboutUs from "./AboutUs";
-import ContactUs from "./ContactUs";
-import Footer from "./Footer";
-import LatestNews from "./LatestNews";
-import ServicesOfferedbyUs from "./ServicesOfferedbyUs";
-import Testimonials from "./Testimonials";
-import Header from "./Header";
+// import Subscribe from "./Subscribe";
+// import GlobalPartnership from "./GlobalPartnerships";
+// import AboutUs from "./AboutUs";
+// import ContactUs from "./ContactUs";
+// import Footer from "./Footer";
+// import LatestNews from "./LatestNews";
+// import ServicesOfferedbyUs from "./ServicesOfferedbyUs";
+// import Testimonials from "./Testimonials";
+// import Header from "./Header";
 
 function StaffSmarter() {
      const [posts, setPosts] = useState<any>("");
@@ -29,13 +29,13 @@ function StaffSmarter() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div
         style={{
           position: "relative",
           width: "100%",
           height: "100vh",
-          overflow: "hidden",
+          // overflow: "hidden",
           display: "flex",
           // alignItems: "center",
           justifyContent: "center",
@@ -70,11 +70,11 @@ function StaffSmarter() {
 
         <div
           style={{
-            padding: "0px 50px 0px 78px",
+            padding: "200px 50px 256px 78px",
             display: "flex",
             flexDirection: "column",
-            // alignItems: "flex-start",
-            justifyContent: "center",
+            alignItems: "flex-start",
+            // justifyContent: "center",
             gap: "16px",
           }}
         >
@@ -85,24 +85,24 @@ function StaffSmarter() {
               fontWeight: 700,
               lineHeight: "80px",
               textAlign: "left",
-              textUnderlinePosition: "from-font",
-              textDecorationSkipInk: "none",
+              // paddingBottom:'30px'
+              
             }}
           >
             {posts[0]?.data.title1}
           </Typography>
           <Typography
             sx={{
+
               fontFamily: "Poppins",
               fontSize: "16px",
               fontWeight: 400,
               lineHeight: "24px",
               textAlign: "left",
-              textUnderlinePosition: "from-font",
-              textDecorationSkipInk: "none",
-              marginTop: "15px",
+              
+              
 
-              paddingRight: { xs: "0%", sm: "50%", lg: "70%" },
+              paddingRight: { xs: "0%", sm: "50%", lg: "60%" },
             }}
           >
             {posts[0]?.data.description1}
@@ -110,7 +110,7 @@ function StaffSmarter() {
         </div>
         {/* {data.slide_text1} */}
       </div>
-      <GlobalPartnership />
+      {/* <GlobalPartnership />
       <ServicesOfferedbyUs />
       <AboutUs />
       <Testimonials />
@@ -118,7 +118,7 @@ function StaffSmarter() {
       <ContactUs />
       <Subscribe />
 
-      <Footer />
+      <Footer /> */}
     </>
   );
 }
