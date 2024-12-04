@@ -65,7 +65,7 @@ function About() {
       <Header />
       <div
         style={{
-          paddingTop: "120px ",
+          paddingTop: "13% ",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -81,7 +81,7 @@ function About() {
                 textAlign: "center",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center", // Make sure the content is centered horizontally
+                alignItems: "center", 
               }}
             >
               <Typography
@@ -90,7 +90,7 @@ function About() {
                   fontSize: isSmallScreen ? "32px" : "56px",
                   fontWeight: 700,
                   color: "#1874DA",
-                  textAlign: "center", // Ensures the heading is centered
+                  textAlign: "center", 
                 }}
               >
                 {posts[0]?.data.heading}
@@ -141,9 +141,9 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center", // Ensures vertical centering
+                alignItems: "center", 
                 padding: "60px 70px 60px 70px",
-                textAlign: "center", // This centers text inside the grid container
+                textAlign: "center", 
                 background: '#F6F6F6'
               }}
             >
@@ -156,7 +156,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center", // Center content horizontally within this grid item
+                  alignItems: "center", 
                 }}
               >
                 <Typography

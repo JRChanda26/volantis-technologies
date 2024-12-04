@@ -109,7 +109,7 @@ fontFamily: "Poppins",
   return (
     <>
       <Header />
-      <div>
+      <div style={{paddingTop:'150px'}}>
         <PrismicNextImage
           field={posts[0]?.data.bgimg}
           alt={""}
