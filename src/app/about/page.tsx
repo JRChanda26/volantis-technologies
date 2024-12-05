@@ -12,7 +12,14 @@ function About() {
   const [posts, setPosts] = useState<any>([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const containerStyles = {
+    padding: isSmallScreen ? theme.spacing(2) : theme.spacing(4),
+    paddingTop: "100px", 
+    backgroundColor: isSmallScreen ? theme.palette.grey[200] : theme.palette.grey[100],
+    textAlign: isSmallScreen ? "center" : "left",
+  };
 
+  
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("about_us" as any);
@@ -50,11 +57,11 @@ function About() {
     padding: "10px 0px 10px 0px",
   };
   const desc: React.CSSProperties = {
-    fontFamily: "Poppins", // Include a fallback font
+    fontFamily: "Poppins", 
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
-    textAlign: "justify",
+    textAlign: "left",
     textUnderlinePosition: "from-font",
     textDecorationSkipInk: "none",
     color: "#FFFFFF",
@@ -63,25 +70,31 @@ function About() {
   return (
     <>
       <Header />
-      <div
+      {/* <div
         style={{
-          paddingTop: "13% ",
+          paddingTop: isSmallScreen ? "80px" : "80px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: isSmallScreen ? "8px" : "10px",background: '#F6F6F6'
+          gap: isSmallScreen ? "8px" : "10px",
+          background: "#F6F6F6",
         }}
-      >
+      > */}
+     <Box sx={containerStyles}>
         {posts.length > 0 && (
           <>
-            <div
-              style={{
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={6}
+              sx={{
                 display: "flex",
-                textAlign: "center",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center", 
+                alignItems: "center",
+                padding: { xs: "40px", sm: "50px", md: "50px" },
               }}
             >
               <Typography
@@ -90,29 +103,38 @@ function About() {
                   fontSize: isSmallScreen ? "32px" : "56px",
                   fontWeight: 700,
                   color: "#1874DA",
-                  textAlign: "center", 
+                  textAlign: "center",
                 }}
               >
                 {posts[0]?.data.heading}
               </Typography>
-
-              <Typography
-                sx={{
-                  fontFamily: "Poppins",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "30px",
-
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
                   textAlign: "center",
-                  marginTop: "15px",
-                  color: "#6D6D6D",
-                  maxWidth: "60%",
-                  margin: "0 auto",
                 }}
               >
-                {posts[0]?.data.description4}
-              </Typography>
-            </div>
+                <Typography
+                  sx={{
+                    fontFamily: "Poppins",
+                    fontSize: "16px",
+                    fontWeight: 400,
+                    lineHeight: "30px",
+                    textAlign: "center",
+                    marginTop: "15px",
+                    color: "#6D6D6D",
+                    // maxWidth: "70%",
+                    // margin: "0 auto",
+                  }}
+                >
+                  {posts[0]?.data.description4}
+                </Typography>
+              </div>
+            </Grid>
 
             <Grid
               container
@@ -120,7 +142,8 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "space-around",
-                padding: "10px 20px 10px 20px",background: '#F6F6F6'
+                padding: "10px 20px 10px 20px",
+                background: "#F6F6F6",
               }}
             >
               <Grid item xs={12} sm={12} md={12}>
@@ -141,10 +164,10 @@ function About() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center", 
+                alignItems: "center",
                 padding: "60px 70px 60px 70px",
-                textAlign: "center", 
-                background: '#F6F6F6'
+                textAlign: "center",
+                background: "#F6F6F6",
               }}
             >
               <Grid
@@ -156,7 +179,7 @@ function About() {
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
-                  alignItems: "center", 
+                  alignItems: "center",
                 }}
               >
                 <Typography
@@ -165,7 +188,7 @@ function About() {
                     fontSize: "40px",
                     fontWeight: 500,
                     lineHeight: "24px",
-                    textAlign: "center", 
+                    textAlign: "center",
                     color: "#1874DA",
                     padding: "10px",
                   }}
@@ -483,7 +506,7 @@ function About() {
             </div>
           </>
         )}
-      </div>
+     </Box>
       <ContactUs />
       <Subscribe />
       <Footer />

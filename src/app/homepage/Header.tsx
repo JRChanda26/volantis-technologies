@@ -67,6 +67,12 @@ function Header() {
   const toggleDrawer = (open: boolean) => () => {
     setIsDrawerOpen(open);
   };
+  const activeTabStyle: React.CSSProperties = {
+    ...tabStyle,
+    fontWeight: "bold", // Bold font for active tab
+    color: "#1e88e5", // Blue color for active tab
+    borderBottom: "2px solid #1e88e5", // Border to highlight the active tab
+  };
   return (
     <Box
       style={{
@@ -105,6 +111,7 @@ function Header() {
             anchor="right"
             open={isDrawerOpen}
             onClose={toggleDrawer(false)}
+            
           >
             <Box
               sx={{
@@ -115,33 +122,39 @@ function Header() {
                 gap: "15px",
               }}
               role="presentation"
-              onClick={toggleDrawer(false)}
+              // onClick={toggleDrawer(false)}
             >
               {posts.length > 0 && (
                 <>
-                  <Link href="/home" style={tabStyle}>
+                  <Link href="/home" style={activeTab === "/home" ? activeTabStyle : tabStyle}>
                     {posts[0]?.data.tab1}
                   </Link>
-                  <Link href="/about" style={tabStyle}>
+                  <Link href="/about" style={activeTab === "/about" ? activeTabStyle : tabStyle}>
                     {posts[0]?.data.tab3}
                   </Link>
-                  <Link href="/blog" style={tabStyle}>
+                  <Link href="/blog" style={activeTab === "/blog" ? activeTabStyle : tabStyle}>
                     {posts[0]?.data.tab4}
                   </Link>
-                  <Link href="/career" style={tabStyle}>
+                  <Link href="/career" style={activeTab === "/career" ? activeTabStyle : tabStyle}>
                     {posts[0]?.data.tab5}
                   </Link>
-                  <Link href="/contact" style={tabStyle}>
+                  <Link href="/contact" style={activeTab === "/contact" ? activeTabStyle : tabStyle}>
                     {posts[0]?.data.tab6}
                   </Link>
                   <Box>
                     <Typography
                       onClick={toggleDropdown}
+                      
                       style={{
-                        ...tabStyle,
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
+                        ... (activeTab === "/service" || 
+                            isActive("/services/aiservice") || 
+                            isActive("/services/staffing") || 
+                            isActive("/services/devlopment") || 
+                            isActive("/services/engineering")
+                          ? { ...activeTabStyle, color: "#1e88e5" } 
+                          : tabStyle),cursor: "pointer",
+                          display: "flex",
+                          alignItems: "center",
                       }}
                     >
                       {posts[0]?.data.tab2}
@@ -155,7 +168,7 @@ function Header() {
                           border: "1px solid #ddd",
                           borderRadius: "4px",
                           boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                          padding: "10px",
+                          padding: "5px",
                           display: "flex",
                           flexDirection: "column",
                           gap: "10px",
@@ -278,7 +291,7 @@ function Header() {
                   activeTab === "/home" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography style={tabStyle}>{posts[0]?.data.tab1}</Typography>
+              <Typography style={activeTab === "/home" ? activeTabStyle : tabStyle}>{posts[0]?.data.tab1}</Typography>
             </Link>
             <Box
               ref={dropdownRef}
@@ -288,7 +301,15 @@ function Header() {
                 fontFamily: "Poppins",
               }}
             >
-              <Typography onClick={toggleDropdown} style={tabStyle}>
+              <Typography onClick={toggleDropdown}   style={{
+      ... (activeTab === "/service" || 
+          isActive("/services/aiservice") || 
+          isActive("/services/staffing") || 
+          isActive("/services/devlopment") || 
+          isActive("/services/engineering")
+        ? { ...activeTabStyle, color: "#1e88e5" } 
+        : tabStyle)
+    }}>
                 {posts[0]?.data.tab2}
                 <KeyboardArrowDownSharpIcon />
               </Typography>
@@ -298,7 +319,7 @@ function Header() {
                 <div
                   style={{
                     position: "absolute",
-                    top: "100%",
+                    top: "60px",
                     right: "-70px",
                     marginTop: "5px",
                     background: "#fff",
@@ -313,7 +334,7 @@ function Header() {
                     href="/services/aiservice"
                     style={{
                       display: "block",
-                      padding: "10px 15px",
+                      padding: "10px ",
                       textDecoration: "none",
                       color: isActive("/services/aiservice")
                         ? "#1e88e5"
@@ -332,7 +353,7 @@ function Header() {
                     href="/services/staffing"
                     style={{
                       display: "block",
-                      padding: "10px 15px",
+                      padding: "10px ",
                       textDecoration: "none",
                       color: isActive("/services/staffing")
                         ? "#1e88e5"
@@ -351,7 +372,7 @@ function Header() {
                     href="/services/devlopment"
                     style={{
                       display: "block",
-                      padding: "10px 15px",
+                      padding: "5px ",
                       textDecoration: "none",
                       color: isActive("/services/devlopment")
                         ? "#1e88e5"
@@ -370,7 +391,7 @@ function Header() {
                     href="/services/engineering"
                     style={{
                       display: "block",
-                      padding: "10px 15px",
+                      padding: "10px ",
                       textDecoration: "none",
                       color: isActive("/services/engineering")
                         ? "#1e88e5"
@@ -399,7 +420,7 @@ function Header() {
                   activeTab === "/about" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography style={tabStyle}> {posts[0]?.data.tab3}</Typography>
+              <Typography style={activeTab === "/about" ? activeTabStyle : tabStyle}> {posts[0]?.data.tab3}</Typography>
             </Link>
             <Link
               href="/blog"
@@ -412,7 +433,7 @@ function Header() {
                   activeTab === "/blog" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography style={tabStyle}>{posts[0]?.data.tab4}</Typography>
+              <Typography style={activeTab === "/blog" ? activeTabStyle : tabStyle}>{posts[0]?.data.tab4}</Typography>
             </Link>
             <Link
               href="/career"
@@ -425,7 +446,7 @@ function Header() {
                   activeTab === "/career" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography style={tabStyle}>{posts[0]?.data.tab5}</Typography>
+              <Typography style={activeTab === "/career" ? activeTabStyle : tabStyle}>{posts[0]?.data.tab5}</Typography>
             </Link>
             <Link
               href="/contact"
@@ -438,7 +459,7 @@ function Header() {
                   activeTab === "/contact" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography style={tabStyle}>{posts[0]?.data.tab6}</Typography>
+              <Typography style={activeTab === "/contact" ? activeTabStyle : tabStyle}>{posts[0]?.data.tab6}</Typography>
             </Link>
           </Box>
         </Grid>
