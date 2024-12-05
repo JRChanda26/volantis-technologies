@@ -7,10 +7,6 @@ import {
   Grid,
   Typography,
   TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
   FormControl,
   FormGroup,
   FormControlLabel,
@@ -104,7 +100,12 @@ function GenerativeAIServices() {
     setFormErrors(errors);
     return isValid;
   };
-
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    // Close form if the user clicks on the overlay
+    if (e.target === e.currentTarget) {
+      setShowForm(false);
+    }
+  };
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
@@ -157,46 +158,46 @@ function GenerativeAIServices() {
           justifyContent: "center",
           paddingTop: "200px ",
           flexDirection: "column",
-          paddingBottom:'2%'
+          paddingBottom: "2%",
           // height: "100vh",
         }}
       >
-<Grid
-  item
-  xs={12} 
-  sm={12}
-  md={6}
-  sx={{
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    textAlign: 'center',
-    padding: { xs: '20px', sm: '30px', md: '40px' }, 
-  }}
->
-  <Typography
-    sx={{
-      fontFamily: 'Poppins',
-      fontSize: { xs: '36px', sm: '48px', md: '56px' }, 
-      fontWeight: 700,
-      color: '#1874DA',
-    }}
-  >
-    {posts[0]?.data.heading}
-  </Typography>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={6}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+            padding: { xs: "20px", sm: "30px", md: "40px" },
+          }}
+        >
+          <Typography
+            sx={{
+              fontFamily: "Poppins",
+              fontSize: { xs: "36px", sm: "48px", md: "56px" },
+              fontWeight: 700,
+              color: "#1874DA",
+            }}
+          >
+            {posts[0]?.data.heading}
+          </Typography>
 
-  <Typography
-    sx={{
-      fontFamily: 'Poppins',
-      fontSize: { xs: '14px', sm: '16px', md: '18px' }, // Responsive font size
-      fontWeight: 400,
-      color: '#6D6D6D',
-      padding: '18px 0px 50px 0px',
-    }}
-  >
-    {posts[0]?.data.description}
-  </Typography>
-</Grid>
+          <Typography
+            sx={{
+              fontFamily: "Poppins",
+              fontSize: { xs: "14px", sm: "16px", md: "18px" }, // Responsive font size
+              fontWeight: 400,
+              color: "#6D6D6D",
+              padding: "18px 0px 50px 0px",
+            }}
+          >
+            {posts[0]?.data.description}
+          </Typography>
+        </Grid>
         <Grid
           container
           spacing={0}
@@ -214,13 +215,13 @@ function GenerativeAIServices() {
             md={5}
             style={{
               display: "flex",
-              justifyContent: "center", 
+              justifyContent: "center",
             }}
           >
             <PrismicNextImage
               field={posts[0]?.data.generativeaiservicesimg}
               alt={""}
-              style={{ width:'669px',height:'470px' }} 
+              style={{ width: "669px", height: "470px" }}
             />
           </Grid>
 
@@ -233,7 +234,7 @@ function GenerativeAIServices() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "0 20px", 
+              padding: "0 20px",
             }}
           >
             <div>
@@ -289,224 +290,203 @@ function GenerativeAIServices() {
               </Button>
 
               {/* Modal Form (Dialog) */}
-              <div style={{ position: "relative" ,}}>
-                <Dialog
-                  open={showForm}
-                  onClose={handleClose}
-                  style={{
-                    // background: "none",
-                    minHeight: "70%",
-                    width: "50%",
-                    position: "absolute",
-                    // top: "50%",
-                    left: "25%",
-                    // transform: "translate(-50%, -50%)", // Center the Dialog
-                  }}
-                >
-                  <DialogTitle
-                    style={{
-                      color: "white",
-                      background: "#1874DA",
-                      fontFamily: "Poppins",
-                    }}
-                  >
-                    Fill out the form to know more
-                  </DialogTitle>
-                  <DialogContent
-                    style={{
-                      background: "#1874DA",
-                    }}
-                  >
-                    <form
-                      onSubmit={handleFormSubmit}
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Grid container spacing={3}>
-                        <Grid item xs={12} sm={6}>
-                          {/* Left Side Fields */}
-                          <TextField
-                            label="Name"
-                            variant="outlined"
-                            fullWidth
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            style={{
-                              marginBottom: "10px",
-                              backgroundColor: "white",
-                              fontFamily: "Poppins",
-                            }}
-                            error={!!formErrors.name}
-                            helperText={formErrors.name}
-                          />
-                          <TextField
-                            label="Email"
-                            variant="outlined"
-                            fullWidth
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            style={{
-                              marginBottom: "10px",
-                              backgroundColor: "white",
-                              fontFamily: "Poppins",
-                            }}
-                            error={!!formErrors.email}
-                            helperText={formErrors.email}
-                          />
-                          <TextField
-                            label="Message"
-                            variant="outlined"
-                            fullWidth
-                            name="message"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                            multiline
-                            rows={4}
-                            style={{
-                              marginBottom: "20px",
-                              backgroundColor: "white",
-                              fontFamily: "Poppins",
-                            }}
-                            error={!!formErrors.message}
-                            helperText={formErrors.message}
-                          />
-                        </Grid>
+              {showForm && (
+ 
+    <Grid
+      container
+      spacing={0}
+      style={{
+        
+          padding: '40px',
+          position: "fixed",
+          top: '100px',
+          left: '200px',
+          width: "60%",
+          height: "80vh",
+          backgroundColor: "none",
+          zIndex: 1,
+          // justifyContent: "center", 
+          // alignItems: "center",
+        }}
+        onClick={handleOverlayClick}
+    
+    >
+      {/* Left Side */}
+      <Grid
+        item
+        xs={12} sm={6} md={6}
+        style={{
+          background: "#1874DA",
+          padding: "20px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          borderTopLeftRadius: "8px",
+          borderBottomLeftRadius: '8px',
+          height:'100%'
+        }}
+      >
+        <Typography style={{ fontFamily: 'Poppins', color: '#FFFFFF' }}>
+          Fill out the form to know more
+        </Typography>
+      </Grid>
 
-                        <Grid item xs={12} sm={6}>
-                          {/* Right Side Fields */}
-                          <TextField
-                            label="Phone Number"
-                            variant="outlined"
-                            fullWidth
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            style={{
-                              marginBottom: "10px",
-                              backgroundColor: "white",
-                              fontFamily: "Poppins",
-                            }}
-                            error={!!formErrors.phone}
-                            helperText={formErrors.phone}
-                          />
-                          <FormControl
-                            fullWidth
-                            style={{ marginBottom: "20px" }}
-                          >
-                            <Typography
-                              variant="body1"
-                              style={{
-                                marginBottom: "10px",
-                                color: "white",
-                                fontFamily: "Poppins",
-                              }}
-                            >
-                              Select Services
-                            </Typography>
-                            <FormGroup style={{ color: "white" }}>
-                              <FormControlLabel
-                                control={
-                                  <Checkbox
-                                    value="service1"
-                                    checked={formData.selectedServices.includes(
-                                      "service1"
-                                    )}
-                                    onChange={handleCheckboxChange}
-                                    style={{ color: "white" }}
-                                  />
-                                }
-                                label="Generative AI Services"
-                              />
-                              <FormControlLabel
-                                control={
-                                  <Checkbox
-                                    value="service2"
-                                    checked={formData.selectedServices.includes(
-                                      "service2"
-                                    )}
-                                    onChange={handleCheckboxChange}
-                                    style={{ color: "white" }}
-                                  />
-                                }
-                                label="Generative AI Services"
-                              />
-                              <FormControlLabel
-                                control={
-                                  <Checkbox
-                                    value="service3"
-                                    checked={formData.selectedServices.includes(
-                                      "service3"
-                                    )}
-                                    onChange={handleCheckboxChange}
-                                    style={{ color: "white" }}
-                                  />
-                                }
-                                label="Development Services"
-                              />
-                              <FormControlLabel
-                                control={
-                                  <Checkbox
-                                    value="service4"
-                                    checked={formData.selectedServices.includes(
-                                      "service4"
-                                    )}
-                                    onChange={handleCheckboxChange}
-                                    style={{ color: "white" }}
-                                  />
-                                }
-                                label="Engineering & Design Services"
-                              />
-                            </FormGroup>
-                            {formErrors.services && (
-                              <Typography
-                                style={{
-                                  color: "red",
-                                  fontSize: "12px",
-                                }}
-                              >
-                                {formErrors.services}
-                              </Typography>
-                            )}
-                          </FormControl>
-                        </Grid>
-                      </Grid>
-                    </form>
-                  </DialogContent>
-                  <DialogActions style={{ background: "#1874DA" }}>
-                    <Button
-                      onClick={handleClose}
-                      color="primary"
-                      style={{
-                        color: "#1874DA",
-                        background: "#FFFFFF",
-                        textTransform: "none",
-                        fontFamily: "Poppins",
-                      }}
-                    >
-                      Cancel
-                    </Button>
-                    <Button
-                      type="submit"
-                      onClick={handleFormSubmit}
-                      color="primary"
-                      variant="contained"
-                      style={{
-                        color: "#1874DA",
-                        background: "#FFFFFF",
-                        textTransform: "none",
-                        fontFamily: "Poppins",
-                      }}
-                    >
-                      Submit
-                    </Button>
-                  </DialogActions>
-                </Dialog>
-              </div>
+      {/* Right Side */}
+      <Grid
+        item
+        xs={12} sm={6} md={6}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "10px",
+          backgroundColor: "#f5f5f5",
+          borderTopRightRadius: "8px",
+          borderBottomRightRadius: '8px',
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          overflow: "auto",
+          height: "100%",
+        }}
+      >
+        <form
+          onSubmit={handleFormSubmit}
+          style={{
+            width: "100%", 
+            height: "auto", 
+            display: "flex", 
+            flexDirection: "column", 
+            justifyContent: "center"
+          }}
+        >
+          <TextField
+            label="Name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            error={!!formErrors.name}
+            helperText={formErrors.name}
+            style={{ marginBottom: "15px", width: "100%" }}
+          />
+
+          <TextField
+            label="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            error={!!formErrors.email}
+            helperText={formErrors.email}
+            style={{ marginBottom: "15px", width: "100%" }}
+          />
+
+          <TextField
+            label="Phone Number"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            error={!!formErrors.phone}
+            helperText={formErrors.phone}
+            style={{ marginBottom: "15px", width: "100%" }}
+          />
+
+          <TextField
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleInputChange}
+            error={!!formErrors.message}
+            helperText={formErrors.message}
+            multiline
+            rows={4}
+            style={{ marginBottom: "15px", width: "100%" }}
+          />
+
+          <FormControl
+            component="fieldset"
+            error={!!formErrors.services}
+            style={{ width: "100%", marginBottom: "15px" }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="Engineering & Design Services"
+                    checked={formData.selectedServices.includes(
+                      "Engineering & Design Services"
+                    )}
+                    onChange={handleCheckboxChange}
+                  />
+                }
+                label="Engineering & Design Services"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="Generative AI Services"
+                    checked={formData.selectedServices.includes(
+                      "Generative AI Services"
+                    )}
+                    onChange={handleCheckboxChange}
+                  />
+                }
+                label="Generative AI Services"
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value="Development Services"
+                    checked={formData.selectedServices.includes(
+                      "Development Services"
+                    )}
+                    onChange={handleCheckboxChange}
+                  />
+                }
+                label="Development Services"
+              />
+            </FormGroup>
+            <div style={{ color: "red" }}>{formErrors.services}</div>
+          </FormControl>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-evenly",
+              flexDirection: "row",
+              gap: "20px",
+              paddingTop: "20px",
+            }}
+          >
+            <Button
+              type="submit"
+              style={{
+                backgroundColor: "#1874DA",
+                color: "white",
+                padding: "10px 40px",
+                borderRadius: "6px",
+              }}
+            >
+              Submit
+            </Button>
+
+            <Button
+              onClick={handleClose}
+              style={{
+                backgroundColor: "#f44336",
+                color: "white",
+                padding: "10px 40px",
+                borderRadius: "6px",
+              }}
+            >
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </Grid>
+    </Grid>
+  
+)}
+
+
+
             </div>
           </Grid>
         </Grid>
