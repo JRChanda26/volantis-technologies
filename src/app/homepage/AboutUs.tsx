@@ -23,7 +23,7 @@ function AboutUs() {
     fontWeight: 400,
     lineHeight: isSmallScreen ? "20px" : "24px",
     textAlign: "center",
-   
+
     color: "#FFFFFF",
   };
 
@@ -57,7 +57,7 @@ function AboutUs() {
               display: "flex",
               justifyContent: "center",
               textAlign: "center",
-              alignItems:'center',
+              alignItems: "center",
               flexDirection: "column",
             }}
           >
@@ -73,32 +73,32 @@ function AboutUs() {
               {posts[0]?.data.heading}
             </Typography>
             <div
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
-    textAlign: "center",
-  }}
->
-            <Typography
-              sx={{
-                fontFamily: "Poppins",
-                fontSize: "16px",
-                fontWeight: 400,
-                lineHeight: "21px",
-                textAlign: "justify",
-                marginTop: "15px",
-                color: "#6D6D6D",
-               alignItems:'center',
-                marginLeft: "auto", 
-                marginRight: "auto", 
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
                 padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
+                textAlign: "center",
+                width:'100%',
               }}
             >
-              {posts[0]?.data.description}
-            </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "Poppins",
+                  fontSize: "16px",
+                  fontWeight: 400,
+                  lineHeight: "21px",
+                  textAlign: "center",
+                  marginTop: "15px",
+                  color: "#6D6D6D",
+                  // alignItems: "center",
+                maxWidth:'90%',
+                  padding: isSmallScreen ? "0px 15px" : "0px 200px 0px 82px",
+                }}
+              >
+                {posts[0]?.data.description}
+              </Typography>
             </div>
           </div>
 
@@ -128,7 +128,6 @@ function AboutUs() {
                 textAlign: "center",
               }}
             >
-             
               <Box
                 sx={{
                   display: "flex",
@@ -137,9 +136,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography  style={title}>
-                  {posts[0]?.data.title1}
-                </Typography>
+                <Typography style={title}>{posts[0]?.data.title1}</Typography>
                 <Typography style={description}>
                   {posts[0]?.data.description1}
                 </Typography>
@@ -154,9 +151,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography  style={title}>
-                  {posts[0]?.data.title2}
-                </Typography>
+                <Typography style={title}>{posts[0]?.data.title2}</Typography>
                 <Typography style={description}>
                   {posts[0]?.data.description2}
                 </Typography>
@@ -171,9 +166,7 @@ function AboutUs() {
                   gap: "10px",
                 }}
               >
-                <Typography  style={title}>
-                  {posts[0]?.data.title3}
-                </Typography>
+                <Typography style={title}>{posts[0]?.data.title3}</Typography>
                 <Typography style={description}>
                   {posts[0]?.data.description3}
                 </Typography>
