@@ -72,6 +72,16 @@ function AboutUs() {
             >
               {posts[0]?.data.heading}
             </Typography>
+            <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
+    textAlign: "center",
+  }}
+>
             <Typography
               sx={{
                 fontFamily: "Poppins",
@@ -89,6 +99,7 @@ function AboutUs() {
             >
               {posts[0]?.data.description}
             </Typography>
+            </div>
           </div>
 
           <div style={{ position: "relative", width: "100%" }}>

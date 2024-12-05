@@ -165,7 +165,7 @@ function About() {
                     fontSize: "40px",
                     fontWeight: 500,
                     lineHeight: "24px",
-                    textAlign: "center", // Centering text horizontally
+                    textAlign: "center", 
                     color: "#1874DA",
                     padding: "10px",
                   }}

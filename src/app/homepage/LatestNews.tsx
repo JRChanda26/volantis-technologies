@@ -70,7 +70,7 @@ function LatestNews() {
       {/* Responsive Grid for Cards */}
       <Grid
         container
-        spacing={4}
+        spacing={6}
         style={{ display: "flex", justifyContent: "center" }}
       >
         {[0, 1, 2].map((index) => {
@@ -89,7 +89,7 @@ function LatestNews() {
               key={index}
               xs={12}
               sm={6}
-              md={3.5}
+              md={3}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -101,7 +101,7 @@ function LatestNews() {
                   flexDirection: "column",
                   textAlign: "center",
                   minWidth: "100%",
-                  boxShadow: "0px 15px 19px 0px #0000003D",
+                  boxShadow: "0px 5px 5px 0px #0000003D",
                   borderRadius: "4px",
                   position: "relative",
                   height: "auto",

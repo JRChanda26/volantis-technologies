@@ -68,8 +68,8 @@ function ServicesOfferedbyUs() {
         </Typography>
       </Box>
 
-      {/* Responsive Grid */}
-      <Grid container spacing={2} style={{display:'flex',justifyContent:'space-evenly'}}>
+     
+      <Grid container spacing={5} style={{display:'flex',justifyContent:'space-evenly'}}>
      
         {[0, 1, 2,3].map((index) => {
           const card = {
