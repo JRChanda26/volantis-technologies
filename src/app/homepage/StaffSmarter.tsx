@@ -51,7 +51,7 @@ function StaffSmarter() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            zIndex: -1,
+            zIndex: -2,
           }}
           autoPlay
           loop
@@ -67,7 +67,17 @@ function StaffSmarter() {
             </p>
           )}
         </video>
-
+        <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.9)", 
+          zIndex: -1, 
+        }}
+      ></div>
         <div
           style={{
             padding: "200px 50px 100px 78px",

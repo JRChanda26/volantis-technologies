@@ -159,37 +159,7 @@ function DevelopmentServices() {
          paddingBottom:'2%'
         }}
       >
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center", // Centers the heading and description
-          }}
-        >
-          <Typography
-            style={{
-              fontFamily: "Poppins",
-              fontSize: "56px",
-              fontWeight: 700,
-              color: "#1874DA",
-            }}
-          >
-            {posts[0]?.data.heading}
-          </Typography>
-
-          <Typography
-            style={{
-              fontFamily: "Poppins",
-              fontSize: "16px",
-              fontWeight: 400,
-              color: "#6D6D6D",
-              padding: "18px 0px 50px 0px",
-            }}
-          >
-            {posts[0]?.data.description}
-          </Typography>
-        </div> */}
+       
 <Grid
   item
   xs={12} 
@@ -217,7 +187,7 @@ function DevelopmentServices() {
   <Typography
     sx={{
       fontFamily: 'Poppins',
-      fontSize: { xs: '14px', sm: '16px', md: '18px' }, // Responsive font size
+      fontSize: { xs: '14px', sm: '16px', md: '18px' }, 
       fontWeight: 400,
       color: '#6D6D6D',
       padding: '18px 0px 50px 0px',
@@ -231,8 +201,8 @@ function DevelopmentServices() {
           spacing={2}
           style={{
             display: "flex",
-            justifyContent: "space-evenly", // Centers the grid items horizontally
-            textAlign: "center", // Centers the text inside the grid items
+            justifyContent: "space-evenly", 
+            textAlign: "center", 
           }}
         >
           <Grid
@@ -242,13 +212,13 @@ function DevelopmentServices() {
             md={5}
             style={{
               display: "flex",
-              justifyContent: "center", // Centers the image horizontally
+              justifyContent: "center", 
             }}
           >
             <PrismicNextImage
               field={posts[0]?.data.developmentservices}
               alt={""}
-              style={{  width:'669px',height:'470px'}} // Make the image responsive
+              style={{  width:'669px',height:'470px'}} 
             />
           </Grid>
 
@@ -262,7 +232,7 @@ function DevelopmentServices() {
               flexDirection: "column",
               justifyContent: "center",
 
-              padding: "0 20px", // Adds spacing around text
+              padding: "0 20px",
             }}
           >
             <div>
@@ -286,9 +256,7 @@ function DevelopmentServices() {
                   fontSize: "16px",
                   fontWeight: 700,
                   lineHeight: "24px",
-                  textAlign: "left" as const,
-                  textUnderlinePosition: "from-font",
-                  textDecorationSkipInk: "none",
+                  textAlign: "left" ,
                 }}
               >
                 {posts[0]?.data.heading2}

@@ -161,37 +161,6 @@ function GenerativeAIServices() {
           // height: "100vh",
         }}
       >
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            style={{
-              fontFamily: "Poppins",
-              fontSize: "56px",
-              fontWeight: 700,
-              color: "#1874DA",
-            }}
-          >
-            {posts[0]?.data.heading}
-          </Typography>
-
-          <Typography
-            style={{
-              fontFamily: "Poppins",
-              fontSize: "16px",
-              fontWeight: 400,
-              color: "#6D6D6D",
-              padding: "18px 0px 50px 0px",
-            }}
-          >
-            {posts[0]?.data.description}
-          </Typography>
-        </div> */}
 <Grid
   item
   xs={12} 
