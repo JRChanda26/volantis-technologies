@@ -15,7 +15,7 @@ function GlobalPartnership() {
     };
     fetchPosts();
   }, []);
-
+ 
   const textStyle: React.CSSProperties = {
     fontFamily: "Poppins",
     fontSize: "16px",
@@ -97,29 +97,44 @@ function GlobalPartnership() {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
+              animation:"slide 10s linear infinite",
             }}
+            className={`animated-item`}
+            // style={{
+            //   animationDelay: `${index * 0.2}s`,
+            // }}
           >
             {item.image && (
-              <Box
-                component="div"
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "100%",
-                }}
-              >
+              // <Box
+              //   component="div"
+              //   sx={{
+              //     display: "flex",
+              //     justifyContent: "center",
+              //     alignItems: "center",
+              //     height: "100%",
+              //   }}
+              // >
                 <PrismicNextImage
                   field={item.image}
                   style={{ width: "40px", height: "40px" }}
                   alt={item.image?.alt || ""}
                 />
-              </Box>
+              // </Box>
             )}
             <Typography style={textStyle}>{item.text}</Typography>
           </Grid>
         ))}
       </Grid>
+      <style jsx>{`
+          @keyframes slide {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        `}</style>
     </Box>
   );
 }

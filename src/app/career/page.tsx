@@ -23,7 +23,7 @@ function Career() {
   return (
     <>
       <Header />
-      <div style={{ paddingTop: "60px", background: "#F6F6F6" }}>
+      <div style={{ background: "#F6F6F6",padding:'145px' }}>
         <Grid
           container
           spacing={4}
@@ -31,7 +31,7 @@ function Career() {
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",
-            padding: "50px",
+            padding: { xs: "20px", sm: "30px", md: "50px" }, 
           }}
         >
           <Grid
@@ -41,8 +41,8 @@ function Career() {
             md={5}
             sx={{
               display: "flex",
-              // alignItems: "center",
               flexDirection: "column",
+              padding: { xs: "15px", sm: "20px", md: "30px" },
             }}
           >
             <Typography
@@ -71,6 +71,7 @@ function Career() {
               {posts[0]?.data.description1}
             </p>
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -79,6 +80,7 @@ function Career() {
             sx={{
               display: "flex",
               justifyContent: "center",
+              padding: { xs: "15px", sm: "20px", md: "30px" }, // Responsive padding
             }}
           >
             <PrismicNextImage
@@ -93,8 +95,9 @@ function Career() {
                 maxHeight: "500px",
               }}
             />
-          </Grid>{" "}
+          </Grid>
         </Grid>
+
         <Grid
           container
           spacing={4}
@@ -102,7 +105,7 @@ function Career() {
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",
-            padding: "130px",
+            padding: { xs: "20px", sm: "30px", md: "50px" }, 
           }}
         >
           <Grid
@@ -112,8 +115,8 @@ function Career() {
             md={5.5}
             sx={{
               display: "flex",
-              // justifyContent:'center',
               flexDirection: "column",
+              padding: { xs: "15px", sm: "20px", md: "30px" }, 
             }}
           >
             <Typography
@@ -194,6 +197,7 @@ function Career() {
               </p>
             </details>
           </Grid>
+
           <Grid
             item
             xs={12}
@@ -202,6 +206,7 @@ function Career() {
             sx={{
               display: "flex",
               justifyContent: "center",
+              padding: { xs: "15px", sm: "20px", md: "30px" }, // Responsive padding
             }}
           >
             <PrismicNextImage
@@ -219,20 +224,23 @@ function Career() {
           </Grid>
         </Grid>
       </div>
+
       <div
         style={{
           textAlign: "center",
-         
           color: "#fff",
           backgroundImage: posts[0]?.data.img3?.url
             ? `url(${posts[0]?.data.img3?.url})`
             : "url('default-image.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat", minHeight:'500PX',
-         display:'flex',justifyContent:'center',
-         flexDirection:'column',
-          alignItems:'center'
+          backgroundRepeat: "no-repeat",
+          minHeight: "500px",
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+          alignItems: "center",
+          // padding: { xs: "20px", sm: "30px", md: "50px" },
         }}
       >
         <h2
@@ -252,7 +260,7 @@ function Career() {
             backgroundColor: "transparent",
             color: "#FFFFFF",
             border: "1px solid #FFFFFF",
-           textTransform:'none',
+            textTransform: "none",
             borderRadius: "12px",
             fontSize: "1rem",
             cursor: "pointer",
@@ -262,6 +270,7 @@ function Career() {
           {posts[0]?.data.button}
         </Button>
       </div>
+
       <ContactUs />
       <Footer />
     </>
@@ -269,10 +278,3 @@ function Career() {
 }
 
 export default Career;
-
-//   <section
-
-//   >
-
-//   </section>
-// </div>

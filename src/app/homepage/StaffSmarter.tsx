@@ -70,7 +70,7 @@ function StaffSmarter() {
 
         <div
           style={{
-            padding: "200px 50px 256px 78px",
+            padding: "200px 50px 100px 78px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -95,14 +95,11 @@ function StaffSmarter() {
             sx={{
 
               fontFamily: "Poppins",
-              fontSize: "16px",
+              fontSize: "14px",
               fontWeight: 400,
               lineHeight: "24px",
               textAlign: "left",
-              
-              
-
-              paddingRight: { xs: "0%", sm: "50%", lg: "60%" },
+              paddingRight: { xs: "0%", sm: "40%", lg: "50%" },
             }}
           >
             {posts[0]?.data.description1}

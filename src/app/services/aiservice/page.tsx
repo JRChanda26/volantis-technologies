@@ -155,13 +155,13 @@ function GenerativeAIServices() {
         style={{
           display: "flex",
           justifyContent: "center",
-          paddingTop: "120px ",
+          paddingTop: "200px ",
           flexDirection: "column",
           paddingBottom:'2%'
           // height: "100vh",
         }}
       >
-        <div
+        {/* <div
           style={{
             display: "flex",
             flexDirection: "column",
@@ -191,8 +191,43 @@ function GenerativeAIServices() {
           >
             {posts[0]?.data.description}
           </Typography>
-        </div>
+        </div> */}
+<Grid
+  item
+  xs={12} 
+  sm={12}
+  md={6}
+  sx={{
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    padding: { xs: '20px', sm: '30px', md: '40px' }, 
+  }}
+>
+  <Typography
+    sx={{
+      fontFamily: 'Poppins',
+      fontSize: { xs: '36px', sm: '48px', md: '56px' }, 
+      fontWeight: 700,
+      color: '#1874DA',
+    }}
+  >
+    {posts[0]?.data.heading}
+  </Typography>
 
+  <Typography
+    sx={{
+      fontFamily: 'Poppins',
+      fontSize: { xs: '14px', sm: '16px', md: '18px' }, // Responsive font size
+      fontWeight: 400,
+      color: '#6D6D6D',
+      padding: '18px 0px 50px 0px',
+    }}
+  >
+    {posts[0]?.data.description}
+  </Typography>
+</Grid>
         <Grid
           container
           spacing={0}
@@ -210,13 +245,13 @@ function GenerativeAIServices() {
             md={5}
             style={{
               display: "flex",
-              justifyContent: "center", // Centers the image horizontally
+              justifyContent: "center", 
             }}
           >
             <PrismicNextImage
               field={posts[0]?.data.generativeaiservicesimg}
               alt={""}
-              style={{ maxWidth: "90%", height: "auto" }} // Make the image responsive
+              style={{ width:'669px',height:'470px' }} 
             />
           </Grid>
 
@@ -229,7 +264,7 @@ function GenerativeAIServices() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              padding: "0 20px", // Adds spacing around text
+              padding: "0 20px", 
             }}
           >
             <div>
@@ -285,7 +320,7 @@ function GenerativeAIServices() {
               </Button>
 
               {/* Modal Form (Dialog) */}
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative" ,}}>
                 <Dialog
                   open={showForm}
                   onClose={handleClose}

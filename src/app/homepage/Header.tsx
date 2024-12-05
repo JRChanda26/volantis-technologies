@@ -6,17 +6,17 @@ import { usePathname } from "next/navigation";
 import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "@mui/material/Button";
+import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Drawer, Grid, IconButton, Typography, useMediaQuery } from "@mui/material";
 
 function Header() {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const isActive = (path: string) => pathname === path;
 
   const [posts, setPosts] = useState<any>([]);
-  const [dropdownVisible, setDropdownVisible] = useState(false); // State to track the visibility of the dropdown
-
+  const [dropdownVisible, setDropdownVisible] = useState(false); 
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("header" as any);
@@ -28,27 +28,45 @@ function Header() {
   const activeTab = isActive("/home") ? "/home" : pathname;
 
   const toggleDropdown = () => setDropdownVisible((prev) => !prev);
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setDropdownVisible(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target as Node)
+  //     ) {
+  //       setDropdownVisible(false);
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-  const tabStyle: React.CSSProperties={fontFamily: "Poppins",
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setDropdownVisible(false);
+    }
+  };
+  useEffect(() => {
+    if (dropdownVisible) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [dropdownVisible]);
+  const tabStyle: React.CSSProperties = {
+    fontFamily: "Poppins",
     fontSize: "16px",
     fontWeight: 400,
     lineHeight: "22px",
     textAlign: "left",
-    color: "#000000",}
+    color: "#000000",
+  };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const toggleDrawer = (open: boolean) => () => {
+    setIsDrawerOpen(open);
+  };
   return (
     <Box
       style={{
@@ -62,42 +80,188 @@ function Header() {
         width: "100%",
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
-        padding: "47px 24px 64px 24px",
-        // justifyContent: "space-between",
+        padding: "40px 24px 24px 24px",
+        justifyContent: "space-evenly",
       }}
     >
-      <Grid container spacing={2} justifyContent="space-between" alignItems="stretch">
-        <Grid item xs={3} sm={3} lg={3}  style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-    }}>
+       {isSmallScreen ? (
+        <>
+          <Link href="/home">
+            <PrismicNextImage
+              field={posts[0]?.data?.volantisimage}
+              alt=""
+              // style={{ height: "auto", width: "55%" }}
+            />
+          </Link>
+          <IconButton
+            onClick={toggleDrawer(true)}
+            sx={{
+              color: "#1e88e5",
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Drawer
+            anchor="right"
+            open={isDrawerOpen}
+            onClose={toggleDrawer(false)}
+          >
+            <Box
+              sx={{
+                width: 250,
+                padding: "20px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+              }}
+              role="presentation"
+              onClick={toggleDrawer(false)}
+            >
+              {posts.length > 0 && (
+                <>
+                  <Link href="/home" style={tabStyle}>
+                    {posts[0]?.data.tab1}
+                  </Link>
+                  <Link href="/about" style={tabStyle}>
+                    {posts[0]?.data.tab3}
+                  </Link>
+                  <Link href="/blog" style={tabStyle}>
+                    {posts[0]?.data.tab4}
+                  </Link>
+                  <Link href="/career" style={tabStyle}>
+                    {posts[0]?.data.tab5}
+                  </Link>
+                  <Link href="/contact" style={tabStyle}>
+                    {posts[0]?.data.tab6}
+                  </Link>
+                  <Box>
+                    <Typography
+                      onClick={toggleDropdown}
+                      style={{
+                        ...tabStyle,
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      {posts[0]?.data.tab2}
+                      <KeyboardArrowDownSharpIcon />
+                    </Typography>
+                    {dropdownVisible && (
+                      <Box
+                        sx={{
+                          marginTop: "10px",
+                          background: "#fff",
+                          border: "1px solid #ddd",
+                          borderRadius: "4px",
+                          boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+                          padding: "10px",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "10px",
+                        }}
+                      >
+                        <Link href="/services/aiservice" style={tabStyle}>
+                          {posts[0]?.data.service1}
+                        </Link>
+                        <Link href="/services/staffing" style={tabStyle}>
+                          {posts[0]?.data.service2}
+                        </Link>
+                        <Link href="/services/devlopment" style={tabStyle}>
+                          {posts[0]?.data.service3}
+                        </Link>
+                        <Link href="/services/engineering" style={tabStyle}>
+                          {posts[0]?.data.service4}
+                        </Link>
+                      </Box>
+                    )}
+                  </Box>
+                  <Button
+                    style={{
+                      backgroundColor: "#1e88e5",
+                      color: "#fff",
+                      fontSize: "16px",
+                      fontWeight: "500",
+                      textTransform: "none",
+                      fontFamily: "Poppins",
+                      padding: "10px",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#1565c0")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.backgroundColor = "#1e88e5")
+                    }
+                  >
+                    {posts[0]?.data.button}
+                  </Button>
+                </>
+              )}
+            </Box>
+          </Drawer>
+        </>
+
+           
+          
+          ) : (
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "row", sm: "row", lg: "row" },
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          padding: "10px",
+        }}
+      >
+        <Grid
+          item
+          xs={3}
+          sm={3}
+          lg={3}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           {posts.length > 0 && posts[0]?.data?.volantisimage && (
             <Link href="/home">
               <PrismicNextImage
                 field={posts[0]?.data?.volantisimage}
                 alt=""
-                style={{
-                  width: "160px",
-                  height: "50px",  maxWidth: "100%",
-                }}
+                // style={{
+                //   // width: "160px",
+                //   // height: "50px",  maxWidth: "100%",
+                //   height: "auto",
+                //   width: "55%",
+                // }}
               />
             </Link>
           )}
         </Grid>
-        <Grid item xs={6} sm={6} lg={6}  style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-    }}>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          lg={6}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           {" "}
           <Box
             sx={{
               display: "flex",
               gap: "20px",
               alignItems: "center",
-              justifyContent: "flex-start",
-              flexDirection:'row',
+              justifyContent: "center",
+              flexDirection: "row",
               // flex: 2,
               //  // Ensures the menu is on the right
               flexWrap: "wrap",
@@ -114,11 +278,7 @@ function Header() {
                   activeTab === "/home" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography
-                style={tabStyle}
-              >
-                {posts[0]?.data.tab1}
-              </Typography>
+              <Typography style={tabStyle}>{posts[0]?.data.tab1}</Typography>
             </Link>
             <Box
               ref={dropdownRef}
@@ -128,11 +288,7 @@ function Header() {
                 fontFamily: "Poppins",
               }}
             >
-             <Typography
-                             onClick={toggleDropdown}
-
-                style={tabStyle}
-              >
+              <Typography onClick={toggleDropdown} style={tabStyle}>
                 {posts[0]?.data.tab2}
                 <KeyboardArrowDownSharpIcon />
               </Typography>
@@ -243,12 +399,7 @@ function Header() {
                   activeTab === "/about" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography
-                style={tabStyle}
-              >
-                {" "}
-                {posts[0]?.data.tab3}
-              </Typography>
+              <Typography style={tabStyle}> {posts[0]?.data.tab3}</Typography>
             </Link>
             <Link
               href="/blog"
@@ -261,11 +412,7 @@ function Header() {
                   activeTab === "/blog" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography
-                style={tabStyle}
-              >
-                {posts[0]?.data.tab4}
-              </Typography>
+              <Typography style={tabStyle}>{posts[0]?.data.tab4}</Typography>
             </Link>
             <Link
               href="/career"
@@ -278,11 +425,7 @@ function Header() {
                   activeTab === "/career" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography
-                style={tabStyle}
-              >
-                {posts[0]?.data.tab5}
-              </Typography>
+              <Typography style={tabStyle}>{posts[0]?.data.tab5}</Typography>
             </Link>
             <Link
               href="/contact"
@@ -295,11 +438,7 @@ function Header() {
                   activeTab === "/contact" ? "2px solid #1e88e5" : "none",
               }}
             >
-              <Typography
-                style={tabStyle}
-              >
-                {posts[0]?.data.tab6}
-              </Typography>
+              <Typography style={tabStyle}>{posts[0]?.data.tab6}</Typography>
             </Link>
           </Box>
         </Grid>
@@ -308,7 +447,6 @@ function Header() {
           xs={3}
           sm={3}
           lg={3}
-         
           style={{
             display: "flex",
             alignItems: "center",
@@ -340,6 +478,7 @@ function Header() {
           </Button>
         </Grid>
       </Grid>
+        )}
     </Box>
   );
 }

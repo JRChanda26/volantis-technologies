@@ -7,7 +7,7 @@ import { PrismicNextImage } from "@prismicio/next";
 
 function Testimonials() {
   const [posts, setPosts] = useState<any>([]);
-  const [currentIndex, setCurrentIndex] = useState(0); // Add state for the current testimonial index
+  const [currentIndex] = useState(0); // Add state for the current testimonial index
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -18,24 +18,24 @@ function Testimonials() {
   }, []);
 
   // Function to handle the left icon click
-  const handleLeftClick = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex === 0) {
-        return posts.length - 1; // Loop to the last testimonial
-      }
-      return prevIndex - 1; // Go to the previous testimonial
-    });
-  };
+  // const handleLeftClick = () => {
+  //   setCurrentIndex((prevIndex) => {
+  //     if (prevIndex === 0) {
+  //       return posts.length - 1; // Loop to the last testimonial
+  //     }
+  //     return prevIndex - 1; // Go to the previous testimonial
+  //   });
+  // };
 
-  // Function to handle the right icon click (optional, if you want to add this functionality)
-  const handleRightClick = () => {
-    setCurrentIndex((prevIndex) => {
-      if (prevIndex === posts.length - 1) {
-        return 0; // Loop back to the first testimonial
-      }
-      return prevIndex + 1; // Go to the next testimonial
-    });
-  };
+  // // Function to handle the right icon click (optional, if you want to add this functionality)
+  // const handleRightClick = () => {
+  //   setCurrentIndex((prevIndex) => {
+  //     if (prevIndex === posts.length - 1) {
+  //       return 0; // Loop back to the first testimonial
+  //     }
+  //     return prevIndex + 1; // Go to the next testimonial
+  //   });
+  // };
 
   return (
     <div
@@ -89,7 +89,7 @@ function Testimonials() {
       >
         {/* Left Icon */}
 
-        <PrismicNextImage
+        {/* <PrismicNextImage
           field={posts[currentIndex]?.data.right_icon}
           alt={posts[currentIndex]?.data.right_icon?.alt || "Right Icon"}
           onClick={handleRightClick} // Optional: Add onClick handler to right icon
@@ -98,7 +98,7 @@ function Testimonials() {
             height: "20px",
             cursor: "pointer ",
           }}
-        />
+        /> */}
        
 
         {/* Center Content */}
@@ -150,7 +150,7 @@ function Testimonials() {
         </div>
 
         {/* Right Icon (optional) */}
-        <PrismicNextImage
+        {/* <PrismicNextImage
           field={posts[currentIndex]?.data.left_icon}
           alt={posts[currentIndex]?.data.left_icon?.alt || "Left Icon"}
           onClick={handleLeftClick} // Add onClick handler to left icon
@@ -159,7 +159,7 @@ function Testimonials() {
             height: "20px",
             cursor: "pointer ",
           }}
-        />
+        /> */}
       </div>
     </div>
   );

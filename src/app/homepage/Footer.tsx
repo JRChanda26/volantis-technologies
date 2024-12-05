@@ -44,7 +44,7 @@ function Footer() {
   };
 
   return (
-    <div style={{ background: "#F6F6F6", padding: "20px 10px 5px 10px", }}>
+    <div style={{ background: "#F6F6F6", padding: "48px 10px 48px 10px", }}>
       <div
         style={{
           display: "flex",
@@ -111,7 +111,7 @@ function Footer() {
                     {linkUrl ? (
                       <Link href={linkUrl} passHref>
                         <span
-                          style={{ color: "#000", textDecoration: "underline" }}
+                          style={{ color: "#000",  }}
                         >
                           {descText}
                         </span>
@@ -133,6 +133,7 @@ function Footer() {
           fontSize: "16px",
           lineHeight: "22px",
           fontWeight: "400",
+          paddingTop:'50px'
         }}
       >
         Copyright © 2024-25 Volantis Technologies. All Rights Reserved.
