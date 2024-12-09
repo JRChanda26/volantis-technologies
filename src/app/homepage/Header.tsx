@@ -8,6 +8,8 @@ import { PrismicNextImage } from "@prismicio/next";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownSharpIcon from "@mui/icons-material/KeyboardArrowDownSharp";
+import KeyboardArrowUpSharpIcon from "@mui/icons-material/KeyboardArrowUpSharp";
+
 import {
   Box,
   Drawer,
@@ -34,22 +36,8 @@ function Header() {
 
   const activeTab = isActive("/home") ? "/home" : pathname;
 
-  const toggleDropdown = () => setDropdownVisible((prev) => !prev);
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(event.target as Node)
-  //     ) {
-  //       setDropdownVisible(false);
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
+  const toggleDropdown = () =>  setDropdownVisible(!dropdownVisible);;
+  
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -180,7 +168,11 @@ function Header() {
                       }}
                     >
                       {posts[0]?.data.tab2}
-                      <KeyboardArrowDownSharpIcon />
+                      {dropdownVisible ? (
+          <KeyboardArrowUpSharpIcon />
+        ) : (
+          <KeyboardArrowDownSharpIcon />
+        )}
                     </Typography>
                     {dropdownVisible && (
                       <Box
@@ -336,38 +328,33 @@ function Header() {
                   }}
                 >
                   {posts[0]?.data.tab2}
-                  <KeyboardArrowDownSharpIcon />
+                  {/* <KeyboardArrowDownSharpIcon /> */}
+                  {dropdownVisible ? (
+          <KeyboardArrowUpSharpIcon />
+        ) : (
+          <KeyboardArrowDownSharpIcon />
+        )}
                 </Typography>
 
                 {/* Dropdown Menu */}
                 {dropdownVisible && (
                   <div
                     style={{
-                      // position: "absolute",
-                      // top: "25px",
-                      // right: "-70px",
-                      // marginTop: "5px",
-                      // background: "#fff",
-                      // border: "1px solid #ddd",
-                      // borderRadius: "4px",
-                      // minWidth: "250px",
-                      // height:'auto',
-                      // boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                      // zIndex: 1000,
                       position: "absolute",
-      top: "25px",
-      right: "-70px",
-      marginTop: "5px",
-      background: "#fff",
-      border: "1px solid #ddd",
-      borderRadius: "4px",
-      width: "300px",
-      height: 'auto',
-      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-      zIndex: 1000,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "justify",
+                      top: "25px",
+                      right: "-70px",
+                      marginTop: "5px",
+                      background: "#fff",
+                      border: "1px solid #ddd",
+                      borderRadius: "4px",
+                      width: "300px",
+                      height: "auto",
+                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+                      zIndex: 1000,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      paddingBottom:'10px'
                     }}
                   >
                     <Link
@@ -375,9 +362,9 @@ function Header() {
                       style={{
                         display: "block",
                         padding: "10px ",
-                        fontFamily:'Poppins',
+                        fontFamily: "Poppins",
                         fontSize: "18px",
-                        
+
                         color: isActive("/services/aiservice")
                           ? "#1e88e5"
                           : "#000",
@@ -395,9 +382,10 @@ function Header() {
                       href="/services/staffing"
                       style={{
                         display: "block",
-                        padding: "10px ", fontFamily:'Poppins',
+                        padding: "10px ",
+                        fontFamily: "Poppins",
                         fontSize: "18px",
-                        
+
                         color: isActive("/services/staffing")
                           ? "#1e88e5"
                           : "#000",
@@ -416,8 +404,8 @@ function Header() {
                       style={{
                         display: "block",
                         padding: "5px ",
-                     
-                        fontFamily:'Poppins',
+
+                        fontFamily: "Poppins",
                         fontSize: "18px",
                         color: isActive("/services/devlopment")
                           ? "#1e88e5"
@@ -437,7 +425,7 @@ function Header() {
                       style={{
                         display: "block",
                         padding: "10px ",
-                        fontFamily:'Poppins',
+                        fontFamily: "Poppins",
                         fontSize: "18px",
                         color: isActive("/services/engineering")
                           ? "#1e88e5"

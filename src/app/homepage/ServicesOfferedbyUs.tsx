@@ -7,7 +7,7 @@ import { client } from "../../../prismic-configuration";
 import Link from "next/link";
 function ServicesOfferedbyUs() {
   const [posts, setPosts] = useState<any>("");
-
+  // const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("services_offered");
@@ -15,14 +15,24 @@ function ServicesOfferedbyUs() {
     };
     fetchPosts();
   }, []);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  const handleMouseEnter = (index: number) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
   const descriptionStyle: React.CSSProperties = {
     fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
-    lineHeight: "15px",
-    textAlign: "left",
-    color: "#7A7A7A",
+    lineHeight: "20px",
+    textAlign: "justify",
+    // color: "#7A7A7A",
+  
+    transition: "color 0.3s ease",
   };
 
   const titleStyle: React.CSSProperties = {
@@ -31,7 +41,7 @@ function ServicesOfferedbyUs() {
     fontWeight: 700,
     lineHeight: "24px",
     textAlign: "left",
-    color: "#000000",
+    transition: "color 0.3s ease",
     paddingBottom: "14px",
   };
 
@@ -106,25 +116,47 @@ function ServicesOfferedbyUs() {
               }}
             >
               <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  // width:'360px',
-                  // height:'460px',
-                  // textAlign: "center",
-                  // minWidth: "100%",
-                  boxShadow: "0px 5px 5px 0px #0000001A",
-                  borderRadius: "4px",
-                  position: "relative",
-                  // height: "auto",
-                  // padding: "0px 0px 5px 0px",
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                  cursor: "pointer",
-                }}
-              >
+              //   sx={{
+              //     display: "flex",
+              //     flexDirection: "column",
+              //     // width:'360px',
+              //     // height:'460px',
+              //     // textAlign: "center",
+              //     // minWidth: "100%",
+              //     boxShadow: "0px 5px 5px 0px #0000001A",
+              //     borderRadius: "4px",
+              //     position: "relative",
+              //     // height: "auto",
+              //     // padding: "0px 0px 5px 0px",
+              //     transition: "transform 0.3s ease-in-out",
+              //     "&:hover": {
+              //       transform: "scale(1.05)",
+              //     },
+              //     cursor: "pointer",
+              //     backgroundColor: isHovered ? "blue" : "white",
+              //     "&:hover": {
+              //       transform: "scale(1.05)",
+              //     },
+              //   }}
+              //   onMouseEnter={handleMouseEnter}
+              //   onMouseLeave={handleMouseLeave}
+              // >
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "0px 5px 5px 0px #0000001A",
+                borderRadius: "4px",
+                position: "relative",
+                transition: "transform 0.3s ease-in-out, background-color 0.3s ease",
+                cursor: "pointer",
+                backgroundColor: hoveredIndex === index ? "#1874DA" : "#FFFFFF",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+              }}
+              onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            >
                 {card.image && (
                   <PrismicNextImage
                     field={card.image}
@@ -136,8 +168,10 @@ function ServicesOfferedbyUs() {
                   />
                 )}
                 <div style={{ padding: "29px 24px 39px 25px" }}>
-                  <Typography style={titleStyle}>{card.title}</Typography>
-                  <Typography style={descriptionStyle}>
+                  <Typography style={{...titleStyle,    color: hoveredIndex === index ? "white" : "#000000",
+}}>{card.title}</Typography>
+                  <Typography style={{...descriptionStyle,    color: hoveredIndex === index ? "white" : "#7A7A7A",}
+}>
                     {card.description}
                   </Typography>
                  
@@ -150,6 +184,9 @@ function ServicesOfferedbyUs() {
                       bottom: "10px",
                       left: "25px",
                       cursor: "pointer",
+                      filter: hoveredIndex === index ? "brightness(0) invert(1)" : "none", // White on hover
+                      transition: "filter 0.3s ease",
+
                       //  padding: "10px 10px 5px 10px",
                     }}
                   /></Link>

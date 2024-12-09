@@ -38,7 +38,7 @@ function Footer() {
   const hardcodedLinks: Record<string, string> = {
     title2desc1link: "/home",
     title2desc2link: "/about",
-    title2desc3link: "/home",
+    title2desc3link: "/services/aiservice",
     title2desc4link: "/career",
     title2desc5link: "/contact",
   };
