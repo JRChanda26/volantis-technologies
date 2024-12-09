@@ -70,9 +70,9 @@ function About() {
   return (
     <>
       <Header />
-      {/* <div
+      <div
         style={{
-          paddingTop: isSmallScreen ? "80px" : "80px",
+          paddingTop: isSmallScreen ? "40px" : "40px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -80,7 +80,7 @@ function About() {
           gap: isSmallScreen ? "8px" : "10px",
           background: "#F6F6F6",
         }}
-      > */}
+      >
      <Box sx={containerStyles}>
         {posts.length > 0 && (
           <>
@@ -127,7 +127,7 @@ function About() {
                     textAlign: "center",
                     marginTop: "15px",
                     color: "#6D6D6D",
-                    // maxWidth: "70%",
+                    maxWidth: "70%",
                     // margin: "0 auto",
                   }}
                 >
@@ -507,6 +507,7 @@ function About() {
           </>
         )}
      </Box>
+     </div>
       <ContactUs />
       <Subscribe />
       <Footer />

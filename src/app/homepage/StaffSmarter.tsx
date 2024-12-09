@@ -84,7 +84,7 @@ function StaffSmarter() {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
-            // justifyContent: "center",
+            justifyContent: "center",
             gap: "16px",
           }}
         >

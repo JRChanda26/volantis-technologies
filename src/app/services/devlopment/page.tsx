@@ -303,10 +303,15 @@ function DevelopmentServices() {
       container
       spacing={0}
       style={{
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: '40px',
+          position: "fixed",
+          top: '100px',
+          left: '200px',
+          width: "60%",
+          height: "80vh",
+          backgroundColor: "none",
+          zIndex: 1,
+          overflow:'auto',
       }}
     >
       {/* Left Side */}

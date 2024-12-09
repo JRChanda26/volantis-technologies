@@ -305,6 +305,7 @@ function GenerativeAIServices() {
           height: "80vh",
           backgroundColor: "none",
           zIndex: 1,
+          overflow:'auto',
           // justifyContent: "center", 
           // alignItems: "center",
         }}
@@ -355,7 +356,7 @@ function GenerativeAIServices() {
             height: "auto", 
             display: "flex", 
             flexDirection: "column", 
-            justifyContent: "center"
+            justifyContent: "center", overflowY: "auto",
           }}
         >
           <TextField
