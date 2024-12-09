@@ -44,13 +44,12 @@ function Footer() {
   };
 
   return (
-    <div style={{ background: "#F6F6F6", padding: "48px 10px 48px 10px", }}>
+    <div style={{ background: "#F6F6F6", padding: "48px 10px 48px 10px" }}>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-         
         }}
       >
         <Grid
@@ -79,9 +78,16 @@ function Footer() {
                   <PrismicNextImage field={posts[0]?.data.linkedin} alt="" />
                 </Link>
                 {/* <PrismicNextImage field={posts[0]?.data.linkedin} alt={""} /> */}
-                <PrismicNextImage field={posts[0]?.data.instagram} alt={""} />
+                {/* <PrismicNextImage field={posts[0]?.data.instagram} alt={""} /> */}
+                <a
+                  href="https://www.facebook.com/p/Volantis-Technologies-P-Limited-100069932287011/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {" "}
+                  <PrismicNextImage field={posts[0]?.data.facebook} alt={""} />
+                </a>
                 <PrismicNextImage field={posts[0]?.data.twitter} alt={""} />
-                <PrismicNextImage field={posts[0]?.data.facebook} alt={""} />
               </Box>
             </Box>
           </Grid>
@@ -110,11 +116,7 @@ function Footer() {
                   <Typography key={descKey} style={desc}>
                     {linkUrl ? (
                       <Link href={linkUrl} passHref>
-                        <span
-                          style={{ color: "#000",  }}
-                        >
-                          {descText}
-                        </span>
+                        <span style={{ color: "#000" }}>{descText}</span>
                       </Link>
                     ) : (
                       descText
@@ -133,7 +135,7 @@ function Footer() {
           fontSize: "16px",
           lineHeight: "22px",
           fontWeight: "400",
-          paddingTop:'50px'
+          paddingTop: "50px",
         }}
       >
         Copyright © 2024-25 Volantis Technologies. All Rights Reserved.

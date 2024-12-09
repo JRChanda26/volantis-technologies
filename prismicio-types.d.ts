@@ -2539,17 +2539,6 @@ interface HeaderDocumentData {
   tab3: prismic.KeyTextField;
 
   /**
-   * Tab4 field in *Header*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header.tab4
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  tab4: prismic.KeyTextField;
-
-  /**
    * Tab5 field in *Header*
    *
    * - **Field Type**: Text
