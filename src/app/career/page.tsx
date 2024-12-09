@@ -23,7 +23,7 @@ function Career() {
   return (
     <>
       <Header />
-      <div style={{ background: "#F6F6F6",padding:'145px' }}>
+      <div style={{ background: "#F6F6F6",paddingTop:'140px'}}>
         <Grid
           container
           spacing={4}
@@ -31,7 +31,7 @@ function Career() {
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",
-            padding: { xs: "20px", sm: "30px", md: "50px" }, 
+            padding: { xs: "20px", sm: "30px", md: "40px" }, 
           }}
         >
           <Grid
@@ -46,9 +46,14 @@ function Career() {
             }}
           >
             <Typography
-              style={{
+              sx={{
                 fontFamily: "Poppins",
-                fontSize: "56px",
+                fontSize: {
+                  xs: "30px", 
+                  sm: "40px", 
+                  md: "56px",
+                },
+                // fontSize: "56px",
                 fontWeight: 700,
                 lineHeight: "60px",
                 textAlign: "center",
@@ -76,11 +81,11 @@ function Career() {
             item
             xs={12}
             sm={6}
-            md={6}
+            md={5.5}
             sx={{
               display: "flex",
               justifyContent: "center",
-              padding: { xs: "15px", sm: "20px", md: "30px" }, // Responsive padding
+              padding: { xs: "15px", sm: "20px", md: "30px" }, 
             }}
           >
             <PrismicNextImage
@@ -120,9 +125,14 @@ function Career() {
             }}
           >
             <Typography
-              style={{
+              sx={{
                 fontFamily: "Poppins",
-                fontSize: "40px",
+                fontSize: {
+                  xs: "20px", 
+                  sm: "30px", 
+                  md: "40px",
+                },
+                // fontSize: "40px",
                 fontWeight: 700,
                 lineHeight: "60px",
                 textAlign: "left",
