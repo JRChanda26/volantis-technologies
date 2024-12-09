@@ -28,13 +28,6 @@
           "placeholder": ""
         }
       },
-      "tab4": {
-        "type": "Text",
-        "config": {
-          "label": "Tab4",
-          "placeholder": ""
-        }
-      },
       "tab5": {
         "type": "Text",
         "config": {

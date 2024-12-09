@@ -127,7 +127,7 @@ function About() {
                     textAlign: "center",
                     marginTop: "15px",
                     color: "#6D6D6D",
-                    maxWidth: "70%",
+                    maxWidth: "100%",
                     // margin: "0 auto",
                   }}
                 >
@@ -339,12 +339,13 @@ function About() {
 
               <Grid
                 container
-                spacing={0} // Reduced spacing between items
+                spacing={2} 
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  padding: "40px 0px 0px 10%", // Adjust this padding if needed
+                  padding: "40px 0px 0px 10%", 
+                  textAlign:'center'
                 }}
               >
                 {/* Repeated Grid Items */}
@@ -358,9 +359,9 @@ function About() {
                       textAlign: "center",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "flex-start", // Align left for content within items
+                      alignItems: "flex-start", 
                       justifyContent: "center",
-                      marginBottom: "10px", // Reduce space at the bottom if needed
+                      marginBottom: "10px", 
                     }}
                     key={i}
                   >
@@ -377,7 +378,7 @@ function About() {
                 ))}
               </Grid>
             </Box>
-            <div>
+            {/* <div>
               <Typography
                 style={{
                   fontFamily: "Poppins",
@@ -414,7 +415,7 @@ function About() {
                   }}
                 >
                   {/* First Row - First 2 Images */}
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       flexDirection: "row",
@@ -432,10 +433,10 @@ function About() {
                       field={posts[0]?.data.teamimage2}
                       alt={""}
                     />
-                  </Box>
+                  </Box> */} 
 
                   {/* Second Row - Last 2 Images */}
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       flexDirection: "row",
@@ -503,7 +504,7 @@ function About() {
                   </Typography>
                 </Grid>
               </Grid>
-            </div>
+            </div> */}
           </>
         )}
      </Box>
