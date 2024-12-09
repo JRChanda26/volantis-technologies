@@ -40,11 +40,12 @@ function Testimonials() {
   return (
     <div
       style={{
-        padding: "0px 50px 20px 78px",
+        padding: "0px 50px 20px 50px",
         display: "flex",
         flexDirection: "column",
         background: "#F6F6F6",
         justifyContent: "center",
+        alignItems:'center',
         gap: "16px",
       }}
     >
@@ -130,7 +131,8 @@ function Testimonials() {
               lineHeight: "24px",
               textAlign: "center",
               marginTop: "15px",
-              color: "#000000",
+              color: "#000000", marginLeft: "auto",
+              marginRight: "auto",
             }}
           >
             {posts[currentIndex]?.data.image_description}
