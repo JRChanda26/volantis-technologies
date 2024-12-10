@@ -78,7 +78,7 @@ function GenerativeAIServices() {
           spacing={0}
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-around",
             textAlign: "center",
             alignItems: "center",
           }}
@@ -156,11 +156,11 @@ function GenerativeAIServices() {
                 background: "#1874DA",
                 cursor: "pointer",
                 borderRadius: "6px",
-                display: "flex",
-                padding: "11px 54px 11px 54px",
+                padding: "11px 20px", // Adjust padding for better responsiveness
                 alignItems: "center",
                 justifyContent: "center",
-                width: "30%",
+                width: "100%", // Full width for small screens
+                maxWidth: "200px", // Restrict the max width for large screens
                 height: "auto",
               }}
               onClick={handleKnowMoreClick}
