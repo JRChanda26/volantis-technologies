@@ -67,6 +67,21 @@ function About() {
     color: "#FFFFFF",
     maxWidth: "60%",
   };
+
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <>
       <Header />
@@ -100,7 +115,7 @@ function About() {
               <Typography
                 style={{
                   fontFamily: "Poppins",
-                  fontSize: isSmallScreen ? "32px" : "56px",
+                  fontSize: fontSize,
                   fontWeight: 700,
                   color: "#1874DA",
                   textAlign: "center",
@@ -310,7 +325,7 @@ function About() {
                 <Typography
                   style={{
                     fontFamily: "Poppins",
-                    fontSize: "56px",
+                    fontSize:fontSize,
                     fontWeight: 700,
                     lineHeight: "78px",
                     textAlign: "center",

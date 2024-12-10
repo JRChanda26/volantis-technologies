@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { client } from "../../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 function StaffingServices() {
   const [posts, setPosts] = useState<any>([]);
@@ -35,6 +35,22 @@ function StaffingServices() {
   const handleClose = () => {
     setShowForm(false);
   };
+  const theme = useTheme();
+
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "48px"
+    : isLaptop
+    ? "38px"
+    : isTablet
+    ? "30px"
+    : "22px"; 
   return (
     <div>
       {/* Header Component */}
@@ -44,7 +60,7 @@ function StaffingServices() {
       <div
         className="relative bg-white min-h-screen"
         style={{
-          padding: "150px 0px  20px 0px",
+          padding: "125px 0px  20px 0px",
           // backgroundColor: showForm ? "black" : "white",
         }}
       >
@@ -53,7 +69,7 @@ function StaffingServices() {
           <h1
             style={{
               fontFamily: "Poppins",
-              fontSize: "48px",
+              fontSize: fontSize,
               fontWeight: 700,
               color: "#1874DA",
               padding:'20px 0px 10px 0px'
