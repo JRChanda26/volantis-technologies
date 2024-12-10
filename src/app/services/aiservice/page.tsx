@@ -2,37 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { client } from "../../../../prismic-configuration";
-import {
-  Button,
-  Grid,
-  Typography,
-  TextField,
-  FormControl,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-} from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
+import { Button, Grid, Typography } from "@mui/material";
 
 function GenerativeAIServices() {
-  const [posts, setPosts] = useState<any>("");
-  const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-    phone: "",
-    selectedServices: [] as string[],
-  });
-
-  const [formErrors, setFormErrors] = useState({
-    name: "",
-    email: "",
-    message: "",
-    phone: "",
-    services: "",
-  });
+  const [posts, setPosts] = useState<any>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -42,168 +17,68 @@ function GenerativeAIServices() {
     fetchPosts();
   }, []);
 
-  const handleKnowMoreClick = () => {
-    setShowForm(true);
-  };
-
-  const handleClose = () => {
-    setShowForm(false);
-  };
-
-  const validateForm = () => {
-    const errors = {
-      name: "",
-      email: "",
-      message: "",
-      phone: "",
-      services: "",
-    };
-    let isValid = true;
-
-    if (!formData.name.trim()) {
-      errors.name = "Name is required";
-      isValid = false;
-    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
-      errors.name = "Name should only contain alphabetic characters";
-      isValid = false;
-    }
-
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-      isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Email is not valid";
-      isValid = false;
-    }
-
-    if (!formData.message.trim()) {
-      errors.message = "Message is required";
-      isValid = false;
-    } else if (formData.message.length < 10) {
-      errors.message = "Message should be at least 10 characters long";
-      isValid = false;
-    }
-
-    if (!formData.phone.trim()) {
-      errors.phone = "Phone number is required";
-      isValid = false;
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      errors.phone = "Phone number must be 10 digits";
-      isValid = false;
-    }
-
-    if (formData.selectedServices.length === 0) {
-      errors.services = "Please select at least one service";
-      isValid = false;
-    }
-
-    setFormErrors(errors);
-    return isValid;
-  };
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    // Close form if the user clicks on the overlay
-    if (e.target === e.currentTarget) {
-      setShowForm(false);
-    }
-  };
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // Handle form submission logic here (e.g., send data to API)
-      // alert("Form submitted!");
-      handleClose();
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target;
-    if (checked) {
-      setFormData((prevState) => ({
-        ...prevState,
-        selectedServices: [...prevState.selectedServices, value],
-      }));
-    } else {
-      setFormData((prevState) => ({
-        ...prevState,
-        selectedServices: prevState.selectedServices.filter(
-          (service) => service !== value
-        ),
-      }));
-    }
-  };
-
   const textStyle: React.CSSProperties = {
     fontFamily: "Poppins",
     fontSize: "14px",
     fontWeight: 400,
     lineHeight: "15px",
-    textAlign: "left" as const,
+    textAlign: "left",
     textUnderlinePosition: "from-font",
     textDecorationSkipInk: "none",
     color: "#1874DA",
     padding: "10px",
   };
-
+  const [showForm, setShowForm] = useState(false);
+  const handleKnowMoreClick = () => {
+    setShowForm(true);
+  };
+  const handleClose = () => {
+    setShowForm(false);
+  };
   return (
-    <>
+    <div>
+      {/* Header Component */}
       <Header />
+
+      {/* Main Wrapper */}
       <div
+        className="relative bg-white min-h-screen"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "200px ",
-          flexDirection: "column",
-          paddingBottom: "2%",
-          // height: "100vh",
+          padding: "150px 0px  20px 0px",
+          // backgroundColor: showForm ? "black" : "white",
         }}
       >
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={6}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            textAlign: "center",
-            padding: { xs: "20px", sm: "30px", md: "40px" },
-          }}
-        >
-          <Typography
-            sx={{
+        {/* Introductory Text */}
+        <div className="text-center py-6">
+          <h1
+            style={{
               fontFamily: "Poppins",
-              fontSize: { xs: "36px", sm: "48px", md: "56px" },
+              fontSize: "48px",
               fontWeight: 700,
-              color: "#1874DA",
+              color: "#1874DA",padding:'20px 0px 10px 0px'
             }}
           >
             {posts[0]?.data.heading}
-          </Typography>
-
-          <Typography
-            sx={{
+          </h1>
+          <p
+            style={{
               fontFamily: "Poppins",
-              fontSize: { xs: "14px", sm: "16px", md: "18px" }, // Responsive font size
+              fontSize: "18px",
               fontWeight: 400,
-              color: "#6D6D6D",
-              padding: "18px 0px 50px 0px",
+              color: "#333333",padding:'0px 0px 20px 0px'
             }}
           >
             {posts[0]?.data.description}
-          </Typography>
-        </Grid>
+          </p>
+        </div>
+
+        {/* Main Content */}
         <Grid
           container
           spacing={0}
           style={{
             display: "flex",
-            justifyContent: "space-evenly",
+            justifyContent: "center",
             textAlign: "center",
             alignItems: "center",
           }}
@@ -221,10 +96,11 @@ function GenerativeAIServices() {
             <PrismicNextImage
               field={posts[0]?.data.generativeaiservicesimg}
               alt={""}
-              style={{ width: "669px", height: "470px" }}
+              style={{ width: "550px", height: "400px" }}
             />
           </Grid>
 
+          {/* Text Content Section */}
           <Grid
             item
             xs={12}
@@ -237,263 +113,272 @@ function GenerativeAIServices() {
               padding: "0 20px",
             }}
           >
-            <div>
-              <Typography
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  lineHeight: "25px",
-                  textAlign: "left" as const,
-                  color: "#7A7A7A",
-                  maxWidth: "70%",
-                  padding: "24px 0 24px 0px",
-                }}
-              >
-                {posts[0]?.data.imagedesc}
-              </Typography>
-              <Typography
-                style={{
-                  fontFamily: "Poppins",
-                  fontSize: "16px",
-                  fontWeight: 700,
-                  lineHeight: "24px",
-                  textAlign: "left" as const,
-                  textUnderlinePosition: "from-font",
-                  textDecorationSkipInk: "none",
-                }}
-              >
-                {posts[0]?.data.heading2}
-              </Typography>
-              <Typography style={textStyle}>{posts[0]?.data.title1}</Typography>
-              <Typography style={textStyle}>{posts[0]?.data.title2}</Typography>
-              <Typography style={textStyle}>{posts[0]?.data.title3}</Typography>
-              <Typography style={textStyle}>{posts[0]?.data.title4}</Typography>
+            <Typography
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "16px",
+                fontWeight: 400,
+                lineHeight: "25px",
+                textAlign: "left" as const,
+                color: "#7A7A7A",
+                maxWidth: "70%",
+                padding: "24px 0 24px 0px",
+              }}
+            >
+              {posts[0]?.data.imagedesc}
+            </Typography>
+            <Typography
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "16px",
+                fontWeight: 700,
+                lineHeight: "24px",
+                textAlign: "left" as const,
+                textUnderlinePosition: "from-font",
+                textDecorationSkipInk: "none",
+              }}
+            >
+              {posts[0]?.data.heading2}
+            </Typography>
+            <Typography style={textStyle}>{posts[0]?.data.title1}</Typography>
+            <Typography style={textStyle}>{posts[0]?.data.title2}</Typography>
+            <Typography style={textStyle}>{posts[0]?.data.title3}</Typography>
+            <Typography style={textStyle}>{posts[0]?.data.title4}</Typography>
 
-              <Button
+            <Button
+              style={{
+                fontFamily: "Poppins",
+                marginTop: "24px",
+                fontSize: "18px",
+                textTransform: "none",
+                fontWeight: 400,
+                color: "#FFFFFF",
+                background: "#1874DA",
+                cursor: "pointer",
+                borderRadius: "6px",
+                display: "flex",
+                padding: "11px 54px 11px 54px",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "30%",
+                height: "auto",
+              }}
+              onClick={handleKnowMoreClick}
+            >
+              {posts[0]?.data.button}
+            </Button>
+            {showForm && (
+              <div
                 style={{
-                  fontFamily: "Poppins",
-                  fontSize: "18px",
-                  textTransform: "none",
-                  fontWeight: 400,
-                  color: "#FFFFFF",
-                  background: "#1874DA",
-                  cursor: "pointer",
-                  borderRadius: "6px",
-                  padding: "10px 50px",
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  backgroundColor: "rgba(0, 0, 0, 0.5)",
                   display: "flex",
-                  marginTop: "20px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 9999,
+                  marginTop: "10%",
                 }}
-                onClick={handleKnowMoreClick}
               >
-                {posts[0]?.data.button}
-              </Button>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "80%",
+                    maxWidth: "900px",
+                    height: "70%",
+                    maxHeight: "600px",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    overflowY: "auto",
+                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  {/* Left Panel */}
+                  <div
+                    style={{
+                      flex: 1,
+                      padding: "2rem",
+                      backgroundColor: "#123456",
+                      color: "#fff",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      position: "relative",
+                    }}
+                  >
+                    <button
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        fontSize: "1.5rem",
+                        color: "white",
+                        cursor: "pointer",
+                        position: "absolute",
+                        top: "10px",
+                        left: "10px",
+                      }}
+                      onClick={handleClose}
+                    >
+                      ✕
+                    </button>
 
-              {/* Modal Form (Dialog) */}
-              {showForm && (
- 
-    <Grid
-      container
-      spacing={0}
-      style={{
-        
-          padding: '40px',
-          position: "fixed",
-          top: '100px',
-          left: '200px',
-          width: "60%",
-          height: "80vh",
-          backgroundColor: "none",
-          zIndex: 1,
-          overflow:'auto',
-          // justifyContent: "center", 
-          // alignItems: "center",
-        }}
-        onClick={handleOverlayClick}
-    
-    >
-      {/* Left Side */}
-      <Grid
-        item
-        xs={12} sm={6} md={6}
-        style={{
-          background: "#1874DA",
-          padding: "20px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          borderTopLeftRadius: "8px",
-          borderBottomLeftRadius: '8px',
-          height:'100%'
-        }}
-      >
-        <Typography style={{ fontFamily: 'Poppins', color: '#FFFFFF' }}>
-          Fill out the form to know more
-        </Typography>
-      </Grid>
+                    <h1 style={{ fontSize: "1.5rem", margin: "1rem 0" }}>
+                      Love To Hear From You,{" "}
+                      <span style={{ color: "#1874DA" }}>Get In Touch 👋</span>
+                    </h1>
+                    <p style={{ fontSize: "0.9rem" }}>
+                      We are here for you! Fill out the inquiry form so we can
+                      help you.
+                    </p>
+                  </div>
 
-      {/* Right Side */}
-      <Grid
-        item
-        xs={12} sm={6} md={6}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "10px",
-          backgroundColor: "#f5f5f5",
-          borderTopRightRadius: "8px",
-          borderBottomRightRadius: '8px',
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-          overflow: "auto",
-          height: "100%",
-        }}
-      >
-        <form
-          onSubmit={handleFormSubmit}
-          style={{
-            width: "100%", 
-            height: "auto", 
-            display: "flex", 
-            flexDirection: "column", 
-            justifyContent: "center", overflowY: "auto",
-          }}
-        >
-          <TextField
-            label="Name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            error={!!formErrors.name}
-            helperText={formErrors.name}
-            style={{ marginBottom: "15px", width: "100%" }}
-          />
-
-          <TextField
-            label="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            error={!!formErrors.email}
-            helperText={formErrors.email}
-            style={{ marginBottom: "15px", width: "100%" }}
-          />
-
-          <TextField
-            label="Phone Number"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            error={!!formErrors.phone}
-            helperText={formErrors.phone}
-            style={{ marginBottom: "15px", width: "100%" }}
-          />
-
-          <TextField
-            label="Message"
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            error={!!formErrors.message}
-            helperText={formErrors.message}
-            multiline
-            rows={4}
-            style={{ marginBottom: "15px", width: "100%" }}
-          />
-
-          <FormControl
-            component="fieldset"
-            error={!!formErrors.services}
-            style={{ width: "100%", marginBottom: "15px" }}
-          >
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="Engineering & Design Services"
-                    checked={formData.selectedServices.includes(
-                      "Engineering & Design Services"
-                    )}
-                    onChange={handleCheckboxChange}
-                  />
-                }
-                label="Engineering & Design Services"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="Generative AI Services"
-                    checked={formData.selectedServices.includes(
-                      "Generative AI Services"
-                    )}
-                    onChange={handleCheckboxChange}
-                  />
-                }
-                label="Generative AI Services"
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="Development Services"
-                    checked={formData.selectedServices.includes(
-                      "Development Services"
-                    )}
-                    onChange={handleCheckboxChange}
-                  />
-                }
-                label="Development Services"
-              />
-            </FormGroup>
-            <div style={{ color: "red" }}>{formErrors.services}</div>
-          </FormControl>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              flexDirection: "row",
-              gap: "20px",
-              paddingTop: "20px",
-            }}
-          >
-            <Button
-              type="submit"
-              style={{
-                backgroundColor: "#1874DA",
-                color: "white",
-                padding: "10px 40px",
-                borderRadius: "6px",
-              }}
-            >
-              Submit
-            </Button>
-
-            <Button
-              onClick={handleClose}
-              style={{
-                backgroundColor: "#f44336",
-                color: "white",
-                padding: "10px 40px",
-                borderRadius: "6px",
-              }}
-            >
-              Cancel
-            </Button>
-          </div>
-        </form>
-      </Grid>
-    </Grid>
-  
-)}
-
-
-
-            </div>
+                  {/* Right Panel */}
+                  <div
+                    style={{
+                      flex: 1.5,
+                      padding: "1.5rem",
+                      backgroundColor: "#ffffff",
+                      color: "#000",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      overflowY: "auto",
+                    }}
+                  >
+                    <form
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "1rem",
+                        overflowY: "auto",
+                      }}
+                    >
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <label
+                          htmlFor="name"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            textAlign: "left",
+                            fontFamily: "Poppins",
+                          }}
+                        >
+                          Name:
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          placeholder="Your full name"
+                          style={styles.input}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <label
+                          htmlFor="phone"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            textAlign: "left",
+                            fontFamily: "Poppins",
+                          }}
+                        >
+                          Phone:
+                        </label>
+                        <input
+                          type="text"
+                          id="phone"
+                          placeholder="Your phone number"
+                          style={styles.input}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <label
+                          htmlFor="email"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            textAlign: "left",
+                            fontFamily: "Poppins",
+                          }}
+                        >
+                          Mail ID:
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          placeholder="Your email ID"
+                          style={styles.input}
+                        />
+                      </div>
+                      <div style={{ display: "flex", flexDirection: "column" }}>
+                        <label
+                          htmlFor="description"
+                          style={{
+                            fontSize: "0.9rem",
+                            marginBottom: "0.5rem",
+                            textAlign: "left",
+                            fontFamily: "Poppins",
+                          }}
+                        >
+                          Description:
+                        </label>
+                        <textarea
+                          id="description"
+                          placeholder="Tell us about your project..."
+                          style={{
+                            ...styles.input,
+                            height: "80px",
+                            resize: "none",
+                          }}
+                        />
+                      </div>
+                      <button type="submit" style={styles.submitButton}>
+                        Get a call back →
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            )}
           </Grid>
         </Grid>
       </div>
-    </>
+    </div>
   );
 }
 
 export default GenerativeAIServices;
+const styles = {
+  
+  input: {
+    border: "1px solid #ddd",
+    borderRadius: "5px",
+    padding: "0.8rem",
+    fontSize: "0.9rem",
+    width: "100%",
+  },
+  submitButton: {
+    backgroundColor: "#1874DA",
+    border: "none",
+    color: "#fff",
+    padding: "1rem",
+    fontSize: "1rem",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  },
+  submitButtonHover: {
+    backgroundColor: "#00cc70",
+  },
+  footer: {
+    textAlign: "center",
+    padding: "1rem",
+    fontSize: "0.9rem",
+    backgroundColor: "#123456",
+    color: "#fff",
+  },
+};
