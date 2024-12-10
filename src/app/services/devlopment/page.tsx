@@ -284,7 +284,7 @@ function DevelopmentServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Name:
+                          Name
                         </label>
                         <input
                           type="text"
@@ -303,7 +303,7 @@ function DevelopmentServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Phone:
+                          Phone
                         </label>
                         <input
                           type="text"
@@ -322,7 +322,7 @@ function DevelopmentServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Mail ID:
+                          Mail ID
                         </label>
                         <input
                           type="email"
@@ -341,7 +341,7 @@ function DevelopmentServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Description:
+                          Description
                         </label>
                         <textarea
                           id="description"
