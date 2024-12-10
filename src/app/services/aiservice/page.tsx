@@ -283,7 +283,7 @@ function GenerativeAIServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Name:
+                          Name
                         </label>
                         <input
                           type="text"
@@ -302,7 +302,7 @@ function GenerativeAIServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Phone:
+                          Phone
                         </label>
                         <input
                           type="text"
@@ -321,7 +321,7 @@ function GenerativeAIServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Mail ID:
+                          Mail ID
                         </label>
                         <input
                           type="email"
@@ -340,7 +340,7 @@ function GenerativeAIServices() {
                             fontFamily: "Poppins",
                           }}
                         >
-                          Description:
+                          Description
                         </label>
                         <textarea
                           id="description"
