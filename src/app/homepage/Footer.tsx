@@ -87,7 +87,7 @@ function Footer() {
                   {" "}
                   <PrismicNextImage field={posts[0]?.data.facebook} alt={""} />
                 </a>
-                <PrismicNextImage field={posts[0]?.data.twitter} alt={""} />
+                {/* <PrismicNextImage field={posts[0]?.data.twitter} alt={""} /> */}
               </Box>
             </Box>
           </Grid>
