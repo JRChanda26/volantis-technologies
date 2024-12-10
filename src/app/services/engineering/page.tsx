@@ -51,6 +51,13 @@ function EngineeringServices() {
     : isTablet
     ? "30px"
     : "22px"; 
+    useEffect(() => {
+      if (showForm) {
+        document.addEventListener("mousedown", handleClose);
+        return () =>
+          document.removeEventListener("mousedown", handleClose);
+      }
+    }, [showForm]);
   return (
     <div>
       {/* Header Component */}
