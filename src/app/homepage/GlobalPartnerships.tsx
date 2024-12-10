@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function GlobalPartnership() {
@@ -24,6 +24,22 @@ function GlobalPartnership() {
     textAlign: "center",
    
   };
+  const theme = useTheme();
+
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
 
   return (
     <Box
@@ -39,9 +55,9 @@ function GlobalPartnership() {
       <Typography
         sx={{
           fontFamily: "Poppins",
-          fontSize: { xs: "32px", sm: "48px", md: "56px" },
+          fontSize: fontSize,
           fontWeight: 700,
-          lineHeight: { xs: "40px", sm: "64px", md: "80px" },
+          lineHeight: { xs: "40px", sm: "64px", md: "70px" },
           textAlign: "center",
           color: "#000000",
           paddingBottom: "37px",

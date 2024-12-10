@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 
 function Testimonials() {
@@ -36,7 +36,22 @@ function Testimonials() {
   //     return prevIndex + 1; // Go to the next testimonial
   //   });
   // };
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <div
       style={{
@@ -60,7 +75,7 @@ function Testimonials() {
         <Typography
           style={{
             fontFamily: "Poppins",
-            fontSize: "56px",
+            fontSize: fontSize,
             fontWeight: 700,
             textAlign: "center",
             color: "#000000",

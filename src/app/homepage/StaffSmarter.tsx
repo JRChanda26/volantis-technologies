@@ -1,5 +1,5 @@
 "use client";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
 // import Subscribe from "./Subscribe";
@@ -26,7 +26,22 @@ function StaffSmarter() {
   console.log(posts.slide_icon1);
 
   const videoUrl = posts[0]?.data.background_video?.url;
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <>
       {/* <Header /> */}
@@ -91,7 +106,7 @@ function StaffSmarter() {
           <Typography
             style={{
               fontFamily: "Poppins",
-              fontSize: "56px",
+              fontSize: fontSize,
               fontWeight: 700,
               lineHeight: "80px",
               textAlign: "left",

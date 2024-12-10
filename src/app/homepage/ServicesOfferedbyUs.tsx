@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography, Grid, Box } from "@mui/material";
+import { Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
@@ -44,7 +44,22 @@ function ServicesOfferedbyUs() {
     transition: "color 0.3s ease",
     paddingBottom: "14px",
   };
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <Box
       sx={{
@@ -57,7 +72,7 @@ function ServicesOfferedbyUs() {
         <Typography
           sx={{
             fontFamily: "Poppins",
-            fontSize: "56px",
+            fontSize: fontSize,
             fontWeight: 700,
             textAlign: "center",
             mb: 2,

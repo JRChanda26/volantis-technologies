@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { client } from "../../../prismic-configuration";
-import { Button, Typography, Grid, Box } from "@mui/material";
+import { Button, Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
 function LatestNews() {
@@ -31,7 +31,22 @@ function LatestNews() {
     textAlign: "left",
     color: "#000000",
   };
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <div
       style={{
@@ -47,7 +62,7 @@ function LatestNews() {
         <Typography
           style={{
             fontFamily: "Poppins",
-            fontSize: "56px",
+            fontSize: fontSize,
             fontWeight: 700,
           }}
         >

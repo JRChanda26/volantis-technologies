@@ -7,7 +7,7 @@ import Header from "../homepage/Header";
 import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
 import Grid from "@mui/material/Grid";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, useMediaQuery, useTheme } from "@mui/material";
 
 function Career() {
   const [posts, setPosts] = useState<any>("");
@@ -19,7 +19,22 @@ function Career() {
     };
     fetchPosts();
   }, []);
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <>
       <Header />
@@ -48,11 +63,7 @@ function Career() {
             <Typography
               sx={{
                 fontFamily: "Poppins",
-                fontSize: {
-                  xs: "30px", 
-                  sm: "40px", 
-                  md: "56px",
-                },
+                fontSize:fontSize,
                 // fontSize: "56px",
                 fontWeight: 700,
                 lineHeight: "60px",

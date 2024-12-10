@@ -11,7 +11,7 @@ import Header from "../homepage/Header";
 import ServicesOfferedbyUs from "../homepage/ServicesOfferedbyUs";
 import Subscribe from "../homepage/Subscribe";
 import Testimonials from "../homepage/Testimonials";
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
 function StaffSmarter() {
    const [posts, setPosts] = useState<any>("");
@@ -27,7 +27,22 @@ function StaffSmarter() {
   console.log(posts.slide_icon1);
 
   const videoUrl = posts[0]?.data.background_video?.url;
+  const theme = useTheme();
 
+  // Define breakpoints using Material-UI's theme breakpoints
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+
+  // Adjust font size based on the breakpoints
+  const fontSize = isDesktop
+    ? "56px"
+    : isLaptop
+    ? "48px"
+    : isTablet
+    ? "40px"
+    : "32px"; 
   return (
     <>
       <Header />
@@ -82,7 +97,7 @@ function StaffSmarter() {
           <Typography
             style={{
               fontFamily: "Poppins",
-              fontSize: "56px",
+              fontSize: fontSize,
               fontWeight: 700,
               lineHeight: "80px",
               textAlign: "left",
@@ -108,23 +123,7 @@ function StaffSmarter() {
           >
             {posts[0]?.data.description1}
           </Typography>
-          {/* <Button
-            style={{
-              background: "#1874DA",
-              color: "#FFFFFF",
-              borderRadius: "8px",
-              padding: "9px 23px 9px 23px",
-              textTransform: "none",
-              fontFamily: "Poppins",
-              fontSize: "18px",
-              fontWeight: 500,
-              lineHeight: "32px",
-              textAlign: "center",
-              textUnderlinePosition: "from-font",
-            }}
-          >
-            {posts[0]?.data.button_text1}
-          </Button> */}
+         
         </div>
         {/* {data.slide_text1} */}
       </div>
