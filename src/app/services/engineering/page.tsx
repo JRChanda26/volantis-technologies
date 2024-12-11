@@ -159,8 +159,7 @@ function EngineeringServices() {
                 fontWeight: 700,
                 lineHeight: "24px",
                 textAlign: "left" as const,
-                textUnderlinePosition: "from-font",
-                textDecorationSkipInk: "none",
+                color:'#000000',
               }}
             >
               {posts[0]?.data.heading2}

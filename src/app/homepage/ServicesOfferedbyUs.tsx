@@ -75,6 +75,7 @@ function ServicesOfferedbyUs() {
             fontSize: fontSize,
             fontWeight: 700,
             textAlign: "center",
+            color:'#000000',
             mb: 2,
           }}
         >
