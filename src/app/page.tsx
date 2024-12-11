@@ -7,7 +7,7 @@ import Header from "./homepage/Header";
 import ServicesOfferedbyUs from "./homepage/ServicesOfferedbyUs";
 import StaffSmarter from "./homepage/StaffSmarter";
 import Subscribe from "./homepage/Subscribe";
-import Testimonials from "./homepage/Testimonials";
+// import Testimonials from "./homepage/Testimonials";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <GlobalPartnership />
       <ServicesOfferedbyUs />
       <AboutUs />
-      <Testimonials />
+      {/* <Testimonials /> */}
       {/* <LatestNews /> */}
       <ContactUs />
       <Subscribe />
