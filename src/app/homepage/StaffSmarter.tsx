@@ -47,6 +47,7 @@ function StaffSmarter() {
       {/* <Header /> */}
       <div
         style={{
+         
           position: "relative",
           width: "100%",
           height: "100vh",
@@ -124,7 +125,8 @@ function StaffSmarter() {
               fontWeight: 400,
               lineHeight: "24px",
               textAlign: "left",
-              paddingRight: { xs: "0%", sm: "40%", lg: "50%" },
+              paddingRight: { xs: "0%", sm: "50%", lg: "60%" },
+              // paddingRight: { xs: "0%", sm: "40%", lg: "50%" },
             }}
           >
             {posts[0]?.data.description1}
