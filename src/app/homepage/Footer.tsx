@@ -135,7 +135,7 @@ function Footer() {
           fontSize: "16px",
           lineHeight: "22px",
           fontWeight: "400",
-          paddingTop: "50px",
+          paddingTop: "50px", color:'#000000',
         }}
       >
         Copyright © 2024-25 Volantis Technologies. All Rights Reserved.
