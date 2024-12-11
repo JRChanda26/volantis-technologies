@@ -37,10 +37,9 @@ function GenerativeAIServices() {
   };
   const theme = useTheme();
 
-  // Define breakpoints using Material-UI's theme breakpoints
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
-  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); 
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); 
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); 
   // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
 
   // Adjust font size based on the breakpoints
@@ -51,7 +50,7 @@ function GenerativeAIServices() {
     : isTablet
     ? "30px"
     : "22px"; 
-
+    
     useEffect(() => {
       if (showForm) {
         document.addEventListener("mousedown", handleClose);
@@ -158,8 +157,7 @@ function GenerativeAIServices() {
                 fontWeight: 700,
                 lineHeight: "24px",
                 textAlign: "left" as const,
-                textUnderlinePosition: "from-font",
-                textDecorationSkipInk: "none",
+                color:'#000000',
               }}
             >
               {posts[0]?.data.heading2}
@@ -180,11 +178,11 @@ function GenerativeAIServices() {
                 background: "#1874DA",
                 cursor: "pointer",
                 borderRadius: "6px",
-                padding: "11px 20px", // Adjust padding for better responsiveness
+                padding: "11px 20px", 
                 alignItems: "center",
                 justifyContent: "center",
-                width: "100%", // Full width for small screens
-                maxWidth: "200px", // Restrict the max width for large screens
+                width: "100%", 
+                maxWidth: "200px",
                 height: "auto",
               }}
               onClick={handleKnowMoreClick}

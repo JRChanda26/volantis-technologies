@@ -22,6 +22,7 @@ function GlobalPartnership() {
     fontWeight: 700,
     lineHeight: "24px",
     textAlign: "center",
+    color:'#000000'
    
   };
   const theme = useTheme();
