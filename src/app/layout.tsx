@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 
 import { Poppins } from 'next/font/google';
 import "./globals.css";
+import Head from "next/head";
+// import { Head } from "next/document";
 
+export const viewport = {
+  viewportFit: "cover",
+};
 // const poppinsFont = Poppins({ weight: '700', subsets: ['latin'], variable: '--font-poppins', });
 const poppinsFont = Poppins({
   subsets: ['latin'],
@@ -22,12 +27,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+    <Head>
+      {/* Add the viewport meta tag for iOS devices */}
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       
-      <body
-        className={poppinsFont.className}
-      >
-        {children}
-      </body>
-    </html>
+      {/* Add the viewport-fit meta tag for iOS Safe Area */}
+      <meta name="viewport-fit" content={viewport.viewportFit} />
+
+      {/* Optional: Add the theme color meta tag */}
+      {/* <meta name="theme-color" content="#000000" /> */}
+    </Head>
+    <body className={poppinsFont.className}>
+      {children}
+    </body>
+  </html>
   );
 }
