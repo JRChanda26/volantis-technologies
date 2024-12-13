@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Typography, Box, useTheme, useMediaQuery } from "@mui/material";
+import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import { client } from "../../../lib/prismic-configuration";
 
@@ -14,7 +14,7 @@ function GlobalPartnership() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); 
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); 
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); 
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   const fontSize = isDesktop
     ? "56px"
     : isLaptop
@@ -53,7 +53,7 @@ function GlobalPartnership() {
   return (
     <Box
       sx={{
-        padding: "50px 59px 49px 58px",
+        padding: "40px 59px 49px 58px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -75,7 +75,7 @@ function GlobalPartnership() {
         {posts[0]?.data.title2}
       </Typography>
 
-      {/* <Grid
+      <Grid
         container
         spacing={4}
         // spacing={{ xs: 4, sm: 6, md: 8 }}
@@ -83,24 +83,7 @@ function GlobalPartnership() {
           justifyContent: "space-between",
           alignItems: "stretch", 
         }}
-      > */}
-       <Box
-        sx={{
-          display: "flex",
-          overflowX: isMobile ? "auto" : "hidden",
-          position: "relative", alignItems:'center',
-          flexWrap: "nowrap", 
-        }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            // animation: "slide 20s linear infinite", 
-           
-            gap: "24px", 
-          }}
-        >
-
         {[
           {
             text: posts[0]?.data.slide_text1,
@@ -127,38 +110,25 @@ function GlobalPartnership() {
             image: posts[0]?.data.slide_icon6,
           },
         ].map((item, index) => (
-          // <Grid
-          //   item
-          //   xs={12}
-          //   sm={6}
-          //   md={2}
-          //   key={index}
-          //   sx={{
-          //     display: "flex",
-          //     flexDirection: "row",
-          //     alignItems: "center",
-          //     justifyContent: "center",
-          //     textAlign: "center",
-          //     animation:"slide 10s linear infinite",
-          //   }}
-          //   className={`animated-item`}
-          //   // style={{
-          //   //   animationDelay: `${index * 0.2}s`,
-          //   // }}
-          // >
-          <Box
-              key={index}
-              sx={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-                flexShrink: 0, 
-         
-              }}
-            >
-
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={2}
+            key={index}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              // animation:"slide 10s linear infinite",
+            }}
+            // className={`animated-item`}
+            // style={{
+            //   animationDelay: `${index * 0.2}s`,
+            // }}
+          >
             {item.image && (
             
                 <PrismicNextImage
@@ -169,13 +139,9 @@ function GlobalPartnership() {
              
             )}
             <Typography style={textStyle}>{item.text}</Typography>
-          {/* // </Grid> */}
-          </Box>
+          </Grid>
         ))}
-        </Box>
-      </Box>
-
-      {/* </Grid> */}
+      </Grid>
       {/* <style jsx>{`
           @keyframes slide {
             0% {
