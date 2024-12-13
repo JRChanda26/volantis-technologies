@@ -37,8 +37,8 @@ function Header() {
 
   const activeTab = isActive("/home") ? "/home" : pathname;
 
-  const toggleDropdown = () =>  setDropdownVisible(!dropdownVisible);;
-  
+  const toggleDropdown = () => setDropdownVisible(!dropdownVisible);
+
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef.current &&
@@ -93,11 +93,7 @@ function Header() {
       {isSmallScreen ? (
         <>
           <Link href="/home">
-            <PrismicNextImage
-              field={posts[0]?.data?.volantisimage}
-              alt=""
-              // style={{ height: "auto", width: "55%" }}
-            />
+            <PrismicNextImage field={posts[0]?.data?.volantisimage} alt="" />
           </Link>
           <IconButton
             onClick={toggleDrawer(true)}
@@ -170,10 +166,10 @@ function Header() {
                     >
                       {posts[0]?.data.tab2}
                       {dropdownVisible ? (
-          <KeyboardArrowUpSharpIcon />
-        ) : (
-          <KeyboardArrowDownSharpIcon />
-        )}
+                        <KeyboardArrowUpSharpIcon />
+                      ) : (
+                        <KeyboardArrowDownSharpIcon />
+                      )}
                     </Typography>
                     {dropdownVisible && (
                       <Box
@@ -205,32 +201,33 @@ function Header() {
                     )}
                   </Box>
                   <a
-              href="https://volantistechnologies.greythr.com/"
-              style={{ textDecoration: "none" }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-                  <Button
-                    style={{
-                      backgroundColor: "#1e88e5",
-                      color: "#fff",
-                      fontSize: "16px",
-                      fontWeight: "500",
-                      textTransform: "none",
-                      fontFamily: "Poppins",
-                      padding: "10px",
-                      borderRadius: "4px",
-                      cursor: "pointer",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#1565c0")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.backgroundColor = "#1e88e5")
-                    }
+                    href="https://volantistechnologies.greythr.com/"
+                    style={{ textDecoration: "none" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {posts[0]?.data.button}
-                  </Button></a>
+                    <Button
+                      style={{
+                        backgroundColor: "#1e88e5",
+                        color: "#fff",
+                        fontSize: "16px",
+                        fontWeight: "500",
+                        textTransform: "none",
+                        fontFamily: "Poppins",
+                        padding: "10px",
+                        borderRadius: "4px",
+                        cursor: "pointer",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.backgroundColor = "#1565c0")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.backgroundColor = "#1e88e5")
+                      }
+                    >
+                      {posts[0]?.data.button}
+                    </Button>
+                  </a>
                 </>
               )}
             </Box>
@@ -337,10 +334,10 @@ function Header() {
                   {posts[0]?.data.tab2}
                   {/* <KeyboardArrowDownSharpIcon /> */}
                   {dropdownVisible ? (
-          <KeyboardArrowUpSharpIcon />
-        ) : (
-          <KeyboardArrowDownSharpIcon />
-        )}
+                    <KeyboardArrowUpSharpIcon />
+                  ) : (
+                    <KeyboardArrowDownSharpIcon />
+                  )}
                 </Typography>
 
                 {/* Dropdown Menu */}
@@ -361,7 +358,7 @@ function Header() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      paddingBottom:'10px'
+                      paddingBottom: "10px",
                     }}
                   >
                     <Link

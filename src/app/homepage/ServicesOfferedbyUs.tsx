@@ -8,7 +8,6 @@ import Link from "next/link";
 import { client } from "../../../lib/prismic-configuration";
 function ServicesOfferedbyUs() {
   const [posts, setPosts] = useState<any>("");
-  // const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("services_offered");
@@ -31,8 +30,6 @@ function ServicesOfferedbyUs() {
     fontWeight: 400,
     lineHeight: "20px",
     textAlign: "justify",
-    // color: "#7A7A7A",
-  
     transition: "color 0.3s ease",
   };
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { Box, Grid, Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
-import Link from "next/link"; // Import Link if you're using Next.js
+import Link from "next/link"; 
 import { client } from "../../../lib/prismic-configuration";
 
 function Footer() {
@@ -100,7 +100,7 @@ function Footer() {
               item
               xs={12}
               sm={6}
-              md={index === 3 ? 3 : 2} // Adjust grid size for the last item
+              md={index === 3 ? 3 : 2}
               style={{
                 display: "flex",
                 flexDirection: "column",

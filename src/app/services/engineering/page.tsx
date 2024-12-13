@@ -41,9 +41,7 @@ function EngineeringServices() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
-  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
 
-  // Adjust font size based on the breakpoints
   const fontSize = isDesktop
     ? "48px"
     : isLaptop

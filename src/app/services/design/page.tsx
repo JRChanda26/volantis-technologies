@@ -42,7 +42,6 @@ function DesignServices() {
           paddingTop: "120px ",
           flexDirection: "column",
           paddingBottom:'2%'
-          // height: "100vh", // This ensures it takes full viewport height
         }}
       >
         <div
@@ -50,7 +49,7 @@ function DesignServices() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            textAlign: "center", // Centers the heading and description
+            textAlign: "center"
           }}
         >
           <Typography

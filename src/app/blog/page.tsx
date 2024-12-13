@@ -15,7 +15,7 @@ const OurBlogs: React.FC = () => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("blog" as any);
       setPosts(response);
-      // setTotalPosts(response.length); // Set total number of posts
+      // setTotalPosts(response.length); 
     };
     fetchPosts();
   }, []);
@@ -114,7 +114,6 @@ const OurBlogs: React.FC = () => {
 
         {/* New Section for Blog Cards */}
         <div style={{ marginTop: "40px" }}>
-          {/* Title */}
           <h2
             style={{
               fontSize: "56px",

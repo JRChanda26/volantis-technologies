@@ -44,7 +44,6 @@ function Subscribe() {
     } else {
       setEmailError(false);
       setEmailHelperText('');
-      // handle your submit logic, like sending email or making an API call.
       console.log("Form submitted with email:", email);
     }
   };
@@ -54,9 +53,7 @@ function Subscribe() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
-  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
 
-  // Adjust font size based on the breakpoints
   const fontSize = isDesktop
     ? "56px"
     : isLaptop
