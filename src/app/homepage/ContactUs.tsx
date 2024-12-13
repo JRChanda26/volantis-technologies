@@ -1,39 +1,26 @@
 "use client";
 import {
+  Alert,
   Box,
   Button,
   Grid,
+  Snackbar,
   TextField,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+import { client } from "../../../lib/prismic-configuration";
 
 function ContactUs() {
-  
   const [posts, setPosts] = useState<any>([]);
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    contactNumber: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    contactNumber: "",
-    message: "",
-  });
+
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     const fetchPosts = async () => {
-      
       const response = await client.getAllByType("contact" as any);
       setPosts(response);
     };
@@ -50,81 +37,137 @@ function ContactUs() {
     textDecorationSkipInk: "none",
     color: "#1874DA",
   };
-  const validate = () => {
-    let valid = true;
-    const newErrors = { ...errors };
-
-    if (!formData.firstName) {
-      newErrors.firstName = "First name is required";
-      valid = false;
-    } else {
-      newErrors.firstName = "";
-    }
-
-    if (!formData.lastName) {
-      newErrors.lastName = "Last name is required";
-      valid = false;
-    } else {
-      newErrors.lastName = "";
-    }
-
-    if (!formData.email) {
-      newErrors.email = "Email is required";
-      valid = false;
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-      valid = false;
-    } else {
-      newErrors.email = "";
-    }
-
-    if (!formData.contactNumber) {
-      newErrors.contactNumber = "Contact number is required";
-      valid = false;
-    } else {
-      newErrors.contactNumber = "";
-    }
-
-    if (!formData.message) {
-      newErrors.message = "Message is required";
-      valid = false;
-    } else {
-      newErrors.message = "";
-    }
-
-    setErrors(newErrors);
-    return valid;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validate()) {
-      console.log("Form submitted", formData);
-      // Add form submission logic here
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   // Define breakpoints using Material-UI's theme breakpoints
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
-  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Adjust font size based on the breakpoints
   const fontSize = isDesktop
     ? "56px"
     : isLaptop
-    ? "48px"
-    : isTablet
-    ? "40px"
-    : "32px"; 
+      ? "48px"
+      : isTablet
+        ? "40px"
+        : "32px";
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [status, setStatus] = useState<number | null>(null);
+
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
+  };
+
+  type Errors = {
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    contact_number?: string;
+    message?: string;
+  };
+
+  const [errors, setErrors] = useState<Errors>({});
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateFields = (): Errors => {
+    const newErrors: Errors = {};
+    if (!firstName) newErrors.first_name = "Enter First Name";
+    if (!lastName) newErrors.last_name = "Enter Last Name";
+    if (!email) newErrors.email = "Enter email";
+    else if (!emailRegex.test(email))
+      newErrors.email = "Enter a valid email";
+    if (!contactNumber) newErrors.contact_number = "Enter contact number";
+    else if (contactNumber.length !== 10)
+      newErrors.contact_number =
+        "Contact number should be 10 digits";
+    if (!message) newErrors.message = "Enter message";
+    return newErrors;
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    // Check for errors
+    const newErrors = validateFields();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    } else {
+      setErrors({});
+    }
+
+    const formData = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      contact_number: contactNumber,
+      message: message,
+    };
+
+    try {
+      const response = await fetch("/api/contact-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      setSnackbarMessage(result.message);
+      setOpenSnackbar(true);
+
+      const statusCode = response.status;
+      setStatus(statusCode);
+
+      sendEmail(e);
+
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setContactNumber("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error saving contact:", error);
+    }
+  };
+
+  const [emailStatus, setEmailStatus] = useState("");
+  console.log(emailStatus)
+
+  const sendEmail = async (e: any) => {
+    e.preventDefault();
+
+    setEmailStatus("Sending...");
+
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+
+    const result = await response.json();
+    console.log("Result", result);
+
+    if (response.ok) {
+      setEmailStatus("Email sent successfully!");
+    } else {
+      setEmailStatus("Failed to send email");
+    }
+  };
+
   return (
     <div>
       <div
@@ -134,7 +177,8 @@ function ContactUs() {
           flexDirection: "column",
           // alignItems: "center",
           justifyContent: "center",
-          gap: isSmallScreen ? "16px" : "24px",background: '#F6F6F6'
+          gap: isSmallScreen ? "16px" : "24px",
+          background: "#F6F6F6",
         }}
       >
         {posts.length > 0 && (
@@ -167,119 +211,145 @@ function ContactUs() {
           </>
         )}
 
-<form
-  onSubmit={handleSubmit}
-  style={{
-    display: "flex",
-    flexDirection: "column",
-    // alignItems: "center",  // Centers the form content
-    justifyContent: 'center',  // Centers the form vertically
-    width: "100%",  // Ensure the form takes up full width on smaller screens
-    // maxWidth: "600px",  // Limit the width on larger screens to make it more centered
-    margin: "0 auto",  // Center the form horizontally
-  }}
->
-  <Grid container spacing={isSmallScreen ? 2 : 3} justifyContent="center">
-    {/* First Row: First Name and Last Name */}
-    <Grid item xs={12} sm={5}>
-      <Typography style={label}>{posts[0]?.data.label1}</Typography>
-      <TextField
-        fullWidth
-        name="firstName"
-        value={formData.firstName}
-        onChange={handleChange}
-        placeholder={posts[0]?.data.placeholder1 || "Enter your first name"}
-        variant="outlined"
-        error={!!errors.firstName}
-        helperText={errors.firstName}
-      />
-    </Grid>
-    <Grid item xs={12} sm={5}>
-      <Typography style={label}>{posts[0]?.data.label2}</Typography>
-      <TextField
-        fullWidth
-        name="lastName"
-        value={formData.lastName}
-        onChange={handleChange}
-        placeholder={posts[0]?.data.placeholder2 || "Enter your last name"}
-        variant="outlined"
-        error={!!errors.lastName}
-        helperText={errors.lastName}
-      />
-    </Grid>
+        <form
+          // onSubmit={handleSubmit}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            // alignItems: "center",  // Centers the form content
+            justifyContent: "center", // Centers the form vertically
+            width: "100%", // Ensure the form takes up full width on smaller screens
+            // maxWidth: "600px",  // Limit the width on larger screens to make it more centered
+            margin: "0 auto", // Center the form horizontally
+          }}
+        >
+          <Grid
+            container
+            spacing={isSmallScreen ? 2 : 3}
+            justifyContent="center"
+          >
+            {/* First Row: First Name and Last Name */}
+            <Grid item xs={12} sm={5}>
+              <Typography style={label}>{posts[0]?.data.label1}</Typography>
+              <TextField
+                name="first_name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="FirstName"
+                variant="outlined"
+                type="text"
+                fullWidth
+                autoComplete="off"
+                error={!!errors.first_name}
+                helperText={errors.first_name}
+              />
+            </Grid>
+            <Grid item xs={12} sm={5}>
+              <Typography style={label}>{posts[0]?.data.label2}</Typography>
+              <TextField
+                name="last_name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="LastName"
+                variant="outlined"
+                type="text"
+                fullWidth
+                autoComplete="off"
+                error={!!errors.last_name}
+                helperText={errors.last_name}
+              />
+            </Grid>
 
-    {/* Second Row: Email and Contact Number */}
-    <Grid item xs={12} sm={5}>
-      <Typography style={label}>{posts[0]?.data.label3}</Typography>
-      <TextField
-        fullWidth
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder={posts[0]?.data.placeholder3 || "Enter your email"}
-        type="email"
-        variant="outlined"
-        error={!!errors.email}
-        helperText={errors.email}
-      />
-    </Grid>
-    <Grid item xs={12} sm={5}>
-      <Typography style={label}>{posts[0]?.data.label4}</Typography>
-      <TextField
-        fullWidth
-        name="contactNumber"
-        value={formData.contactNumber}
-        onChange={handleChange}
-        placeholder={posts[0]?.data.placeholder4 || "Enter your contact number"}
-        type="tel"
-        variant="outlined"
-        error={!!errors.contactNumber}
-        helperText={errors.contactNumber}
-      />
-    </Grid>
+            {/* Second Row: Email and Contact Number */}
+            <Grid item xs={12} sm={5}>
+              <Typography style={label}>{posts[0]?.data.label3}</Typography>
+              <TextField
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                variant="outlined"
+                type="text"
+                fullWidth
+                autoComplete="off"
+                error={!!errors.email}
+                helperText={errors.email}
+              />
+            </Grid>
+            <Grid item xs={12} sm={5}>
+              <Typography style={label}>{posts[0]?.data.label4}</Typography>
+              <TextField
+                name="contact_number"
+                value={contactNumber}
+                onChange={(e) =>
+                  setContactNumber(e.target.value.replace(/\D/g, ""))
+                }
+                placeholder="ContactNumber"
+                variant="outlined"
+                type="tel"
+                fullWidth
+                autoComplete="off"
+                error={!!errors.contact_number}
+                helperText={errors.contact_number}
+              />
+            </Grid>
 
-    {/* Third Row: Message */}
-    <Grid item xs={10}>
-      <Typography style={label}>{posts[0]?.data.label5}</Typography>
-      <TextField
-        fullWidth
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        placeholder={posts[0]?.data.placeholder5 || "Enter your message"}
-        multiline
-        rows={4}
-        variant="outlined"
-        error={!!errors.message}
-        helperText={errors.message}
-      />
-    </Grid>
-  </Grid>
+            {/* Third Row: Message */}
+            <Grid item xs={10}>
+              <Typography style={label}>{posts[0]?.data.label5}</Typography>
+              <TextField
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Message"
+                variant="outlined"
+                type="text"
+                fullWidth
+                autoComplete="off"
+                multiline
+                rows={5}
+                error={!!errors.message}
+                helperText={errors.message}
+              />
+            </Grid>
+          </Grid>
 
-  <Box display="flex" justifyContent="center" marginTop="20px">
-    <Button
-      type="submit"
-      variant="contained"
-      style={{
-        fontFamily: "Poppins",
-        fontSize: "14px",
-        textTransform: "none",
-        fontWeight: 700,
-        color: "#FFFFFF",
-        background: "#1874DA",
-        cursor: "pointer",
-        borderRadius: "8px",
-        padding: "10px 100px",
-        display: "flex",
-        // alignItems: "center",
-        gap: "8px",
-      }}
-    >
-      {posts[0]?.data.button}
-    </Button>
-  </Box>
-</form>
-
+          <Box display="flex" justifyContent="center" marginTop="20px">
+            <Button
+              type="submit"
+              variant="contained"
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "14px",
+                textTransform: "none",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                background: "#1874DA",
+                cursor: "pointer",
+                borderRadius: "8px",
+                padding: "10px 100px",
+                display: "flex",
+                // alignItems: "center",
+                gap: "8px",
+              }}
+              onClick={(e: any) => handleSubmit(e)}
+            >
+              {posts[0]?.data.button}
+            </Button>
+          </Box>
+        </form>
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={3000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert
+            onClose={handleCloseSnackbar}
+            severity={status === 200 ? "success" : "error"}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   );

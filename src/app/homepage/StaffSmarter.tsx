@@ -1,7 +1,8 @@
 "use client";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+import { client } from "../../../lib/prismic-configuration";
+
 // import Subscribe from "./Subscribe";
 // import GlobalPartnership from "./GlobalPartnerships";
 // import AboutUs from "./AboutUs";

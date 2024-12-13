@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import { Button, Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link";
+import { client } from "../../../lib/prismic-configuration";
 function LatestNews() {
   const [posts, setPosts] = useState<any>("");
 

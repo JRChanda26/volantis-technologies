@@ -310,9 +310,10 @@ import React, { useEffect, useState } from "react";
 import Header from "../homepage/Header";
 import Subscribe from "../homepage/Subscribe";
 import Footer from "../homepage/Footer";
-import { client } from "../../../prismic-configuration";
+
 import { PrismicNextImage } from "@prismicio/next";
 import { Box, Grid, Typography } from "@mui/material";
+import { client } from "../../../lib/prismic-configuration";
  
 const OurBlogs: React.FC = () => {
     const [posts, setPosts] = useState<any>("");

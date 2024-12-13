@@ -3,8 +3,9 @@
 import { Typography, Grid, Box, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import Link from "next/link";
+import { client } from "../../../lib/prismic-configuration";
 function ServicesOfferedbyUs() {
   const [posts, setPosts] = useState<any>("");
   // const [isHovered, setIsHovered] = useState(false);

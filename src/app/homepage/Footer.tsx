@@ -1,9 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import { Box, Grid, Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Link from "next/link"; // Import Link if you're using Next.js
+import { client } from "../../../lib/prismic-configuration";
 
 function Footer() {
   const [posts, setPosts] = useState<any>([]);
