@@ -26,10 +26,15 @@ function ServicesOfferedbyUs() {
   };
   const descriptionStyle: React.CSSProperties = {
     fontFamily: "Poppins",
-    fontSize: "14px",
+    fontSize: "12px",
     fontWeight: 400,
-    lineHeight: "20px",
-    textAlign: "justify",
+    lineHeight: "15px",
+    // textAlign: "justify",
+    //  textAlignLast: "left",  
+  // wordBreak: "break-word",
+  textAlign: "left",  
+  // padding: "0", 
+  // margin: "0", 
     transition: "color 0.3s ease",
   };
 
@@ -48,16 +53,16 @@ function ServicesOfferedbyUs() {
   const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); // Desktop and above
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); // Laptop
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // Tablet
-  // const isMobile = useMediaQuery(theme.breakpoints.down("sm")); 
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Adjust font size based on the breakpoints
   const fontSize = isDesktop
     ? "56px"
     : isLaptop
-    ? "48px"
-    : isTablet
-    ? "40px"
-    : "32px"; 
+      ? "48px"
+      : isTablet
+        ? "40px"
+        : "32px";
   return (
     <Box
       sx={{
@@ -73,7 +78,7 @@ function ServicesOfferedbyUs() {
             fontSize: fontSize,
             fontWeight: 700,
             textAlign: "center",
-            color:'#000000',
+            color: "#000000",
             mb: 2,
           }}
         >
@@ -114,7 +119,7 @@ function ServicesOfferedbyUs() {
                     ? "/services/devlopment"
                     : index === 3
                       ? "/services/engineering"
-                      : "/defaultService", 
+                      : "/defaultService",
           };
 
           return (
@@ -130,47 +135,49 @@ function ServicesOfferedbyUs() {
               }}
             >
               <Box
-              //   sx={{
-              //     display: "flex",
-              //     flexDirection: "column",
-              //     // width:'360px',
-              //     // height:'460px',
-              //     // textAlign: "center",
-              //     // minWidth: "100%",
-              //     boxShadow: "0px 5px 5px 0px #0000001A",
-              //     borderRadius: "4px",
-              //     position: "relative",
-              //     // height: "auto",
-              //     // padding: "0px 0px 5px 0px",
-              //     transition: "transform 0.3s ease-in-out",
-              //     "&:hover": {
-              //       transform: "scale(1.05)",
-              //     },
-              //     cursor: "pointer",
-              //     backgroundColor: isHovered ? "blue" : "white",
-              //     "&:hover": {
-              //       transform: "scale(1.05)",
-              //     },
-              //   }}
-              //   onMouseEnter={handleMouseEnter}
-              //   onMouseLeave={handleMouseLeave}
-              // >
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: "0px 5px 5px 0px #0000001A",
-                borderRadius: "4px",
-                position: "relative",
-                transition: "transform 0.3s ease-in-out, background-color 0.3s ease",
-                cursor: "pointer",
-                backgroundColor: hoveredIndex === index ? "#1874DA" : "#FFFFFF",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                },
-              }}
-              onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-            >
+                //   sx={{
+                //     display: "flex",
+                //     flexDirection: "column",
+                //     // width:'360px',
+                //     // height:'460px',
+                //     // textAlign: "center",
+                //     // minWidth: "100%",
+                //     boxShadow: "0px 5px 5px 0px #0000001A",
+                //     borderRadius: "4px",
+                //     position: "relative",
+                //     // height: "auto",
+                //     // padding: "0px 0px 5px 0px",
+                //     transition: "transform 0.3s ease-in-out",
+                //     "&:hover": {
+                //       transform: "scale(1.05)",
+                //     },
+                //     cursor: "pointer",
+                //     backgroundColor: isHovered ? "blue" : "white",
+                //     "&:hover": {
+                //       transform: "scale(1.05)",
+                //     },
+                //   }}
+                //   onMouseEnter={handleMouseEnter}
+                //   onMouseLeave={handleMouseLeave}
+                // >
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "0px 5px 5px 0px #0000001A",
+                  borderRadius: "4px",
+                  position: "relative",
+                  transition:
+                    "transform 0.3s ease-in-out, background-color 0.3s ease",
+                  cursor: "pointer",
+                  backgroundColor:
+                    hoveredIndex === index ? "#1874DA" : "#FFFFFF",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                }}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              >
                 {card.image && (
                   <PrismicNextImage
                     field={card.image}
@@ -182,29 +189,42 @@ function ServicesOfferedbyUs() {
                   />
                 )}
                 <div style={{ padding: "29px 24px 39px 25px" }}>
-                  <Typography style={{...titleStyle,    color: hoveredIndex === index ? "white" : "#000000",
-}}>{card.title}</Typography>
-                  <Typography style={{...descriptionStyle,    color: hoveredIndex === index ? "white" : "#7A7A7A",}
-}>
+                  <Typography
+                    style={{
+                      ...titleStyle,
+                      color: hoveredIndex === index ? "white" : "#000000",
+                    }}
+                  >
+                    {card.title}
+                  </Typography>
+                  <Typography
+                    style={{
+                      ...descriptionStyle,
+                      color: hoveredIndex === index ? "white" : "#7A7A7A",
+                    }}
+                  >
                     {card.description}
                   </Typography>
-                 
-                  <Link href={card.link} >
-                  <PrismicNextImage
-                    field={posts[0]?.data.card_icon}
-                    alt=""
-                    style={{
-                      position: "absolute",
-                      bottom: "10px",
-                      left: "25px",
-                      cursor: "pointer",
-                      filter: hoveredIndex === index ? "brightness(0) invert(1)" : "none", // White on hover
-                      transition: "filter 0.3s ease",
 
-                      //  padding: "10px 10px 5px 10px",
-                    }}
-                  /></Link>
-               
+                  <Link href={card.link}>
+                    <PrismicNextImage
+                      field={posts[0]?.data.card_icon}
+                      alt=""
+                      style={{
+                        position: "absolute",
+                        bottom: "10px",
+                        left: "25px",
+                        cursor: "pointer",
+                        filter:
+                          hoveredIndex === index
+                            ? "brightness(0) invert(1)"
+                            : "none", // White on hover
+                        transition: "filter 0.3s ease",
+
+                        //  padding: "10px 10px 5px 10px",
+                      }}
+                    />
+                  </Link>
                 </div>
               </Box>
             </Grid>

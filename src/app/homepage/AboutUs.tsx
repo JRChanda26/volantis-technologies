@@ -118,7 +118,7 @@ function AboutUs() {
             </div>
           </div>
 
-          <div style={{ position: "relative", width: "100%" }}>
+          <div style={{ position: "relative", width: "100%",marginTop:'2%' }}>
             {/* Prismic Image */}
             <PrismicNextImage
               field={posts[0]?.data.aboutusimage}
