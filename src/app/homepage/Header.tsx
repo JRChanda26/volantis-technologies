@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { client } from "../../../prismic-configuration";
+
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -18,6 +18,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
+import { client } from "../../../lib/prismic-configuration";
 
 function Header() {
   const pathname = usePathname();

@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
 import { PrismicNextImage } from "@prismicio/next";
 import Header from "../homepage/Header";
 import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
 import Grid from "@mui/material/Grid";
 import { Button, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { client } from "../../../lib/prismic-configuration";
 
 function Career() {
   const [posts, setPosts] = useState<any>("");

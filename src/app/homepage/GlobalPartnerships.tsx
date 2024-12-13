@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
+import { client } from "../../../lib/prismic-configuration";
 
 function GlobalPartnership() {
   const [posts, setPosts] = useState<any>("");

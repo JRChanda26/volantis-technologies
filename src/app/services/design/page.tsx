@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { client } from "../../../../prismic-configuration";
+
 import { Button, Grid, Typography } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
+import { client } from "../../../../lib/prismic-configuration";
 
 function DesignServices() {
   

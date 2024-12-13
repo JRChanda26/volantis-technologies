@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { client } from "../../../../prismic-configuration";
+
 import { PrismicNextImage } from "@prismicio/next";
 import Header from "@/app/homepage/Header";
 import { Button, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { client } from "../../../../lib/prismic-configuration";
 
 function DevelopmentServices() {
   const [posts, setPosts] = useState<any>([]);

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import AboutUs from "../homepage/AboutUs";
 import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
@@ -12,6 +12,7 @@ import ServicesOfferedbyUs from "../homepage/ServicesOfferedbyUs";
 import Subscribe from "../homepage/Subscribe";
 // import Testimonials from "../homepage/Testimonials";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { client } from "../../../lib/prismic-configuration";
 
 function StaffSmarter() {
    const [posts, setPosts] = useState<any>("");

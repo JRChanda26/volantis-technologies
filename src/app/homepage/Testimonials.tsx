@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { client } from "../../../lib/prismic-configuration";
 function Testimonials() {
   const [posts, setPosts] = useState<any>([]);
   const [currentIndex, setCurrentIndex] = useState(0); 

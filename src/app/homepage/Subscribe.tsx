@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
+
 import {
   Grid,
   IconButton,
@@ -11,6 +11,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import { client } from "../../../lib/prismic-configuration";
 
 function Subscribe() {
   
