@@ -15,7 +15,7 @@ const OurBlogs: React.FC = () => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("blog" as any);
       setPosts(response);
-      // setTotalPosts(response.length); // Set total number of posts
+      // setTotalPosts(response.length); 
     };
     fetchPosts();
   }, []);

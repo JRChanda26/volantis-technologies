@@ -25,7 +25,7 @@ function Testimonials() {
       if (prevIndex === 0) {
         return posts.length - 1; 
       }
-      return prevIndex - 1; // Go to the previous testimonial
+      return prevIndex - 1; 
     });
   };
 

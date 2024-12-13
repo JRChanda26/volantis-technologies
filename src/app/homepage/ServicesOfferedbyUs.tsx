@@ -8,7 +8,6 @@ import Link from "next/link";
 import { client } from "../../../lib/prismic-configuration";
 function ServicesOfferedbyUs() {
   const [posts, setPosts] = useState<any>("");
-  // const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     const fetchPosts = async () => {
       const response = await client.getAllByType("services_offered");

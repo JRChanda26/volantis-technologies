@@ -96,7 +96,6 @@ function Header() {
             <PrismicNextImage
               field={posts[0]?.data?.volantisimage}
               alt=""
-              // style={{ height: "auto", width: "55%" }}
             />
           </Link>
           <IconButton

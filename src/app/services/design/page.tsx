@@ -42,7 +42,6 @@ function DesignServices() {
           paddingTop: "120px ",
           flexDirection: "column",
           paddingBottom:'2%'
-          // height: "100vh", // This ensures it takes full viewport height
         }}
       >
         <div

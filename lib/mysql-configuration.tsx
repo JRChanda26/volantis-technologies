@@ -7,4 +7,4 @@ const mysqlConfiguration = mysql.createPool({
   database: process.env.DB_NAME,
 });
 
-export default mysqlConfiguration;
+export default mysqlConfiguration;//

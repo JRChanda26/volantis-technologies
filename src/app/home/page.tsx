@@ -7,10 +7,8 @@ import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
 import GlobalPartnership from "../homepage/GlobalPartnerships";
 import Header from "../homepage/Header";
-// import LatestNews from "../homepage/LatestNews";
 import ServicesOfferedbyUs from "../homepage/ServicesOfferedbyUs";
 import Subscribe from "../homepage/Subscribe";
-// import Testimonials from "../homepage/Testimonials";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 import { client } from "../../../lib/prismic-configuration";
 

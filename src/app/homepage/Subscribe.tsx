@@ -44,7 +44,6 @@ function Subscribe() {
     } else {
       setEmailError(false);
       setEmailHelperText('');
-      // handle your submit logic, like sending email or making an API call.
       console.log("Form submitted with email:", email);
     }
   };
