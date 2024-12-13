@@ -203,7 +203,6 @@ function ContactUs() {
                 textAlign: "center",
                 padding: "10px",
                 color: "#6D6D6D",
-                // padding: isSmallScreen ? "0px 10px" : "0px 50px 0px 70px",
               }}
             >
               {posts[0]?.data.description}
