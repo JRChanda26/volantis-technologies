@@ -215,7 +215,7 @@ function ContactUs() {
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center", // Centers the form vertically
+            justifyContent: "center", 
             width: "100%", // Ensure the form takes up full width on smaller screens
             margin: "0 auto", // Center the form horizontally
           }}

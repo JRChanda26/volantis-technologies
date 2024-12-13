@@ -1,12 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { client } from "../../../prismic-configuration";
 import { Box, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import ContactUs from "../homepage/ContactUs";
 import Footer from "../homepage/Footer";
 import Subscribe from "../homepage/Subscribe";
 import Header from "../homepage/Header";
+import { client } from "../../../lib/prismic-configuration";
 
 function About() {
   const [posts, setPosts] = useState<any>([]);

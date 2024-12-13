@@ -49,7 +49,7 @@ function DesignServices() {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            textAlign: "center", // Centers the heading and description
+            textAlign: "center"
           }}
         >
           <Typography

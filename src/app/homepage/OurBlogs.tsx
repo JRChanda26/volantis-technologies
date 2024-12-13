@@ -325,6 +325,7 @@ const OurBlogs: React.FC = () => {
     };
     fetchPosts();
   }, []);
+  
   // const [, setCurrentPage] = useState(1);
   // Change page
   const description: React.CSSProperties = {

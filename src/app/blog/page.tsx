@@ -114,7 +114,6 @@ const OurBlogs: React.FC = () => {
 
         {/* New Section for Blog Cards */}
         <div style={{ marginTop: "40px" }}>
-          {/* Title */}
           <h2
             style={{
               fontSize: "56px",

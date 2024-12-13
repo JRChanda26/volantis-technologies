@@ -42,7 +42,6 @@ function GenerativeAIServices() {
   const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); 
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); 
 
-  // Adjust font size based on the breakpoints
   const fontSize = isDesktop
     ? "48px"
     : isLaptop

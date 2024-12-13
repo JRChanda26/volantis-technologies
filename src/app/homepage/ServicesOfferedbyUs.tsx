@@ -30,8 +30,6 @@ function ServicesOfferedbyUs() {
     fontWeight: 400,
     lineHeight: "20px",
     textAlign: "justify",
-    // color: "#7A7A7A",
-  
     transition: "color 0.3s ease",
   };
 

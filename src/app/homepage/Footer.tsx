@@ -100,7 +100,7 @@ function Footer() {
               item
               xs={12}
               sm={6}
-              md={index === 3 ? 3 : 2} // Adjust grid size for the last item
+              md={index === 3 ? 3 : 2}
               style={{
                 display: "flex",
                 flexDirection: "column",
