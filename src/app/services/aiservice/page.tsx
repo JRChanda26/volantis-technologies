@@ -229,6 +229,7 @@ function GenerativeAIServices() {
                       flexDirection: "column",
                       justifyContent: "center",
                       position: "relative",
+                      overflowY:'auto'
                     }}
                   >
                     <button
