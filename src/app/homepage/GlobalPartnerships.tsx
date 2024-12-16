@@ -89,7 +89,7 @@ function GlobalPartnership() {
             gap: "24px",
           }}
         >
-          {[ 
+          {/* {[ 
             { text: posts[0]?.data.slide_text1, image: posts[0]?.data.slide_icon1 },
             { text: posts[0]?.data.slide_text2, image: posts[0]?.data.slide_icon2 },
             { text: posts[0]?.data.slide_text3, image: posts[0]?.data.slide_icon3 },
@@ -117,7 +117,7 @@ function GlobalPartnership() {
               )}
               <Typography style={textStyle}>{item.text}</Typography>
             </Box>
-          ))}
+          ))} */}
           {/* Duplicate the items for seamless looping */}
           {[ 
             { text: posts[0]?.data.slide_text1, image: posts[0]?.data.slide_icon1 },
