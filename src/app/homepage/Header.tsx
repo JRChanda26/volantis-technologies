@@ -86,7 +86,7 @@ function Header() {
         width: "100%",
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
-        padding: "40px 24px 24px 24px",
+        padding: "20px 24px 24px 24px",
         justifyContent: "space-evenly",
       }}
     >

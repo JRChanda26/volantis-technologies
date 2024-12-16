@@ -1,19 +1,19 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
-import { Typography, Box, Grid, useTheme, useMediaQuery } from "@mui/material";
+import { Typography, Box, useTheme, useMediaQuery } from "@mui/material";
 import { PrismicNextImage } from "@prismicio/next";
 import { client } from "../../../lib/prismic-configuration";
 
 function GlobalPartnership() {
   const [posts, setPosts] = useState<any>("");
-  const theme = useTheme();
 
+  const theme = useTheme();
   // Define breakpoints using Material-UI's theme breakpoints
-  const isDesktop = useMediaQuery(theme.breakpoints.up("lg")); 
-  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg")); 
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); 
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const isLaptop = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const fontSize = isDesktop
     ? "56px"
@@ -22,13 +22,13 @@ function GlobalPartnership() {
     : isTablet
     ? "40px"
     : "32px";
-    
-    const items = isDesktop
+
+  const itemsFontSize = isDesktop
     ? "16px"
     : isLaptop
     ? "14px"
     : isTablet
-    ? "10px"
+    ? "12px"
     : "10px";
 
   useEffect(() => {
@@ -38,17 +38,15 @@ function GlobalPartnership() {
     };
     fetchPosts();
   }, []);
- 
+
   const textStyle: React.CSSProperties = {
     fontFamily: "Poppins",
-    fontSize: items,
+    fontSize: itemsFontSize,
     fontWeight: 700,
     lineHeight: "24px",
     textAlign: "center",
-    color:'#000000'
-   
+    color: "#000000",
   };
- 
 
   return (
     <Box
@@ -56,7 +54,6 @@ function GlobalPartnership() {
         padding: "40px 59px 49px 58px",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
         gap: "32px",
         background: "#F6F6F6",
       }}
@@ -75,83 +72,98 @@ function GlobalPartnership() {
         {posts[0]?.data.title2}
       </Typography>
 
-      <Grid
-        container
-        spacing={4}
-        // spacing={{ xs: 4, sm: 6, md: 8 }}
+      {/* Container for the sliding items */}
+      <Box
         sx={{
-          justifyContent: "space-between",
-          alignItems: "stretch", 
+          display: "flex",
+          overflowX: isMobile ? "auto" : "hidden",
+          position: "relative",
+          flexWrap: "nowrap",
         }}
       >
-        {[
-          {
-            text: posts[0]?.data.slide_text1,
-            image: posts[0]?.data.slide_icon1,
-          },
-          {
-            text: posts[0]?.data.slide_text2,
-            image: posts[0]?.data.slide_icon2,
-          },
-          {
-            text: posts[0]?.data.slide_text3,
-            image: posts[0]?.data.slide_icon3,
-          },
-          {
-            text: posts[0]?.data.slide_text4,
-            image: posts[0]?.data.slide_icon4,
-          },
-          {
-            text: posts[0]?.data.slide_text5,
-            image: posts[0]?.data.slide_icon5,
-          },
-          {
-            text: posts[0]?.data.slide_text6,
-            image: posts[0]?.data.slide_icon6,
-          },
-        ].map((item, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={2}
-            key={index}
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              // animation:"slide 10s linear infinite",
-            }}
-            // className={`animated-item`}
-            // style={{
-            //   animationDelay: `${index * 0.2}s`,
-            // }}
-          >
-            {item.image && (
-            
+        {/* Animating container with duplicate items for seamless looping */}
+        <Box
+          sx={{
+            display: "flex",
+            animation: "slide 20s linear infinite", // Ensures continuous slide from left to right
+            gap: "24px",
+          }}
+        >
+          {[ 
+            { text: posts[0]?.data.slide_text1, image: posts[0]?.data.slide_icon1 },
+            { text: posts[0]?.data.slide_text2, image: posts[0]?.data.slide_icon2 },
+            { text: posts[0]?.data.slide_text3, image: posts[0]?.data.slide_icon3 },
+            { text: posts[0]?.data.slide_text4, image: posts[0]?.data.slide_icon4 },
+            { text: posts[0]?.data.slide_text5, image: posts[0]?.data.slide_icon5 },
+            { text: posts[0]?.data.slide_text6, image: posts[0]?.data.slide_icon6 },
+          ].map((item, index) => (
+            <Box
+              key={index}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                flexShrink: 0,
+              }}
+            >
+              {item.image && (
                 <PrismicNextImage
                   field={item.image}
                   style={{ width: "40px", height: "40px" }}
                   alt={item.image?.alt || ""}
                 />
-             
-            )}
-            <Typography style={textStyle}>{item.text}</Typography>
-          </Grid>
-        ))}
-      </Grid>
-      {/* <style jsx>{`
+              )}
+              <Typography style={textStyle}>{item.text}</Typography>
+            </Box>
+          ))}
+          {/* Duplicate the items for seamless looping */}
+          {[ 
+            { text: posts[0]?.data.slide_text1, image: posts[0]?.data.slide_icon1 },
+            { text: posts[0]?.data.slide_text2, image: posts[0]?.data.slide_icon2 },
+            { text: posts[0]?.data.slide_text3, image: posts[0]?.data.slide_icon3 },
+            { text: posts[0]?.data.slide_text4, image: posts[0]?.data.slide_icon4 },
+            { text: posts[0]?.data.slide_text5, image: posts[0]?.data.slide_icon5 },
+            { text: posts[0]?.data.slide_text6, image: posts[0]?.data.slide_icon6 },
+          ].map((item, index) => (
+            <Box
+              key={`duplicate-${index}`}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                flexShrink: 0,
+              }}
+            >
+              {item.image && (
+                <PrismicNextImage
+                  field={item.image}
+                  style={{ width: "40px", height: "40px" }}
+                  alt={item.image?.alt || ""}
+                />
+              )}
+              <Typography style={textStyle}>{item.text}</Typography>
+            </Box>
+          ))}
+        </Box>
+      </Box>
+
+      {/* Adding CSS for the sliding animation using a regular <style> tag */}
+      <style>
+        {`
           @keyframes slide {
-            0% {
-              transform: translateX(0);
-            }
             100% {
               transform: translateX(-100%);
             }
+            100% {
+              transform: translateX(50%);
+            }
           }
-        `}</style> */}
+        `}
+      </style>
     </Box>
   );
 }

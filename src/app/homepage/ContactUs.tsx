@@ -226,7 +226,7 @@ function ContactUs() {
             justifyContent="center"
           >
             {/* First Row: First Name and Last Name */}
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={10} sm={5}>
               <Typography style={label}>{posts[0]?.data.label1}</Typography>
               <TextField
                 name="first_name"
@@ -241,7 +241,7 @@ function ContactUs() {
                 helperText={errors.first_name}
               />
             </Grid>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={10} sm={5}>
               <Typography style={label}>{posts[0]?.data.label2}</Typography>
               <TextField
                 name="last_name"
@@ -258,7 +258,7 @@ function ContactUs() {
             </Grid>
 
             {/* Second Row: Email and Contact Number */}
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={10} sm={5}>
               <Typography style={label}>{posts[0]?.data.label3}</Typography>
               <TextField
                 name="email"
@@ -273,7 +273,7 @@ function ContactUs() {
                 helperText={errors.email}
               />
             </Grid>
-            <Grid item xs={12} sm={5}>
+            <Grid item xs={10} sm={5}>
               <Typography style={label}>{posts[0]?.data.label4}</Typography>
               <TextField
                 name="contact_number"
@@ -292,7 +292,7 @@ function ContactUs() {
             </Grid>
 
             {/* Third Row: Message */}
-            <Grid item xs={10}>
+            <Grid item xs={10} sm={10}>
               <Typography style={label}>{posts[0]?.data.label5}</Typography>
               <TextField
                 name="message"

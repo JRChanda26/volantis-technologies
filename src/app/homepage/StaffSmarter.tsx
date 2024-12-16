@@ -95,7 +95,7 @@ function StaffSmarter() {
       ></div>
         <div
           style={{
-            padding: "200px 50px 100px 78px",
+            padding: "20px",
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -108,7 +108,7 @@ function StaffSmarter() {
               fontFamily: "Poppins",
               fontSize: fontSize,
               fontWeight: 700,
-              lineHeight: "80px",
+              // lineHeight: "80px",
               textAlign: "left",
               // paddingBottom:'30px'
               
