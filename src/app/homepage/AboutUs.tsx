@@ -94,7 +94,7 @@ function AboutUs() {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: isSmallScreen ? "0px 15px" : "0px 50px 0px 82px",
+                padding: isSmallScreen ? "10px 15px" : "10px 50px 0px 82px",
                 textAlign: "center",
                 width:'100%',
               }}
@@ -105,12 +105,12 @@ function AboutUs() {
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "21px",
-                  textAlign: "center",
+                  textAlign: "left",
                   marginTop: "15px",
                   color: "#6D6D6D",
-                  // alignItems: "center",
+                  alignItems: "center",
                 maxWidth:'90%',
-                  padding: isSmallScreen ? "0px 15px" : "0px 200px 0px 82px",
+                  // padding: isSmallScreen ? "0px 15px" : "0px 100px 0px 82px",
                 }}
               >
                 {posts[0]?.data.description}
