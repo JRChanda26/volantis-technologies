@@ -132,6 +132,10 @@ function Subscribe() {
                           display: "flex",
                           alignItems: "center",
                           gap: "8px",
+                          '&:hover': {
+      backgroundColor: "#1565C0", 
+     
+    },
                         }}
                       >
                         {posts[0]?.data.button}
