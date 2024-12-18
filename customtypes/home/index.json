@@ -133,6 +133,36 @@
           "allowText": true
         }
       },
+      "slide_text7": {
+        "type": "Text",
+        "config": {
+          "label": "Slide Text7",
+          "placeholder": ""
+        }
+      },
+      "slide_icon7": {
+        "type": "Image",
+        "config": {
+          "label": "Slide Icon7",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slide_text8": {
+        "type": "Text",
+        "config": {
+          "label": "Slide Text8",
+          "placeholder": ""
+        }
+      },
+      "slide_icon8": {
+        "type": "Image",
+        "config": {
+          "label": "Slide Icon8",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

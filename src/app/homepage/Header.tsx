@@ -93,7 +93,7 @@ function Header() {
       {isSmallScreen ? (
         <>
           <Link href="/home">
-            <PrismicNextImage field={posts[0]?.data?.volantisimage} alt="" />
+            <PrismicNextImage field={posts[0]?.data?.volantisimage} alt="" style={{maxWidth:'200px'}} />
           </Link>
           <IconButton
             onClick={toggleDrawer(true)}
@@ -262,8 +262,8 @@ function Header() {
                   field={posts[0]?.data?.volantisimage}
                   alt=""
                   style={{
-                    width: "80%",
-                    maxWidth: "240px",
+                    width: "70%",
+                    // maxWidth: "240px",
                     height: "auto",
                   }}
                 />

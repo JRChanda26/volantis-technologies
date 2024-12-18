@@ -2890,6 +2890,50 @@ interface HomeDocumentData {
   background_video: prismic.LinkToMediaField;
 
   /**
+   * Slide Text7 field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slide_text7
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slide_text7: prismic.KeyTextField;
+
+  /**
+   * Slide Icon7 field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slide_icon7
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  slide_icon7: prismic.ImageField<never>;
+
+  /**
+   * Slide Text8 field in *Home*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slide_text8
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  slide_text8: prismic.KeyTextField;
+
+  /**
+   * Slide Icon8 field in *Home*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home.slide_icon8
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  slide_icon8: prismic.ImageField<never>;
+
+  /**
    * Slice Zone field in *Home*
    *
    * - **Field Type**: Slice Zone
