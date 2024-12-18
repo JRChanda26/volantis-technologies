@@ -343,7 +343,7 @@ function About() {
                     lineHeight: "24px",
                     textAlign: "center",
                     color: "#FFFFFF",
-                    // maxWidth: "100%",
+                    maxWidth: "70%",
                     // wordWrap: "break-word",
                     margin: "0 auto",
                   }}
