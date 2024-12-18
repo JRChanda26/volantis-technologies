@@ -82,7 +82,7 @@ function Header() {
         zIndex: 1,
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: "#F6F6F6",
         width: "100%",
         borderBottom: "1px solid #ddd",
         boxSizing: "border-box",
