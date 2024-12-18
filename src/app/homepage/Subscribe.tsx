@@ -133,7 +133,7 @@ function Subscribe() {
                           alignItems: "center",
                           gap: "8px",
                           '&:hover': {
-      backgroundColor: "#1565C0", 
+      backgroundColor: "#1565C0", // Change background color on hover
      
     },
                         }}

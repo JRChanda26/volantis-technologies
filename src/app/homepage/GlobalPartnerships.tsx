@@ -47,6 +47,7 @@ function GlobalPartnership() {
     lineHeight: "24px",
     textAlign: "center",
     color: "#000000",
+    paddingLeft:'5px'
   };
 
   return (
@@ -129,6 +130,8 @@ function GlobalPartnership() {
             { text: posts[0]?.data.slide_text4, image: posts[0]?.data.slide_icon4 },
             { text: posts[0]?.data.slide_text5, image: posts[0]?.data.slide_icon5 },
             { text: posts[0]?.data.slide_text6, image: posts[0]?.data.slide_icon6 },
+            { text: posts[0]?.data.slide_text7, image: posts[0]?.data.slide_icon7 },
+            { text: posts[0]?.data.slide_text8, image: posts[0]?.data.slide_icon8 },
           ].map((item, index) => (
             <Box
               key={index}
@@ -136,16 +139,17 @@ function GlobalPartnership() {
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent: "center",
+                justifyContent: "space-evenly",
                 textAlign: "center",
                 flexShrink: 0, // Prevent the items from shrinking
                 paddingRight: "24px", // Adding some space between items for clarity
+                marginRight: index < 5 ? "16px" : "0",
               }}
             >
               {item.image && (
                 <PrismicNextImage
                   field={item.image}
-                  style={{ width: "40px", height: "40px" }}
+                  style={{ width: "40px", height: "40px",borderRadius:'50px' }}
                   alt={item.image?.alt || ""}
                 />
               )}
