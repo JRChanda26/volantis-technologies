@@ -43,7 +43,9 @@ function Footer() {
     title2desc4link: "/career",
     title2desc5link: "/contact",
   };
-
+  const hardcodedLink:Record<string, string> = {
+    title3desc2link: "/career",
+  }
   return (
     <div style={{ background: "#F6F6F6", padding: "48px 10px 48px 10px" }}>
       <div
@@ -93,40 +95,46 @@ function Footer() {
             </Box>
           </Grid>
 
-          {/* Titles and Descriptions */}
           {["title2", "title3", "title4", "title5"].map((titleKey, index) => (
-            <Grid
-              key={index}
-              item
-              xs={12}
-              sm={6}
-              md={index === 3 ? 3 : 2}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-              }}
-            >
-              <Typography style={title}>{posts[0]?.data[titleKey]}</Typography>
-              {[...Array(5)].map((_, idx) => {
-                const descKey = `${titleKey}desc${idx + 1}`;
-                const descText = posts[0]?.data[descKey];
-                const linkUrl = hardcodedLinks[`${titleKey}desc${idx + 1}link`];
+  <Grid
+    key={index}
+    item
+    xs={12}
+    sm={6}
+    md={index === 3 ? 3 : 2}
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+    }}
+  >
+    <Typography style={title}>{posts[0]?.data[titleKey]}</Typography>
+    {[...Array(5)].map((_, idx) => {
+      const descKey = `${titleKey}desc${idx + 1}`;
+      const descText = posts[0]?.data[descKey];
+      let linkUrl: string | undefined;
 
-                return descText ? (
-                  <Typography key={descKey} style={desc}>
-                    {linkUrl ? (
-                      <Link href={linkUrl} passHref>
-                        <span style={{ color: "#000" }}>{descText}</span>
-                      </Link>
-                    ) : (
-                      descText
-                    )}
-                  </Typography>
-                ) : null;
-              })}
-            </Grid>
-          ))}
+      // Use the appropriate hardcoded link object based on the titleKey and descKey
+      if (titleKey === "title3" && descKey === "title3desc2") {
+        linkUrl = hardcodedLink[`${descKey}link`];
+      } else {
+        linkUrl = hardcodedLinks[`${descKey}link`];
+      }
+
+      return descText ? (
+        <Typography key={descKey} style={desc}>
+          {linkUrl ? (
+            <Link href={linkUrl} passHref>
+              <span style={{ color: "#000" }}>{descText}</span>
+            </Link>
+          ) : (
+            descText
+          )}
+        </Typography>
+      ) : null;
+    })}
+  </Grid>
+))}
         </Grid>
       </div>
       <Typography
