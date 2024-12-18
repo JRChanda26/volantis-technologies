@@ -142,8 +142,8 @@ function About() {
                     textAlign: "center",
                     marginTop: "15px",
                     color: "#6D6D6D",
-                    maxWidth: "100%",
-                    // margin: "0 auto",
+                    maxWidth: "80%",
+                    margin: "0 auto",
                   }}
                 >
                   {posts[0]?.data.description4}

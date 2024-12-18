@@ -96,7 +96,8 @@ function AboutUs() {
                 alignItems: "center",
                 padding: isSmallScreen ? "10px 15px" : "10px 50px 0px 82px",
                 textAlign: "center",
-                width:'100%',
+                // width:'80%',
+                // width:'80%',
               }}
             >
               <Typography
@@ -105,11 +106,11 @@ function AboutUs() {
                   fontSize: "16px",
                   fontWeight: 400,
                   lineHeight: "21px",
-                  textAlign: "left",
+                  textAlign: "center",
                   marginTop: "15px",
                   color: "#6D6D6D",
                   alignItems: "center",
-                maxWidth:'90%',
+                maxWidth:'80%',
                   // padding: isSmallScreen ? "0px 15px" : "0px 100px 0px 82px",
                 }}
               >
